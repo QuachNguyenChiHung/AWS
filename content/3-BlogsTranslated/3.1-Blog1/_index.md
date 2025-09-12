@@ -5,122 +5,62 @@ weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+# **OpenAI open weight models now available on AWS**
+
+On **August 5, 2025**, **AWS** announced that two of OpenAI’s latest **open-weight models** — **gpt-oss-120b** and **gpt-oss-20b** — are now accessible through **Amazon Bedrock** and **Amazon SageMaker JumpStart**. This release marks a significant milestone, as it’s the first time OpenAI has provided public access to model weights since **GPT-2**, opening the door to greater flexibility and customization.
+
 
 ---
 
-## Architecture Guidance
+## **Task Specialization**
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+The new OpenAI open-weight models are designed with specific use cases in mind. They excel at **coding tasks**, **scientific data analysis**, and **mathematical reasoning**, making them well-suited for industries and teams that require advanced technical problem-solving capabilities.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## **Extended Context**
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+Both models support an expanded context window of **128,000 tokens**. This allows them to process very long documents, conversations, or codebases in a single run. For applications involving legal analysis, research papers, or extended dialogues, this large context size provides a clear advantage.
 
 ---
 
-## Technology Choices and Communication Scope
+## **Deployment Options**
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+**AWS** offers two main paths for deploying these models. With **Amazon Bedrock**, customers can access the models as a fully managed service, avoiding the need to handle infrastructure. On the other hand, **SageMaker JumpStart** allows for more hands-on control, enabling exploration, deployment, and fine-tuning either through **SageMaker Studio** or the **Python SDK**. This dual approach caters to both **convenience** and **flexibility**, depending on the user’s preference.
 
 ---
 
-## The Pub/Sub Hub
+## **Security Controls**
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
-
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+**Security** remains central to AWS’s offering. Customers can deploy models within a **private VPC**, ensuring data isolation and stronger protection. AWS also provides **Guardrails** to help organizations maintain responsible use of AI by filtering outputs, applying compliance rules, and preventing harmful responses. These built-in controls give businesses more confidence in deploying open-weight models safely.
 
 ---
 
-## Core Microservice
+## **Performance Claims**
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+According to **AWS**, the **gpt-oss-120b** model delivers significant efficiency gains when run on **Bedrock**. The company claims it is **three times more cost-efficient than Gemini**, **five times more efficient than DeepSeek-R1**, and **twice as efficient as OpenAI’s own o4 model**. While these benchmarks are impressive, they are based on AWS’s internal testing. As with any marketing claim, organizations are advised to **validate performance against their own workloads** before relying on these figures.
 
 ---
 
-## Front Door Microservice
+## **Transparency with Chain-of-Thought**
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+Another notable capability is the option to output **chain-of-thought reasoning traces**. This feature allows users to see the **step-by-step reasoning process** behind a model’s response. For applications requiring **explainability** or **verification**, this can be a valuable tool. However, in practice, such reasoning outputs may add complexity and not always be suitable for all production environments.
 
 ---
 
-## Staging ER7 Microservice
+## **Limitations and Considerations**
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+Despite their potential, the models come with certain **limitations**. At launch, they are only available in a few AWS regions: **US West (Oregon)** for Bedrock, and **US East (Ohio, Virginia)** as well as **Asia (Mumbai, Tokyo)** for SageMaker JumpStart. This restricted availability may slow adoption for organizations operating in other parts of the world.
+
+Additionally, while **open weights** allow for deep customization and fine-tuning, they also shift **responsibility** onto the user. Businesses must take care to implement proper **safety measures**, manage **compliance requirements**, and guard against **misuse**. In short, the openness of the models provides **freedom but demands responsibility**.
 
 ---
 
-## New Features in the Solution
+## **Conclusion**
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+The release of **OpenAI’s gpt-oss-120b and gpt-oss-20b on AWS** represents a **major step in the evolution of AI accessibility**. By combining **advanced reasoning capabilities**, **extended context handling**, and **open-weight customization** with the **convenience of Bedrock** and the **flexibility of SageMaker**, AWS is positioning itself as a **powerful platform for AI innovation**.
+
+However, I think customers should remain **cautious**. **Regional limitations**, **marketing-heavy performance claims**, and the **added responsibilities of managing open weights** all require careful consideration. With proper **validation and governance**, these models could become **valuable assets** for organizations seeking both **transparency and control** in their AI systems.

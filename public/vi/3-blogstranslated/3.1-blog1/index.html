@@ -15,21 +15,21 @@
     <title>Blog 1 :: Báo cáo thực tập</title>
 
     
-    <link href="../../../css/nucleus.css?1757519746" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1757519746" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1757519746" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1757519746" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1757519746" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1757519746" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1757519746" rel="stylesheet">
-    <link href="../../../css/theme.css?1757519746" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1757519746" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1757671247" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1757671247" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1757671247" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1757671247" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1757671247" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1757671247" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1757671247" rel="stylesheet">
+    <link href="../../../css/theme.css?1757671247" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1757671247" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1757519746" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1757671247" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1757519746"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1757671247"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1757519746"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1757519746"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1757671247"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1757671247"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/workshop-template\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1757519746"></script>
+<script type="text/javascript" src="../../../js/search.js?1757671247"></script>
  
   </div>
 
@@ -986,17 +986,14 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li><a href="#hướng-dẫn-kiến-trúc">Hướng dẫn kiến trúc</a></li>
-    <li><a href="#lựa-chọn-công-nghệ-và-phạm-vi-giao-tiếp">Lựa chọn công nghệ và phạm vi giao tiếp</a></li>
-    <li><a href="#the-pubsub-hub">The pub/sub hub</a></li>
-    <li><a href="#core-microservice">Core microservice</a></li>
-    <li><a href="#front-door-microservice">Front door microservice</a></li>
-    <li><a href="#staging-er7-microservice">Staging ER7 microservice</a></li>
-    <li><a href="#tính-năng-mới-trong-giải-pháp">Tính năng mới trong giải pháp</a>
-      <ul>
-        <li><a href="#1-aws-cloudformation-cross-stack-references">1. AWS CloudFormation cross-stack references</a></li>
-      </ul>
-    </li>
+    <li><a href="#chuyên-môn-hóa-nhiệm-vụ"><strong>Chuyên môn hóa nhiệm vụ</strong></a></li>
+    <li><a href="#ngữ-cảnh-mở-rộng"><strong>Ngữ cảnh mở rộng</strong></a></li>
+    <li><a href="#tùy-chọn-triển-khai"><strong>Tùy chọn triển khai</strong></a></li>
+    <li><a href="#kiểm-soát-bảo-mật"><strong>Kiểm soát bảo mật</strong></a></li>
+    <li><a href="#hiệu-năng-theo-công-bố"><strong>Hiệu năng theo công bố</strong></a></li>
+    <li><a href="#minh-bạch-với-chain-of-thought"><strong>Minh bạch với Chain-of-Thought</strong></a></li>
+    <li><a href="#hạn-chế-và-lưu-ý"><strong>Hạn chế và lưu ý</strong></a></li>
+    <li><a href="#kết-luận"><strong>Kết luận</strong></a></li>
   </ul>
 </nav></div>
 </div>
@@ -1021,138 +1018,35 @@
 
 
 
-	
-<div
-  class="notices warning"
-  
->
-  <p>⚠️ <strong>Lưu ý:</strong> Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng <strong>không sao chép nguyên văn</strong> cho bài báo cáo của bạn kể cả warning này.</p>
+	<h1 id="các-mô-hình-openai-open-weight-hiện-đã-có-trên-aws"><strong>Các mô hình OpenAI open-weight hiện đã có trên AWS</strong></h1>
+<p>Vào ngày <strong>5 tháng 8 năm 2025</strong>, <strong>AWS</strong> đã công bố hai mô hình <strong>open-weight</strong> mới nhất của OpenAI — <strong>gpt-oss-120b</strong> và <strong>gpt-oss-20b</strong> — hiện đã có thể truy cập thông qua <strong>Amazon Bedrock</strong> và <strong>Amazon SageMaker JumpStart</strong>. Đây là một cột mốc quan trọng, vì đây là lần đầu tiên OpenAI cung cấp quyền truy cập công khai vào trọng số mô hình kể từ <strong>GPT-2</strong>, mở ra nhiều cơ hội tùy chỉnh và linh hoạt hơn.</p>
+<hr>
+<h2 id="chuyên-môn-hóa-nhiệm-vụ"><strong>Chuyên môn hóa nhiệm vụ</strong></h2>
+<p>Các mô hình open-weight mới của OpenAI được thiết kế cho các trường hợp sử dụng cụ thể. Chúng vượt trội trong các <strong>nhiệm vụ lập trình</strong>, <strong>phân tích dữ liệu khoa học</strong> và <strong>lý luận toán học</strong>, rất phù hợp cho các ngành và nhóm cần khả năng giải quyết vấn đề kỹ thuật nâng cao.</p>
+<hr>
+<h2 id="ngữ-cảnh-mở-rộng"><strong>Ngữ cảnh mở rộng</strong></h2>
+<p>Cả hai mô hình đều hỗ trợ cửa sổ ngữ cảnh mở rộng lên đến <strong>128.000 token</strong>. Điều này cho phép chúng xử lý các tài liệu, cuộc trò chuyện hoặc mã nguồn rất dài trong một lần chạy. Đối với các ứng dụng như phân tích pháp lý, bài nghiên cứu hoặc hội thoại kéo dài, kích thước ngữ cảnh lớn này mang lại lợi thế rõ rệt.</p>
+<hr>
+<h2 id="tùy-chọn-triển-khai"><strong>Tùy chọn triển khai</strong></h2>
+<p><strong>AWS</strong> cung cấp hai cách chính để triển khai các mô hình này. Với <strong>Amazon Bedrock</strong>, khách hàng có thể truy cập mô hình như một dịch vụ được quản lý hoàn toàn, không cần lo về hạ tầng. Ngược lại, <strong>SageMaker JumpStart</strong> cho phép kiểm soát sâu hơn, hỗ trợ khám phá, triển khai và tinh chỉnh thông qua <strong>SageMaker Studio</strong> hoặc <strong>Python SDK</strong>. Cách tiếp cận kép này đáp ứng cả <strong>sự tiện lợi</strong> và <strong>tính linh hoạt</strong> tùy theo nhu cầu người dùng.</p>
+<hr>
+<h2 id="kiểm-soát-bảo-mật"><strong>Kiểm soát bảo mật</strong></h2>
+<p><strong>Bảo mật</strong> là trọng tâm trong các dịch vụ của AWS. Khách hàng có thể triển khai mô hình trong <strong>VPC riêng</strong>, đảm bảo cách ly dữ liệu và bảo vệ mạnh mẽ hơn. AWS cũng cung cấp <strong>Guardrails</strong> để giúp tổ chức sử dụng AI một cách có trách nhiệm bằng cách lọc đầu ra, áp dụng quy tắc tuân thủ và ngăn chặn phản hồi gây hại. Các kiểm soát tích hợp này giúp doanh nghiệp yên tâm hơn khi triển khai mô hình open-weight.</p>
+<hr>
+<h2 id="hiệu-năng-theo-công-bố"><strong>Hiệu năng theo công bố</strong></h2>
+<p>Theo <strong>AWS</strong>, mô hình <strong>gpt-oss-120b</strong> mang lại hiệu quả vượt trội khi chạy trên <strong>Bedrock</strong>. Công ty cho biết nó <strong>tiết kiệm chi phí gấp 3 lần Gemini</strong>, <strong>gấp 5 lần DeepSeek-R1</strong> và <strong>gấp 2 lần so với o4 của chính OpenAI</strong>. Dù các chỉ số này rất ấn tượng, chúng dựa trên thử nghiệm nội bộ của AWS. Như mọi tuyên bố tiếp thị, các tổ chức nên <strong>tự kiểm chứng hiệu năng với khối lượng công việc thực tế</strong> trước khi tin tưởng hoàn toàn.</p>
+<hr>
+<h2 id="minh-bạch-với-chain-of-thought"><strong>Minh bạch với Chain-of-Thought</strong></h2>
+<p>Một tính năng nổi bật khác là khả năng xuất <strong>chuỗi suy luận (chain-of-thought)</strong>. Tính năng này cho phép người dùng xem <strong>quá trình suy luận từng bước</strong> phía sau phản hồi của mô hình. Với các ứng dụng cần <strong>giải thích</strong> hoặc <strong>xác minh</strong>, đây là công cụ hữu ích. Tuy nhiên, trên thực tế, đầu ra dạng này có thể làm tăng độ phức tạp và không phải lúc nào cũng phù hợp với môi trường sản xuất.</p>
+<hr>
+<h2 id="hạn-chế-và-lưu-ý"><strong>Hạn chế và lưu ý</strong></h2>
+<p>Dù tiềm năng lớn, các mô hình này vẫn có <strong>hạn chế</strong>. Khi ra mắt, chúng chỉ có ở một số khu vực AWS: <strong>US West (Oregon)</strong> cho Bedrock, và <strong>US East (Ohio, Virginia)</strong> cùng <strong>Châu Á (Mumbai, Tokyo)</strong> cho SageMaker JumpStart. Việc giới hạn này có thể làm chậm quá trình áp dụng với các tổ chức ở khu vực khác.</p>
+<p>Ngoài ra, dù <strong>open weights</strong> cho phép tùy chỉnh và tinh chỉnh sâu, nó cũng chuyển <strong>trách nhiệm</strong> sang người dùng. Doanh nghiệp cần đảm bảo <strong>biện pháp an toàn</strong>, quản lý <strong>yêu cầu tuân thủ</strong> và phòng tránh <strong>lạm dụng</strong>. Nói ngắn gọn, sự mở của mô hình mang lại <strong>tự do nhưng cũng đòi hỏi trách nhiệm</strong>.</p>
+<hr>
+<h2 id="kết-luận"><strong>Kết luận</strong></h2>
+<p>Việc ra mắt <strong>gpt-oss-120b và gpt-oss-20b của OpenAI trên AWS</strong> là <strong>bước tiến lớn trong việc phổ cập AI</strong>. Bằng cách kết hợp <strong>khả năng lý luận nâng cao</strong>, <strong>xử lý ngữ cảnh mở rộng</strong> và <strong>tùy chỉnh open-weight</strong> với <strong>sự tiện lợi của Bedrock</strong> và <strong>tính linh hoạt của SageMaker</strong>, AWS đang khẳng định vị thế là <strong>nền tảng mạnh mẽ cho đổi mới AI</strong>.</p>
+<p>Tuy nhiên, khách hàng nên <strong>thận trọng</strong>. <strong>Giới hạn khu vực</strong>, <strong>các tuyên bố hiệu năng mang tính tiếp thị</strong>, và <strong>trách nhiệm quản lý open weights</strong> đều cần được cân nhắc kỹ. Nếu được <strong>kiểm chứng và quản trị đúng cách</strong>, các mô hình này có thể trở thành <strong>tài sản giá trị</strong> cho tổ chức muốn có <strong>tính minh bạch và kiểm soát</strong> trong hệ thống AI của mình.</p>
 
-</div>
-
-<h1 id="bắt-đầu-với-healthcare-data-lakes-sử-dụng-microservices">Bắt đầu với healthcare data lakes: Sử dụng microservices</h1>
-<p>Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. <strong>Data lake</strong> là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.</p>
-<p>Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, <em>“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”</em>, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.</p>
-<hr>
-<h2 id="hướng-dẫn-kiến-trúc">Hướng dẫn kiến trúc</h2>
-<p>Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.</p>
-<p>Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các <strong>HL7v2 messages</strong> được định dạng theo <strong>Quy tắc mã hóa 7 (ER7)</strong> thông qua giao diện REST.</p>
-<p><strong>Kiến trúc giải pháp bây giờ như sau:</strong></p>
-<blockquote>
-<p><em>Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.</em></p>
-</blockquote>
-<hr>
-<p>Mặc dù thuật ngữ <em>microservices</em> có một số sự mơ hồ cố hữu, một số đặc điểm là chung:</p>
-<ul>
-<li>Chúng nhỏ, tự chủ, kết hợp rời rạc</li>
-<li>Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ</li>
-<li>Chuyên biệt để giải quyết một việc</li>
-<li>Thường được triển khai trong <strong>event-driven architecture</strong></li>
-</ul>
-<p>Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:</p>
-<ul>
-<li><strong>Nội tại</strong>: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng</li>
-<li><strong>Bên ngoài</strong>: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng</li>
-<li><strong>Con người</strong>: quyền sở hữu nhóm, quản lý <em>cognitive load</em></li>
-</ul>
-<hr>
-<h2 id="lựa-chọn-công-nghệ-và-phạm-vi-giao-tiếp">Lựa chọn công nghệ và phạm vi giao tiếp</h2>
-<table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Phạm vi giao tiếp</th>
-          <th style="text-align: left">Các công nghệ / mô hình cần xem xét</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">Trong một microservice</td>
-          <td style="text-align: left">Amazon Simple Queue Service (Amazon SQS), AWS Step Functions</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Giữa các microservices trong một dịch vụ</td>
-          <td style="text-align: left">AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Giữa các dịch vụ</td>
-          <td style="text-align: left">Amazon EventBridge, AWS Cloud Map, Amazon API Gateway</td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<h2 id="the-pubsub-hub">The pub/sub hub</h2>
-<p>Việc sử dụng kiến trúc <strong>hub-and-spoke</strong> (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.</p>
-<ul>
-<li>Mỗi microservice chỉ phụ thuộc vào <em>hub</em></li>
-<li>Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất</li>
-<li>Giảm số lượng synchronous calls vì pub/sub là <em>push</em> không đồng bộ một chiều</li>
-</ul>
-<p>Nhược điểm: cần <strong>phối hợp và giám sát</strong> để tránh microservice xử lý nhầm message.</p>
-<hr>
-<h2 id="core-microservice">Core microservice</h2>
-<p>Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:</p>
-<ul>
-<li><strong>Amazon S3</strong> bucket cho dữ liệu</li>
-<li><strong>Amazon DynamoDB</strong> cho danh mục dữ liệu</li>
-<li><strong>AWS Lambda</strong> để ghi message vào data lake và danh mục</li>
-<li><strong>Amazon SNS</strong> topic làm <em>hub</em></li>
-<li><strong>Amazon S3</strong> bucket cho artifacts như mã Lambda</li>
-</ul>
-<blockquote>
-<p>Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.</p>
-</blockquote>
-<hr>
-<h2 id="front-door-microservice">Front door microservice</h2>
-<ul>
-<li>Cung cấp API Gateway để tương tác REST bên ngoài</li>
-<li>Xác thực &amp; ủy quyền dựa trên <strong>OIDC</strong> thông qua <strong>Amazon Cognito</strong></li>
-<li>Cơ chế <em>deduplication</em> tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-<ol>
-<li>SNS deduplication TTL chỉ 5 phút</li>
-<li>SNS FIFO yêu cầu SQS FIFO</li>
-<li>Chủ động báo cho sender biết message là bản sao</li>
-</ol>
-</li>
-</ul>
-<hr>
-<h2 id="staging-er7-microservice">Staging ER7 microservice</h2>
-<ul>
-<li>Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute</li>
-<li>Step Functions Express Workflow để chuyển ER7 → JSON</li>
-<li>Hai Lambda:
-<ol>
-<li>Sửa format ER7 (newline, carriage return)</li>
-<li>Parsing logic</li>
-</ol>
-</li>
-<li>Kết quả hoặc lỗi được đẩy lại vào pub/sub hub</li>
-</ul>
-<hr>
-<h2 id="tính-năng-mới-trong-giải-pháp">Tính năng mới trong giải pháp</h2>
-<h3 id="1-aws-cloudformation-cross-stack-references">1. AWS CloudFormation cross-stack references</h3>
-<p>Ví dụ <em>outputs</em> trong core microservice:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Outputs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Bucket</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Bucket</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Bucket</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ArtifactBucket</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref ArtifactBucket</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-ArtifactBucket</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Topic</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Topic</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Topic</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Catalog</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Catalog</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Catalog</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CatalogArn</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">GetAtt Catalog.Arn</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-CatalogArn</span>
-</span></span></code></pre></div>
 
 
 
@@ -1853,19 +1747,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1757519746"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1757519746"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1757519746"></script>
-    <script src="../../../js/jquery.sticky.js?1757519746"></script>
-    <script src="../../../js/featherlight.min.js?1757519746"></script>
-    <script src="../../../js/highlight.pack.js?1757519746"></script>
+    <script src="../../../js/clipboard.min.js?1757671247"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1757671247"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1757671247"></script>
+    <script src="../../../js/jquery.sticky.js?1757671247"></script>
+    <script src="../../../js/featherlight.min.js?1757671247"></script>
+    <script src="../../../js/highlight.pack.js?1757671247"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1757519746"></script>
-    <script src="../../../js/learn.js?1757519746"></script>
-    <script src="../../../js/hugo-learn.js?1757519746"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1757671247"></script>
+    <script src="../../../js/learn.js?1757671247"></script>
+    <script src="../../../js/hugo-learn.js?1757671247"></script>
 
-    <link href="../../../mermaid/mermaid.css?1757519746" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1757519746"></script>
+    <link href="../../../mermaid/mermaid.css?1757671247" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1757671247"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

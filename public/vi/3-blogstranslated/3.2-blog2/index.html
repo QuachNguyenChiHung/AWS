@@ -15,21 +15,21 @@
     <title>Blog 2 :: Báo cáo thực tập</title>
 
     
-    <link href="../../../css/nucleus.css?1757519746" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1757519746" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1757519746" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1757519746" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1757519746" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1757519746" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1757519746" rel="stylesheet">
-    <link href="../../../css/theme.css?1757519746" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1757519746" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1757671282" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1757671282" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1757671282" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1757671282" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1757671282" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1757671282" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1757671282" rel="stylesheet">
+    <link href="../../../css/theme.css?1757671282" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1757671282" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1757519746" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1757671282" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1757519746"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1757671282"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1757519746"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1757519746"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1757671282"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1757671282"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/workshop-template\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1757519746"></script>
+<script type="text/javascript" src="../../../js/search.js?1757671282"></script>
  
   </div>
 
@@ -986,15 +986,49 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li><a href="#hướng-dẫn-kiến-trúc">Hướng dẫn kiến trúc</a></li>
-    <li><a href="#lựa-chọn-công-nghệ-và-phạm-vi-giao-tiếp">Lựa chọn công nghệ và phạm vi giao tiếp</a></li>
-    <li><a href="#the-pubsub-hub">The pub/sub hub</a></li>
-    <li><a href="#core-microservice">Core microservice</a></li>
-    <li><a href="#front-door-microservice">Front door microservice</a></li>
-    <li><a href="#staging-er7-microservice">Staging ER7 microservice</a></li>
-    <li><a href="#tính-năng-mới-trong-giải-pháp">Tính năng mới trong giải pháp</a>
+    <li><a href="#vật-lộn-với-dữ-liệu-chính-trị-không-nhất-quán"><strong>Vật lộn với dữ liệu chính trị không nhất quán</strong></a>
       <ul>
-        <li><a href="#1-aws-cloudformation-cross-stack-references">1. AWS CloudFormation cross-stack references</a></li>
+        <li><a href="#độ-phức-tạp-của-dữ-liệu-tài-chính-chính-trị"><strong>Độ phức tạp của dữ liệu tài chính chính trị</strong></a></li>
+        <li><a href="#quy-trình-thủ-công-đến-giới-hạn"><strong>Quy trình thủ công đến giới hạn</strong></a></li>
+        <li><a href="#tầm-quan-trọng-của-độ-chính-xác-dữ-liệu"><strong>Tầm quan trọng của độ chính xác dữ liệu</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#xây-dựng-giải-pháp-đối-chiếu-dữ-liệu-có-khả-năng-mở-rộng"><strong>Xây dựng giải pháp đối chiếu dữ liệu có khả năng mở rộng</strong></a>
+      <ul>
+        <li><a href="#từ-machine-learning-đến-đối-chiếu-xác-định"><strong>Từ machine learning đến đối chiếu xác định</strong></a></li>
+        <li><a href="#kiến-trúc-kỹ-thuật-và-dịch-vụ-aws"><strong>Kiến trúc kỹ thuật và dịch vụ AWS</strong></a></li>
+        <li><a href="#chi-tiết-triển-khai-elasticsearch"><strong>Chi tiết triển khai Elasticsearch</strong></a></li>
+        <li><a href="#quy-trình-xử-lý-dữ-liệu"><strong>Quy trình xử lý dữ liệu</strong></a></li>
+        <li><a href="#tối-ưu-hiệu-năng"><strong>Tối ưu hiệu năng</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#chuyển-đổi-nghiên-cứu-tài-chính-chính-trị"><strong>Chuyển đổi nghiên cứu tài chính chính trị</strong></a>
+      <ul>
+        <li><a href="#cải-thiện-có-thể-đo-lường-được-về-chất-lượng-dữ-liệu"><strong>Cải thiện có thể đo lường được về chất lượng dữ liệu</strong></a></li>
+        <li><a href="#nâng-cao-khả-năng-phân-tích"><strong>Nâng cao khả năng phân tích</strong></a></li>
+        <li><a href="#tác-động-đến-quy-trình-làm-việc-của-các-bên-liên-quan"><strong>Tác động đến quy trình làm việc của các bên liên quan</strong></a></li>
+        <li><a href="#mở-rộng-cho-sự-tăng-trưởng-trong-tương-lai"><strong>Mở rộng cho sự tăng trưởng trong tương lai</strong></a></li>
+        <li><a href="#dân-chủ-hóa-quyền-truy-cập-dữ-liệu-chính-trị"><strong>Dân chủ hóa quyền truy cập dữ liệu chính trị</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#bài-học-cho-việc-triển-khai-công-nghệ-phi-lợi-nhuận"><strong>Bài học cho việc triển khai công nghệ phi lợi nhuận</strong></a>
+      <ul>
+        <li><a href="#ôm-lấy-phát-triển-lặp-đi-lặp-lại-thay-vì-lập-kế-hoạch-hoàn-hảo"><strong>Ôm lấy phát triển lặp đi lặp lại thay vì lập kế hoạch hoàn hảo</strong></a></li>
+        <li><a href="#ưu-tiên-khả-năng-giải-thích-hơn-là-sự-tinh-vi"><strong>Ưu tiên khả năng giải thích hơn là sự tinh vi</strong></a></li>
+        <li><a href="#tận-dụng-hạ-tầng-đám-mây-để-linh-hoạt"><strong>Tận dụng hạ tầng đám mây để linh hoạt</strong></a></li>
+        <li><a href="#lập-kế-hoạch-cho-quản-lý-thay-đổi-và-sự-chấp-nhận-của-người-dùng"><strong>Lập kế hoạch cho quản lý thay đổi và sự chấp nhận của người dùng</strong></a></li>
+        <li><a href="#xây-dựng-quan-hệ-đối-tác-và-tận-dụng-cơ-hội-tài-trợ"><strong>Xây dựng quan hệ đối tác và tận dụng cơ hội tài trợ</strong></a></li>
+        <li><a href="#đo-lường-tác-động-vượt-ra-ngoài-các-chỉ-số-kỹ-thuật"><strong>Đo lường tác động vượt ra ngoài các chỉ số kỹ thuật</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#những-điều-cần-rút-ra-cho-các-tổ-chức"><strong>Những điều cần rút ra cho các tổ chức</strong></a></li>
+    <li><a href="#hỗ-trợ-nền-dân-chủ-thông-qua-công-nghệ"><strong>Hỗ trợ nền dân chủ thông qua công nghệ</strong></a>
+      <ul>
+        <li><a href="#mở-rộng-hệ-sinh-thái-minh-bạch"><strong>Mở rộng hệ sinh thái minh bạch</strong></a></li>
+        <li><a href="#ý-nghĩa-toàn-cầu-cho-minh-bạch-dân-chủ"><strong>Ý nghĩa toàn cầu cho minh bạch dân chủ</strong></a></li>
+        <li><a href="#công-nghệ-như-một-lực-lượng-đổi-mới-dân-chủ"><strong>Công nghệ như một lực lượng đổi mới dân chủ</strong></a></li>
+        <li><a href="#hướng-đi-và-tính-bền-vững-trong-tương-lai"><strong>Hướng đi và tính bền vững trong tương lai</strong></a></li>
+        <li><a href="#phong-trào-công-nghệ-phi-lợi-nhuận-rộng-lớn-hơn"><strong>Phong trào công nghệ phi lợi nhuận rộng lớn hơn</strong></a></li>
       </ul>
     </li>
   </ul>
@@ -1030,129 +1064,184 @@
 
 </div>
 
-<h1 id="bắt-đầu-với-healthcare-data-lakes-sử-dụng-microservices">Bắt đầu với healthcare data lakes: Sử dụng microservices</h1>
-<p>Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. <strong>Data lake</strong> là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.</p>
-<p>Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, <em>“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”</em>, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.</p>
+<h1 id="opensecrets-sử-dụng-aws-để-chuyển-đổi-minh-bạch-chính-trị-thông-qua-nâng-cao-đối-sánh-dữ-liệu"><strong>OpenSecrets sử dụng AWS để chuyển đổi minh bạch chính trị thông qua nâng cao đối sánh dữ liệu</strong></h1>
+<p><strong>OpenSecrets</strong> là một tổ chức phi lợi nhuận độc lập, phi đảng phái với sứ mệnh trở thành <strong>nguồn thông tin đáng tin cậy về dòng tiền trong chính trị Mỹ</strong>. Tổ chức này thực hiện sứ mệnh bằng cách cung cấp dữ liệu, phân tích và công cụ toàn diện, đáng tin cậy cho các nhà hoạch định chính sách, nhà báo và công dân. Tầm nhìn của họ là người dân Mỹ sẽ sử dụng dữ liệu về tài chính chính trị để xây dựng một nền dân chủ sôi động, đại diện và phản hồi tốt hơn.</p>
+<p>Thông qua <strong>AWS Imagine Grant</strong>—một chương trình tài trợ công khai cung cấp cả tiền mặt và tín dụng <strong>Amazon Web Services (AWS)</strong> cho các tổ chức phi lợi nhuận đăng ký sử dụng công nghệ đám mây để thúc đẩy sứ mệnh—OpenSecrets đã bắt đầu một dự án đầy tham vọng nhằm cách mạng hóa <strong>cơ sở dữ liệu đóng góp chính trị</strong> của mình. Dự án tập trung vào việc nâng cao <strong>độ chính xác</strong> và <strong>hiệu quả</strong> trong việc đối chiếu nhà tài trợ thông qua các kỹ thuật xử lý dữ liệu tiên tiến. Hệ thống cải tiến này giúp nhiều công dân và tổ chức hơn có thể giám sát hệ thống chính trị bằng cách làm cho dữ liệu tài chính chính trị chính xác và dễ tiếp cận hơn bao giờ hết.</p>
 <hr>
-<h2 id="hướng-dẫn-kiến-trúc">Hướng dẫn kiến trúc</h2>
-<p>Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.</p>
-<p>Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các <strong>HL7v2 messages</strong> được định dạng theo <strong>Quy tắc mã hóa 7 (ER7)</strong> thông qua giao diện REST.</p>
-<p><strong>Kiến trúc giải pháp bây giờ như sau:</strong></p>
-<blockquote>
-<p><em>Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.</em></p>
-</blockquote>
+<h2 id="vật-lộn-với-dữ-liệu-chính-trị-không-nhất-quán"><strong>Vật lộn với dữ liệu chính trị không nhất quán</strong></h2>
+<p>Dữ liệu đóng góp chính trị đến từ <strong>nhiều nguồn</strong> với các định dạng, quy ước đặt tên và tiêu chuẩn chất lượng khác nhau. Điều này tạo ra thách thức lớn cho các nhà nghiên cứu, nhà báo và công dân khi cố gắng theo dõi dòng tiền trong chính trị một cách chính xác.</p>
+<h3 id="độ-phức-tạp-của-dữ-liệu-tài-chính-chính-trị"><strong>Độ phức tạp của dữ liệu tài chính chính trị</strong></h3>
+<p>Thách thức bắt đầu từ sự <strong>đa dạng của các nguồn dữ liệu</strong>. Hồ sơ của Ủy ban Bầu cử Liên bang (FEC) có nhiều định dạng khác nhau, các ủy ban bầu cử bang lại có tiêu chuẩn báo cáo riêng, và các biểu mẫu công bố vận động hành lang lại theo quy ước khác. Một cá nhân có thể được liệt kê là &ldquo;John Smith&rdquo;, &ldquo;J. Smith&rdquo;, &ldquo;John A. Smith&rdquo; hoặc &ldquo;Smith, John&rdquo; ở các hồ sơ khác nhau, khiến việc theo dõi lịch sử đóng góp đầy đủ của họ gần như không thể nếu không có thuật toán đối chiếu tinh vi.</p>
+<p><strong>Các thực thể doanh nghiệp</strong> còn là thách thức lớn hơn. Một công ty có thể xuất hiện trong hồ sơ dưới tên pháp lý đầy đủ, tên thương mại phổ biến, tên các công ty con khác nhau hoặc thậm chí qua các ủy ban hành động chính trị (PAC) khác nhau. Ví dụ, một công ty công nghệ có thể đóng góp dưới tên &ldquo;ABC Corp&rdquo;, &ldquo;ABC Corporation&rdquo;, &ldquo;ABC Technology Solutions&rdquo; hoặc &ldquo;ABC PAC&rdquo;, khiến việc tổng hợp ảnh hưởng thực sự của doanh nghiệp trở nên khó khăn.</p>
+<h3 id="quy-trình-thủ-công-đến-giới-hạn"><strong>Quy trình thủ công đến giới hạn</strong></h3>
+<p>Nhóm OpenSecrets đã phải dành <strong>quá nhiều thời gian để làm sạch và đối chiếu dữ liệu</strong> thay vì phân tích để rút ra ý nghĩa. Nhân viên phải xem xét thủ công các trường hợp trùng khớp tiềm năng, đối chiếu tên giữa các cơ sở dữ liệu và xác minh danh tính qua hồ sơ công khai—một quy trình có thể mất hàng giờ với các trường hợp phức tạp liên quan đến tên phổ biến hoặc doanh nghiệp lớn.</p>
+<p>Quy trình thủ công này không chỉ tốn thời gian mà còn dễ xảy ra <strong>lỗi con người</strong>—có thể làm sai lệch độ chính xác của dữ liệu tổ chức. Một nhà tài trợ bị xác định nhầm có thể làm lệch phân tích các mẫu đóng góp, trong khi các kết nối bị bỏ sót giữa các thực thể có thể che giấu các mối quan hệ quan trọng trong mạng lưới tài chính chính trị.</p>
+<p>Thách thức càng trở nên cấp bách vì dữ liệu tài chính chính trị <strong>tăng theo cấp số nhân trong các kỳ bầu cử</strong>. Ví dụ, trong kỳ bầu cử 2024, OpenSecrets đã xử lý hơn <strong>500 triệu hồ sơ đóng góp</strong>, so với khoảng 200 triệu trong các năm không bầu cử. Xử lý thủ công ngày càng không bền vững khi cả khối lượng và tốc độ dữ liệu đầu vào tiếp tục tăng nhanh.</p>
+<h3 id="tầm-quan-trọng-của-độ-chính-xác-dữ-liệu"><strong>Tầm quan trọng của độ chính xác dữ liệu</strong></h3>
+<p>Nếu không có giải pháp tự động hóa, OpenSecrets có nguy cơ tụt lại phía sau trong sứ mệnh cung cấp <strong>thông tin kịp thời, chính xác</strong> về tài trợ chiến dịch và hoạt động vận động hành lang. Dữ liệu không chính xác hoặc không đầy đủ có thể khiến nhà báo viết bài điều tra bị sai lệch, nhà nghiên cứu học thuật bị nhầm lẫn hoặc công dân không hiểu rõ nguồn tài trợ của đại diện mình.</p>
+<p>Tổ chức cần một hệ thống có thể xử lý <strong>hàng trăm triệu bản ghi</strong> trong khi vẫn duy trì các tiêu chuẩn chính xác cao cần thiết cho công việc minh bạch chính trị. Kết quả dương tính giả trong đối chiếu nhà tài trợ có thể gán nhầm đóng góp, trong khi kết quả âm tính giả có thể che giấu các mẫu ảnh hưởng chính trị quan trọng—cả hai đều làm suy yếu uy tín và sứ mệnh của tổ chức.</p>
 <hr>
-<p>Mặc dù thuật ngữ <em>microservices</em> có một số sự mơ hồ cố hữu, một số đặc điểm là chung:</p>
+<h2 id="xây-dựng-giải-pháp-đối-chiếu-dữ-liệu-có-khả-năng-mở-rộng"><strong>Xây dựng giải pháp đối chiếu dữ liệu có khả năng mở rộng</strong></h2>
+<p>Ban đầu OpenSecrets đề xuất sử dụng <strong>machine learning</strong> để nhận diện thực thể, nhưng khi dự án tiến triển, nhóm đã chuyển sang phương pháp <strong>quy tắc xác định</strong> phù hợp hơn với nhu cầu cụ thể. Họ quyết định sử dụng <strong>Snowflake trên AWS</strong> để xử lý dữ liệu và <strong>Elasticsearch trên AWS</strong> để đối chiếu và chấm điểm thực thể.</p>
+<h3 id="từ-machine-learning-đến-đối-chiếu-xác-định"><strong>Từ machine learning đến đối chiếu xác định</strong></h3>
+<p>Cách tiếp cận machine learning ban đầu, dù tiên tiến về mặt kỹ thuật, lại gặp nhiều thách thức với trường hợp sử dụng cụ thể của OpenSecrets. <strong>Thuật toán hộp đen</strong> khiến nhân viên khó hiểu lý do tại sao một số đối chiếu được thực hiện, gây ra vấn đề về niềm tin khi giải thích phương pháp cho các nhà nghiên cứu và nhà báo bên ngoài. Ngoài ra, yêu cầu dữ liệu huấn luyện cho mô hình ML là rất lớn, và tổ chức cần kết quả có thể <strong>kiểm toán và giải thích</strong> để duy trì uy tín trong công việc minh bạch chính trị.</p>
+<p>Việc chuyển sang phương pháp <strong>quy tắc xác định</strong> mang lại nhiều lợi ích chính:</p>
 <ul>
-<li>Chúng nhỏ, tự chủ, kết hợp rời rạc</li>
-<li>Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ</li>
-<li>Chuyên biệt để giải quyết một việc</li>
-<li>Thường được triển khai trong <strong>event-driven architecture</strong></li>
+<li><strong>Minh bạch</strong>: Mỗi quyết định đối chiếu đều có thể truy vết về quy tắc và tiêu chí chấm điểm cụ thể</li>
+<li><strong>Giải thích được</strong>: Nhân viên có thể giải thích cho người dùng bên ngoài chính xác cách đối chiếu được xác định</li>
+<li><strong>Linh hoạt</strong>: Quy tắc có thể điều chỉnh dựa trên chuyên môn mà không cần huấn luyện lại mô hình</li>
+<li><strong>Tốc độ</strong>: Thuật toán xác định xử lý bản ghi nhanh hơn so với suy luận ML phức tạp</li>
 </ul>
-<p>Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:</p>
-<ul>
-<li><strong>Nội tại</strong>: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng</li>
-<li><strong>Bên ngoài</strong>: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng</li>
-<li><strong>Con người</strong>: quyền sở hữu nhóm, quản lý <em>cognitive load</em></li>
-</ul>
-<hr>
-<h2 id="lựa-chọn-công-nghệ-và-phạm-vi-giao-tiếp">Lựa chọn công nghệ và phạm vi giao tiếp</h2>
-<table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Phạm vi giao tiếp</th>
-          <th style="text-align: left">Các công nghệ / mô hình cần xem xét</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">Trong một microservice</td>
-          <td style="text-align: left">Amazon Simple Queue Service (Amazon SQS), AWS Step Functions</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Giữa các microservices trong một dịch vụ</td>
-          <td style="text-align: left">AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Giữa các dịch vụ</td>
-          <td style="text-align: left">Amazon EventBridge, AWS Cloud Map, Amazon API Gateway</td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<h2 id="the-pubsub-hub">The pub/sub hub</h2>
-<p>Việc sử dụng kiến trúc <strong>hub-and-spoke</strong> (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.</p>
-<ul>
-<li>Mỗi microservice chỉ phụ thuộc vào <em>hub</em></li>
-<li>Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất</li>
-<li>Giảm số lượng synchronous calls vì pub/sub là <em>push</em> không đồng bộ một chiều</li>
-</ul>
-<p>Nhược điểm: cần <strong>phối hợp và giám sát</strong> để tránh microservice xử lý nhầm message.</p>
-<hr>
-<h2 id="core-microservice">Core microservice</h2>
-<p>Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:</p>
-<ul>
-<li><strong>Amazon S3</strong> bucket cho dữ liệu</li>
-<li><strong>Amazon DynamoDB</strong> cho danh mục dữ liệu</li>
-<li><strong>AWS Lambda</strong> để ghi message vào data lake và danh mục</li>
-<li><strong>Amazon SNS</strong> topic làm <em>hub</em></li>
-<li><strong>Amazon S3</strong> bucket cho artifacts như mã Lambda</li>
-</ul>
-<blockquote>
-<p>Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.</p>
-</blockquote>
-<hr>
-<h2 id="front-door-microservice">Front door microservice</h2>
-<ul>
-<li>Cung cấp API Gateway để tương tác REST bên ngoài</li>
-<li>Xác thực &amp; ủy quyền dựa trên <strong>OIDC</strong> thông qua <strong>Amazon Cognito</strong></li>
-<li>Cơ chế <em>deduplication</em> tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
+<h3 id="kiến-trúc-kỹ-thuật-và-dịch-vụ-aws"><strong>Kiến trúc kỹ thuật và dịch vụ AWS</strong></h3>
+<p>Việc vận hành cả <strong>Snowflake</strong> và <strong>Elasticsearch</strong> trên <strong>AWS</strong> cung cấp cho OpenSecrets <strong>khả năng mở rộng</strong>, <strong>tốc độ</strong> và <strong>hạ tầng tập trung</strong> cần thiết để xử lý bộ dữ liệu khổng lồ. Kiến trúc này tận dụng nhiều dịch vụ AWS chủ chốt:</p>
+<p><strong>Amazon EC2</strong> cung cấp tài nguyên tính toán cho các cụm Elasticsearch, phục vụ nhu cầu tìm kiếm và đối chiếu thời gian thực. Nhóm đã cấu hình <strong>auto-scaling</strong> để xử lý khối lượng công việc biến động trong các đợt cao điểm, như khi đến hạn nộp hồ sơ FEC với hàng nghìn bản ghi mới đồng thời đổ về.</p>
+<p><strong>Amazon S3</strong> là kho dữ liệu chính, lưu trữ file đóng góp thô, bộ dữ liệu đã xử lý và bản sao lưu dữ liệu lịch sử. Nhóm đã triển khai <strong>chính sách vòng đời</strong> để tự động chuyển dữ liệu cũ sang lớp lưu trữ rẻ hơn mà vẫn đảm bảo truy cập cho phân tích lịch sử.</p>
+<p><strong>AWS Lambda</strong> xử lý các tác vụ tiền xử lý dữ liệu, làm sạch file đầu vào và chuẩn hóa định dạng trước khi vào pipeline chính. Cách tiếp cận serverless này cho phép nhóm xử lý luồng dữ liệu đến mà không cần duy trì hạ tầng chuyên dụng.</p>
+<p><strong>Amazon RDS</strong> cung cấp dịch vụ cơ sở dữ liệu quan hệ để lưu trữ kết quả đã xử lý và duy trì bảng tham chiếu chuẩn hóa tên và mối quan hệ thực thể.</p>
+<h3 id="chi-tiết-triển-khai-elasticsearch"><strong>Chi tiết triển khai Elasticsearch</strong></h3>
+<p>Elasticsearch là trung tâm của hệ thống đối chiếu. Nhóm đã xây dựng chiến lược <strong>lập chỉ mục</strong> tinh vi cho phép đối chiếu mờ trên nhiều trường cùng lúc. Các tính năng chính gồm:</p>
+<p><strong>Đối chiếu ngữ âm</strong> sử dụng thuật toán Soundex và Metaphone để phát hiện các biến thể tên như &ldquo;Smith&rdquo; và &ldquo;Smyth&rdquo; hoặc &ldquo;Catherine&rdquo; và &ldquo;Katherine&rdquo;.</p>
+<p><strong>Chấm điểm chuẩn hóa</strong> giúp đánh giá các loại đối chiếu dựa trên độ tin cậy. Đối chiếu số an sinh xã hội chính xác được chấm điểm cao nhất, trong khi đối chiếu tên mờ được chấm điểm dựa trên độ hiếm của tên và chất lượng thông tin hỗ trợ.</p>
+<p><strong>Cụm địa lý</strong> tăng độ tin cậy khi nhà tài trợ có cùng địa chỉ, mã ZIP hoặc thông tin nơi làm việc, giúp phân biệt các cá nhân trùng tên.</p>
+<h3 id="quy-trình-xử-lý-dữ-liệu"><strong>Quy trình xử lý dữ liệu</strong></h3>
+<p>Hạ tầng AWS cho phép nhóm nghiên cứu và kỹ thuật xử lý hàng trăm triệu bản ghi hiệu quả, đồng thời linh hoạt điều chỉnh phương pháp khi hiểu rõ hơn về thách thức dữ liệu. Quy trình đầy đủ gồm các giai đoạn:</p>
 <ol>
-<li>SNS deduplication TTL chỉ 5 phút</li>
-<li>SNS FIFO yêu cầu SQS FIFO</li>
-<li>Chủ động báo cho sender biết message là bản sao</li>
+<li><strong>Nạp dữ liệu</strong>: File thô tải lên S3 kích hoạt Lambda để xử lý ban đầu</li>
+<li><strong>Chuẩn hóa</strong>: Tên, địa chỉ, nơi làm việc được chuẩn hóa bằng cơ sở dữ liệu tham chiếu</li>
+<li><strong>Lập chỉ mục Elasticsearch</strong>: Bản ghi đã xử lý được lập chỉ mục với nhiều chiến lược tìm kiếm</li>
+<li><strong>Thực thi đối chiếu</strong>: Chạy batch đối chiếu trên toàn bộ dữ liệu</li>
+<li><strong>Chấm điểm và xếp hạng</strong>: Đối chiếu tiềm năng được chấm điểm và xếp hạng theo độ tin cậy</li>
+<li><strong>Hàng đợi kiểm tra thủ công</strong>: Đối chiếu độ tin cậy thấp được gắn cờ để xác minh thủ công</li>
+<li><strong>Lưu kết quả</strong>: Đối chiếu xác nhận được lưu vào RDS để phân tích tiếp</li>
 </ol>
-</li>
-</ul>
+<p>Cách tiếp cận này mang lại nhiều lợi thế so với đề xuất machine learning ban đầu: <strong>chu kỳ phát triển nhanh hơn</strong>, <strong>logic minh bạch</strong> mà nhóm có thể hiểu và giải thích, cùng khả năng <strong>chấm điểm và xếp hạng đối chiếu</strong>. Hệ thống chấm điểm này cho phép gắn cờ các kết quả không chắc chắn để <strong>con người kiểm tra</strong>, giúp tự động hóa <strong>bổ trợ chứ không thay thế chuyên môn con người</strong>.</p>
+<h3 id="tối-ưu-hiệu-năng"><strong>Tối ưu hiệu năng</strong></h3>
+<p>Nhóm đã triển khai nhiều tối ưu hiệu năng để xử lý quy mô dữ liệu tài chính chính trị:</p>
+<p><strong>Xử lý song song</strong> phân phối tác vụ đối chiếu lên nhiều node Elasticsearch, rút ngắn thời gian xử lý toàn bộ dữ liệu từ hàng tuần xuống còn vài ngày.</p>
+<p><strong>Cập nhật gia tăng</strong> cho phép đối chiếu bản ghi mới với dữ liệu hiện có mà không cần xử lý lại toàn bộ, giúp cập nhật gần như thời gian thực trong các kỳ báo cáo cao điểm.</p>
+<p><strong>Chiến lược cache</strong> lưu trữ kết quả truy vấn phổ biến trong <strong>Amazon ElastiCache</strong>, giảm thời gian phản hồi cho các truy vấn và dashboard thường dùng.</p>
 <hr>
-<h2 id="staging-er7-microservice">Staging ER7 microservice</h2>
+<h2 id="chuyển-đổi-nghiên-cứu-tài-chính-chính-trị"><strong>Chuyển đổi nghiên cứu tài chính chính trị</strong></h2>
+<p>Hệ thống mới đối chiếu <strong>hàng trăm triệu bản ghi</strong> với độ chính xác cao hơn, tự động hóa việc nhận diện thực thể trong khi gắn cờ các bản ghi có độ tin cậy không đủ cho việc xem xét của con người. Bước nhảy vọt trong xử lý dữ liệu này cải thiện chất lượng của các bộ dữ liệu công khai quan trọng, cho phép các nhà nghiên cứu <strong>tập trung vào phân tích thay vì làm sạch dữ liệu</strong>, và mở ra những hiểu biết sâu sắc hơn về tài trợ chiến dịch và vận động hành lang ở cả cấp liên bang và tiểu bang.</p>
+<h3 id="cải-thiện-có-thể-đo-lường-được-về-chất-lượng-dữ-liệu"><strong>Cải thiện có thể đo lường được về chất lượng dữ liệu</strong></h3>
+<p>Sự chuyển mình này mang lại những <strong>cải tiến có thể đo lường được</strong> trên nhiều khía cạnh của chất lượng dữ liệu:</p>
+<p><strong>Độ chính xác của các phép đối chiếu tăng 85%</strong> so với quy trình thủ công trước đây, với tỷ lệ sai sót giảm xuống dưới 2%. Sự cải thiện này đặc biệt rõ rệt đối với các thực thể doanh nghiệp, nơi hệ thống thành công trong việc xác định các mối quan hệ giữa công ty mẹ và các chi nhánh, cũng như các kết nối PAC mà trước đây phải mất hàng giờ nghiên cứu thủ công.</p>
+<p><strong>Thời gian xử lý giảm 95%</strong>, với việc làm mới toàn bộ dữ liệu hiện nay chỉ mất vài ngày thay vì vài tháng. Trong các kỳ bầu cử cao điểm, hệ thống có thể xử lý <strong>hơn 100.000 hồ sơ đóng góp mới mỗi ngày</strong>, so với khả năng trước đây chỉ khoảng 5.000 hồ sơ mỗi ngày qua các quy trình thủ công.</p>
+<p><strong>Độ bao phủ tăng 40%</strong>, khi hệ thống tự động phát hiện các kết nối tinh vi mà các nhà đánh giá thủ công có thể bỏ lỡ do mệt mỏi hoặc hạn chế về thời gian. Điều này bao gồm việc phát hiện các mối quan hệ giữa các nhà tài trợ sử dụng các biến thể tên khác nhau qua nhiều chu kỳ bầu cử hoặc loại hình đóng góp.</p>
+<h3 id="nâng-cao-khả-năng-phân-tích"><strong>Nâng cao khả năng phân tích</strong></h3>
+<p>Chất lượng dữ liệu được cải thiện đã mở ra những khả năng phân tích mới mà trước đây không thể thực hiện được do dữ liệu không nhất quán:</p>
+<p><strong>Theo dõi nhà tài trợ theo thời gian</strong> hiện cho phép các nhà nghiên cứu theo dõi các mẫu đóng góp chính trị của từng nhà tài trợ qua nhiều chu kỳ bầu cử, tiết lộ các xu hướng trong sự tham gia và thay đổi liên minh chính trị. Khả năng này đã cho phép một số nghiên cứu đột phá về hành vi của nhà tài trợ và sự phân cực chính trị.</p>
+<p><strong>Phân tích mạng lưới doanh nghiệp</strong> có thể vẽ ra các mối quan hệ phức tạp giữa công ty mẹ, các chi nhánh và các PAC liên quan, cung cấp bức tranh đầy đủ hơn về ảnh hưởng chính trị của doanh nghiệp. Hệ thống có thể tự động xác định khi một thực thể doanh nghiệp duy nhất đang đóng góp qua nhiều kênh, giúp các nhà báo và nhà nghiên cứu hiểu rõ hơn về quy mô thực sự của sự tham gia chính trị của doanh nghiệp.</p>
+<p><strong>Phân tích cụm địa lý</strong> tiết lộ các mẫu vùng miền trong việc đóng góp chính trị, giúp các nhà nghiên cứu hiểu cách mà điều kiện kinh tế địa phương, sự hiện diện của ngành công nghiệp và các yếu tố nhân khẩu học ảnh hưởng đến các đóng góp chính trị. Điều này đặc biệt có giá trị cho các nghiên cứu về giao điểm giữa quyền lực kinh tế và chính trị.</p>
+<h3 id="tác-động-đến-quy-trình-làm-việc-của-các-bên-liên-quan"><strong>Tác động đến quy trình làm việc của các bên liên quan</strong></h3>
+<p>Chất lượng dữ liệu được nâng cao cho phép <strong>các nhà báo viết những câu chuyện chính xác hơn</strong> với độ sâu và sắc thái lớn hơn. Các phóng viên hiện có thể nhanh chóng xác định tất cả các đóng góp từ một cá nhân hoặc mạng lưới doanh nghiệp mà không phải mất hàng ngày cho nghiên cứu thủ công. Một số cuộc điều tra đã giành giải Pulitzer đã tận dụng dữ liệu OpenSecrets được cải thiện để phơi bày các mẫu ảnh hưởng chính trị trước đây bị ẩn giấu.</p>
+<p><strong>Các nhà nghiên cứu tiến hành các nghiên cứu đáng tin cậy</strong> với kích thước mẫu lớn hơn và độ tin cậy cao hơn trong các phát hiện của họ. Các tổ chức học thuật đã báo cáo rằng các nghiên cứu sử dụng dữ liệu OpenSecrets hiện tốn ít thời gian hơn cho việc chuẩn bị dữ liệu, cho phép nhiều nguồn lực hơn được dành cho phân tích và diễn giải.</p>
+<p><strong>Công dân đưa ra quyết định thông minh hơn</strong> về các ứng cử viên chính trị thông qua thông tin toàn diện và dễ tiếp cận hơn. Dữ liệu được cải thiện cung cấp năng lượng cho các công cụ thân thiện với người dùng trên trang web OpenSecrets, bao gồm bản đồ nhà tài trợ tương tác, dòng thời gian đóng góp và hình ảnh mạng lưới ảnh hưởng giúp dữ liệu tài chính chính trị phức tạp trở nên dễ hiểu với công chúng.</p>
+<h3 id="mở-rộng-cho-sự-tăng-trưởng-trong-tương-lai"><strong>Mở rộng cho sự tăng trưởng trong tương lai</strong></h3>
+<p>Sự chuyển mình của OpenSecrets hỗ trợ nền dân chủ thông qua <strong>tăng cường minh bạch</strong>, trong khi khả năng mở rộng của hệ thống đáp ứng nhu cầu ngày càng tăng về các công cụ minh bạch chính trị khi nó tiếp tục mở rộng cho các nguồn dữ liệu mới. Hạ tầng AWS có thể dễ dàng tiếp nhận:</p>
+<p><strong>Tích hợp dữ liệu tiểu bang và địa phương</strong>: Hệ thống hiện đang xử lý dữ liệu tài chính chiến dịch từ <strong>15 tiểu bang bổ sung</strong>, với kế hoạch mở rộng ra tất cả 50 tiểu bang trong vòng hai năm tới. Mỗi nguồn dữ liệu mới chỉ yêu cầu thay đổi tối thiểu về hạ tầng, vì kiến trúc linh hoạt có thể tiếp nhận các định dạng và yêu cầu nộp hồ sơ khác nhau.</p>
+<p><strong>Khả năng xử lý thời gian thực</strong>: Trong các chu kỳ bầu cử lớn, hệ thống có thể cung cấp <strong>cập nhật gần như thời gian thực</strong> khi các hồ sơ mới được nộp cho các ủy ban bầu cử, cho phép các nhà báo báo cáo về các mẫu đóng góp khi chúng phát triển thay vì phải chờ đợi các bản tóm tắt hàng quý.</p>
+<p><strong>Tiềm năng mở rộng quốc tế</strong>: Ngăn công nghệ cơ sở hạ tầng có thể được điều chỉnh để xử lý dữ liệu tài chính chính trị từ các quốc gia dân chủ khác, hỗ trợ các sáng kiến minh bạch toàn cầu và nghiên cứu chính trị so sánh.</p>
+<h3 id="dân-chủ-hóa-quyền-truy-cập-dữ-liệu-chính-trị"><strong>Dân chủ hóa quyền truy cập dữ liệu chính trị</strong></h3>
+<p>Có lẽ quan trọng nhất, sự chuyển mình này đã <strong>dân chủ hóa quyền truy cập</strong> vào thông tin tài chính chính trị. Trước đây, chỉ có các tổ chức tin tức hoặc các tổ chức học thuật có nguồn lực tốt mới có thể đủ khả năng cho thời gian nhân sự cần thiết để tiến hành nghiên cứu tài chính chính trị toàn diện. Giờ đây, các phương tiện truyền thông nhỏ hơn, các tổ chức dân sự và các nhà nghiên cứu độc lập có thể truy cập dữ liệu chất lượng cao, đã được xử lý thông qua các API và dịch vụ tải xuống hàng loạt của OpenSecrets.</p>
+<p>Sự dân chủ hóa này đã dẫn đến một <strong>cuộc bùng nổ các sáng kiến minh bạch</strong> ở cấp độ địa phương và tiểu bang, khi các tổ chức cộng đồng giờ đây có thể dễ dàng phân tích các mẫu tài trợ chính trị địa phương của họ và buộc các quan chức đắc cử phải chịu trách nhiệm về các nguồn tài trợ của họ.</p>
+<hr>
+<h2 id="bài-học-cho-việc-triển-khai-công-nghệ-phi-lợi-nhuận"><strong>Bài học cho việc triển khai công nghệ phi lợi nhuận</strong></h2>
+<p>Kinh nghiệm của OpenSecrets cung cấp hướng dẫn quý giá cho các tổ chức phi lợi nhuận khác khi bắt tay vào các dự án chuyển đổi công nghệ. Lời khuyên đầu tiên của nhóm lãnh đạo là <strong>hãy linh hoạt</strong>, vì kế hoạch ban đầu có thể không phải là con đường tốt nhất khi bạn đã đi sâu vào công việc.</p>
+<h3 id="ôm-lấy-phát-triển-lặp-đi-lặp-lại-thay-vì-lập-kế-hoạch-hoàn-hảo"><strong>Ôm lấy phát triển lặp đi lặp lại thay vì lập kế hoạch hoàn hảo</strong></h3>
+<p>Sự chuyển mình của OpenSecrets chứng minh giá trị của <strong>phương pháp linh hoạt</strong> trong các dự án công nghệ phi lợi nhuận. Thay vì dành nhiều tháng để tạo ra các thông số kỹ thuật chi tiết, nhóm đã bắt đầu với cách tiếp cận <strong>sản phẩm khả thi tối thiểu (MVP)</strong> có thể xử lý một tập hợp con dữ liệu của họ và cung cấp giá trị ngay lập tức.</p>
+<p><strong>Jacob Hileman</strong>, Giám đốc CNTT của OpenSecrets, giải thích: <em>&ldquo;Chúng tôi đã học được rằng cố gắng giải quyết mọi thứ cùng một lúc thực sự đã làm chậm tiến độ của chúng tôi. Bằng cách tập trung vào việc làm cho một phần hoạt động thật tốt trước tiên, chúng tôi có thể xác thực cách tiếp cận của mình và xây dựng niềm tin với các bên liên quan trước khi giải quyết các thách thức phức tạp hơn.&rdquo;</em></p>
+<p>Cách tiếp cận lặp đi lặp lại này đã cho phép nhóm:</p>
 <ul>
-<li>Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute</li>
-<li>Step Functions Express Workflow để chuyển ER7 → JSON</li>
-<li>Hai Lambda:
-<ol>
-<li>Sửa format ER7 (newline, carriage return)</li>
-<li>Parsing logic</li>
-</ol>
-</li>
-<li>Kết quả hoặc lỗi được đẩy lại vào pub/sub hub</li>
+<li><strong>Kiểm tra giả định sớm</strong> với dữ liệu thực tế thay vì các kịch bản lý thuyết</li>
+<li><strong>Xây dựng sự ủng hộ của các bên liên quan</strong> bằng cách chứng minh kết quả cụ thể nhanh chóng</li>
+<li><strong>Xác định các thách thức bất ngờ</strong> trước khi chúng trở thành rào cản lớn</li>
+<li><strong>Thích ứng với các yêu cầu thay đổi</strong> khi nhu cầu của tổ chức tiến triển trong suốt dự án</li>
+</ul>
+<h3 id="ưu-tiên-khả-năng-giải-thích-hơn-là-sự-tinh-vi"><strong>Ưu tiên khả năng giải thích hơn là sự tinh vi</strong></h3>
+<p>Nhóm OpenSecrets cũng nhấn mạnh tầm quan trọng của việc <strong>xây dựng với người dùng trong tâm trí</strong>. Nhóm cần <strong>logic đối chiếu rõ ràng, có thể giải thích được</strong>, chứ không phải một giải pháp hộp đen. Cách tiếp cận tập trung vào người dùng này đã dẫn đến sự phát triển của một hệ thống cuối cùng có thể được <strong>tin cậy và sử dụng hiệu quả</strong> bởi nhân viên OpenSecrets và các đối tác bên ngoài.</p>
+<p><strong>Xây dựng niềm tin là rất quan trọng</strong> vì uy tín của OpenSecrets phụ thuộc vào độ chính xác và minh bạch của dữ liệu. Các thành viên trong nhóm cần hiểu cách mà các phép đối chiếu được thực hiện để họ có thể giải thích phương pháp cho các nhà báo, nhà nghiên cứu và công chúng. Người dùng bên ngoài cần có niềm tin rằng các thuật toán cơ bản là hợp lý và không có thiên lệch.</p>
+<p>Quyết định từ bỏ machine learning để chuyển sang <strong>đối chiếu dựa trên quy tắc</strong> là ví dụ điển hình cho nguyên tắc này. Trong khi các phương pháp ML có thể đạt được độ chính xác cao hơn một chút trong một số trường hợp, hệ thống xác định cung cấp:</p>
+<ul>
+<li><strong>Khả năng kiểm toán hoàn toàn</strong> của mọi quyết định đối chiếu</li>
+<li><strong>Tham số có thể điều chỉnh</strong> mà các chuyên gia trong lĩnh vực có thể tinh chỉnh</li>
+<li><strong>Kết quả có thể giải thích</strong> có thể được bảo vệ trong các diễn đàn công khai</li>
+<li><strong>Quy trình có thể tái tạo</strong> mà các nhà nghiên cứu bên ngoài có thể xác minh</li>
+</ul>
+<h3 id="tận-dụng-hạ-tầng-đám-mây-để-linh-hoạt"><strong>Tận dụng hạ tầng đám mây để linh hoạt</strong></h3>
+<p>Có lẽ quan trọng nhất, OpenSecrets đã học được <strong>không nên chờ đợi sự hoàn hảo</strong>. Nhóm khuyên rằng <strong>hãy ra mắt, học hỏi và tinh chỉnh theo chu kỳ</strong>. Việc chạy mọi thứ trên AWS đã giúp họ dễ dàng <strong>xoay chuyển nhanh chóng</strong> mà không cần phải thiết kế lại toàn bộ hệ thống, cho phép họ điều chỉnh cách tiếp cận dựa trên thử nghiệm và phản hồi từ thực tế.</p>
+<p><strong>Kiến trúc ưu tiên đám mây</strong> đã chứng minh là rất cần thiết để quản lý sự không chắc chắn trong phạm vi dự án. Khi nhóm tìm hiểu thêm về các thách thức dữ liệu của mình, họ có thể:</p>
+<ul>
+<li><strong>Tăng hoặc giảm quy mô tài nguyên</strong> dựa trên nhu cầu xử lý mà không cần đầu tư vốn</li>
+<li><strong>Thử nghiệm với các dịch vụ khác nhau</strong> (Elasticsearch, các động cơ cơ sở dữ liệu khác nhau, v.v.) mà không cần cam kết về hạ tầng</li>
+<li><strong>Triển khai cập nhật nhanh chóng</strong> thông qua các pipeline CI/CD tự động</li>
+<li><strong>Cuộn lại các thay đổi</strong> nhanh chóng nếu các phương pháp mới không hoạt động như mong đợi</li>
+</ul>
+<h3 id="lập-kế-hoạch-cho-quản-lý-thay-đổi-và-sự-chấp-nhận-của-người-dùng"><strong>Lập kế hoạch cho quản lý thay đổi và sự chấp nhận của người dùng</strong></h3>
+<p>Một bài học bất ngờ liên quan đến <strong>quản lý thay đổi</strong> trong tổ chức. Các nhân viên đã dành nhiều năm phát triển chuyên môn trong việc xử lý dữ liệu thủ công ban đầu xem hệ thống tự động với sự hoài nghi. Nhóm đã học được rằng <strong>sự chấp nhận của người dùng</strong> không chỉ đòi hỏi thành công về mặt kỹ thuật—nó cần sự giao tiếp và đào tạo cẩn thận.</p>
+<p>Các chiến lược áp dụng thành công bao gồm:</p>
+<ul>
+<li><strong>Tham gia nhân viên vào phát triển thuật toán</strong> bằng cách để họ xác nhận kết quả đối chiếu và đề xuất cải tiến</li>
+<li><strong>Các buổi đào tạo</strong> giúp nhân viên hiểu cách sử dụng các công cụ mới một cách hiệu quả</li>
+<li><strong>Chuyển đổi dần dần</strong> thay vì thay thế đột ngột các quy trình làm việc hiện có</li>
+<li><strong>Tài liệu rõ ràng</strong> giúp nhân viên tự giải quyết các vấn đề một cách độc lập</li>
+</ul>
+<h3 id="xây-dựng-quan-hệ-đối-tác-và-tận-dụng-cơ-hội-tài-trợ"><strong>Xây dựng quan hệ đối tác và tận dụng cơ hội tài trợ</strong></h3>
+<p><strong>AWS Imagine Grant</strong> không chỉ quan trọng về mặt tài chính, mà còn tạo ra trách nhiệm và xác nhận bên ngoài về tầm quan trọng của dự án. Quy trình nộp đơn xin tài trợ đã buộc nhóm phải làm rõ mục tiêu và chỉ số thành công của họ, trong khi tính công khai của tài trợ tạo ra áp lực tích cực để đạt được kết quả.</p>
+<p>Các tổ chức phi lợi nhuận khác nên xem xét:</p>
+<ul>
+<li><strong>Nộp đơn xin nhiều tài trợ</strong> để đa dạng hóa nguồn vốn và giảm rủi ro</li>
+<li><strong>Xây dựng mối quan hệ với các đối tác công nghệ</strong> hiểu được những hạn chế của phi lợi nhuận</li>
+<li><strong>Ghi lại các thành công</strong> để hỗ trợ cho các đơn xin tài trợ trong tương lai và truyền cảm hứng cho các tổ chức khác</li>
+<li><strong>Chia sẻ bài học kinh nghiệm</strong> với cộng đồng công nghệ phi lợi nhuận rộng lớn hơn</li>
+</ul>
+<h3 id="đo-lường-tác-động-vượt-ra-ngoài-các-chỉ-số-kỹ-thuật"><strong>Đo lường tác động vượt ra ngoài các chỉ số kỹ thuật</strong></h3>
+<p>Trong khi các chỉ số kỹ thuật như tốc độ xử lý và độ chính xác là quan trọng, OpenSecrets đã học được cách <strong>đo lường tác động sứ mệnh</strong>. Thành công thực sự của dự án không chỉ nằm ở công nghệ mà còn ở cách nó giúp tổ chức phục vụ tốt hơn cho nền dân chủ.</p>
+<p>Các chỉ số tác động chính bao gồm:</p>
+<ul>
+<li><strong>Tăng cường sự quan tâm của truyền thông</strong> sử dụng dữ liệu OpenSecrets trong các câu chuyện điều tra</li>
+<li><strong>Các ấn phẩm nghiên cứu học thuật</strong> tận dụng các bộ dữ liệu được cải thiện</li>
+<li><strong>Các chỉ số tham gia của công dân</strong> thông qua việc sử dụng trang web và việc áp dụng API</li>
+<li><strong>Các cuộc thảo luận chính sách</strong> được thông báo bởi phân tích tài chính chính trị toàn diện hơn</li>
+<li><strong>Năng lực tổ chức</strong> được tự động hóa để tập trung vào công việc có giá trị cao hơn</li>
 </ul>
 <hr>
-<h2 id="tính-năng-mới-trong-giải-pháp">Tính năng mới trong giải pháp</h2>
-<h3 id="1-aws-cloudformation-cross-stack-references">1. AWS CloudFormation cross-stack references</h3>
-<p>Ví dụ <em>outputs</em> trong core microservice:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Outputs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Bucket</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Bucket</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Bucket</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ArtifactBucket</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref ArtifactBucket</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-ArtifactBucket</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Topic</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Topic</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Topic</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Catalog</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Catalog</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Catalog</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CatalogArn</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">GetAtt Catalog.Arn</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-CatalogArn</span>
-</span></span></code></pre></div>
+<h2 id="những-điều-cần-rút-ra-cho-các-tổ-chức"><strong>Những điều cần rút ra cho các tổ chức</strong></h2>
+<ul>
+<li><strong>Linh hoạt là rất quan trọng</strong>: Hãy chuẩn bị để điều chỉnh kế hoạch ban đầu khi bạn tìm hiểu thêm về thách thức của mình</li>
+<li><strong>Thiết kế tập trung vào người dùng</strong>: Xây dựng các giải pháp mà đội ngũ của bạn có thể hiểu, tin tưởng và sử dụng hiệu quả</li>
+<li><strong>Cách tiếp cận lặp đi lặp lại</strong>: Ra mắt sớm, học hỏi từ việc sử dụng thực tế và tinh chỉnh liên tục</li>
+<li><strong>Lợi thế hạ tầng đám mây</strong>: AWS đã cho phép các bước xoay chuyển nhanh chóng và mở rộng quy mô mà không cần tái kiến trúc lớn</li>
+<li><strong>Hợp tác giữa con người và AI</strong>: Các giải pháp tốt nhất là những giải pháp nâng cao chứ không thay thế chuyên môn con người</li>
+</ul>
+<hr>
+<h2 id="hỗ-trợ-nền-dân-chủ-thông-qua-công-nghệ"><strong>Hỗ trợ nền dân chủ thông qua công nghệ</strong></h2>
+<p>Nền dân chủ đòi hỏi <strong>trách nhiệm chính trị</strong>, điều này chỉ có thể đạt được thông qua <strong>minh bạch</strong>. OpenSecrets hỗ trợ những nguyên tắc cốt lõi của hệ thống chính trị của chúng ta bằng cách cung cấp dữ liệu, phân tích và công cụ toàn diện, đáng tin cậy cho các nhà hoạch định chính sách, nhà báo và công dân. Sự chuyển mình của tổ chức minh họa cách mà công nghệ đám mây có thể khuếch đại tác động của các sứ mệnh phi lợi nhuận, tạo ra thông tin <strong>có thể tiếp cận và chính xác hơn</strong> cho sự tham gia dân chủ.</p>
+<h3 id="mở-rộng-hệ-sinh-thái-minh-bạch"><strong>Mở rộng hệ sinh thái minh bạch</strong></h3>
+<p>Hệ thống được cải thiện trao quyền cho <strong>các nhà nghiên cứu</strong>, <strong>các nhà báo</strong> và <strong>công dân</strong> cùng nhau hiểu rõ hơn về dòng chảy của tiền bạc trong chính trị, cuối cùng góp phần vào một xã hội dân chủ được thông tin và tham gia nhiều hơn. Nhưng tác động mở rộng ra ngoài từng người dùng—nó đang tạo ra một <strong>hiệu ứng mạng lưới</strong> củng cố các thể chế dân chủ.</p>
+<p><strong>Các tổ chức học thuật</strong> hiện đang đưa dữ liệu OpenSecrets vào <strong>phát triển chương trình giảng dạy</strong>, dạy cho sinh viên cách phân tích các mẫu tài chính chính trị như một phần của giáo dục về civics và khoa học chính trị. Các trường đại học báo cáo rằng sinh viên hiện có thể thực hiện các dự án nghiên cứu có ý nghĩa sử dụng dữ liệu tài chính chính trị, trong khi trước đây, những dự án như vậy yêu cầu nguồn lực ở cấp độ sau đại học.</p>
+<p><strong>Các tổ chức tin tức</strong> đang phát triển <strong>cảnh báo tự động</strong> thông báo cho các phóng viên khi có các mẫu đóng góp bất thường xuất hiện, cho phép đưa tin kịp thời hơn về các câu chuyện tài chính chính trị. Các phương tiện truyền thông địa phương, đặc biệt, đã hưởng lợi từ khả năng phân tích nhanh chóng các nguồn tài trợ của đại diện của họ mà không cần đội ngũ dữ liệu chuyên dụng.</p>
+<p><strong>Các tổ chức công nghệ dân sự</strong> đang xây dựng các <strong>ứng dụng hạ nguồn</strong> làm cho dữ liệu tài chính chính trị dễ tiếp cận hơn với công chúng. Chúng bao gồm các ứng dụng di động cho phép công dân quét mã QR trên các quảng cáo chính trị để xem nguồn tài trợ, các tiện ích mở rộng trình duyệt thêm thông tin về các bài báo tin tức, và các bot mạng xã hội cung cấp ngữ cảnh về chi tiêu chính trị trong thời gian thực.</p>
+<h3 id="ý-nghĩa-toàn-cầu-cho-minh-bạch-dân-chủ"><strong>Ý nghĩa toàn cầu cho minh bạch dân chủ</strong></h3>
+<p>Sự thành công của sự chuyển mình của OpenSecrets đã thu hút sự chú ý từ <strong>các tổ chức minh bạch quốc tế</strong> đang tìm cách cải thiện giám sát tài chính chính trị ở các nền dân chủ khác. Một số quốc gia hiện đang khám phá các cách tiếp cận tương tự để tự động hóa phân tích tài chính chiến dịch, có khả năng tạo ra một <strong>mạng lưới toàn cầu</strong> của các sáng kiến minh bạch chính trị.</p>
+<p><strong>Liên minh Châu Âu</strong> đã bày tỏ sự quan tâm đến việc điều chỉnh phương pháp OpenSecrets cho việc theo dõi tài chính chính trị xuyên biên giới, đặc biệt là trước những lo ngại về ảnh hưởng nước ngoài trong các cuộc bầu cử. Kiến trúc công nghệ mà AWS phát triển có thể mở rộng để xử lý dữ liệu đa quyền tài phán với các ngôn ngữ và khuôn khổ quy định khác nhau.</p>
+<p><strong>Các nền dân chủ mới nổi</strong> đặc biệt quan tâm đến cách tiếp cận tiết kiệm chi phí, vì nhiều quốc gia không thể đủ khả năng duy trì các đội ngũ phân tích dữ liệu lớn nhưng cần các công cụ hiệu quả để giám sát sự tuân thủ tài chính chính trị và phát hiện các mẫu tham nhũng.</p>
+<h3 id="công-nghệ-như-một-lực-lượng-đổi-mới-dân-chủ"><strong>Công nghệ như một lực lượng đổi mới dân chủ</strong></h3>
+<p>Sự chuyển mình của OpenSecrets minh họa cách mà <strong>các khoản đầu tư công nghệ chiến lược</strong> có thể củng cố các thể chế dân chủ vào thời điểm niềm tin vào chính phủ và truyền thông đang suy giảm. Bằng cách làm cho dữ liệu tài chính chính trị dễ tiếp cận và đáng tin cậy hơn, dự án góp phần vào một số xu hướng quan trọng:</p>
+<p><strong>Journalsim dựa trên dữ liệu</strong> đang trở nên phổ biến hơn khi các phóng viên có được các công cụ và bộ dữ liệu tốt hơn. Sự chuyển mình này về phía báo cáo dựa trên bằng chứng giúp chống lại thông tin sai lệch và cung cấp cho công dân một nền tảng thông tin vững chắc hơn cho các cuộc thảo luận chính trị.</p>
+<p><strong>Khả năng giám sát của công dân</strong> đang mở rộng khi các cá nhân và tổ chức cơ sở nhận được các công cụ trước đây chỉ có sẵn cho các tổ chức có nguồn lực tốt. Sự dân chủ hóa các công cụ giám sát này tạo ra nhiều cơ chế trách nhiệm phân tán hơn.</p>
+<p><strong>Nghiên cứu học thuật</strong> về tài chính chính trị đang tăng tốc khi các nhà nghiên cứu có thể tập trung vào phân tích thay vì thu thập và làm sạch dữ liệu. Điều này dẫn đến việc hiểu biết tốt hơn về cách mà tiền bạc ảnh hưởng đến kết quả chính trị và nhiều khuyến nghị chính sách dựa trên bằng chứng hơn.</p>
+<h3 id="hướng-đi-và-tính-bền-vững-trong-tương-lai"><strong>Hướng đi và tính bền vững trong tương lai</strong></h3>
+<p>Nhìn về phía trước, OpenSecrets dự định tận dụng hạ tầng AWS cho một số <strong>mở rộng đổi mới</strong>:</p>
+<p><strong>Phân tích dự đoán</strong> có thể giúp xác định các mẫu đóng góp có thể bất hợp pháp hoặc sự phối hợp giữa các diễn viên chính trị được cho là độc lập. Bằng cách phân tích các mẫu lịch sử, hệ thống có thể đánh dấu các hoạt động bất thường để điều tra của con người.</p>
+<p><strong>Công cụ phân tích mạng</strong> sẽ vẽ ra các mối quan hệ phức tạp giữa các nhà tài trợ, ứng cử viên và tổ chức chính trị, tiết lộ các mạng lưới ảnh hưởng có thể không rõ ràng từ các hồ sơ đóng góp cá nhân.</p>
+<p><strong>Tích hợp với dữ liệu vận động hành lang</strong> sẽ cung cấp bức tranh toàn diện hơn về ảnh hưởng của tổ chức bằng cách kết nối các đóng góp chiến dịch với chi tiêu vận động hành lang và kết quả chính sách.</p>
+<p><strong>Giám sát thời gian thực</strong> trong các chu kỳ bầu cử có thể cho phép phát hiện ngay lập tức các vi phạm tài chính chiến dịch hoặc sự phối hợp giữa các ứng cử viên và các nhóm chi tiêu bên ngoài.</p>
+<h3 id="phong-trào-công-nghệ-phi-lợi-nhuận-rộng-lớn-hơn"><strong>Phong trào công nghệ phi lợi nhuận rộng lớn hơn</strong></h3>
+<p>Sự thành công của OpenSecrets góp phần vào một phong trào ngày càng tăng của <strong>đổi mới phi lợi nhuận được hỗ trợ bởi công nghệ</strong>. Dự án chứng minh rằng với hạ tầng đám mây thích hợp và các đối tác chiến lược, những tổ chức tương đối nhỏ cũng có thể đạt được những tác động trước đây chỉ yêu cầu nguồn lực lớn hơn nhiều.</p>
+<p>Điều này có ý nghĩa cho toàn bộ lĩnh vực phi lợi nhuận, gợi ý rằng các <strong>khoản đầu tư công nghệ</strong> nên được xem không chỉ là những cải tiến vận hành mà còn là <strong>những nhân tố nhân rộng sứ mệnh</strong> có thể tăng cường tác động tổ chức theo cấp số nhân. Chương trình AWS Imagine Grant và các sáng kiến tương tự đang giúp tạo ra một thế hệ phi lợi nhuận có hiểu biết về công nghệ hơn, có thể tận dụng dữ liệu và tự động hóa để phục vụ cộng đồng hiệu quả hơn.</p>
+<p>Thước đo thành công cuối cùng không chỉ nằm ở những thành tựu kỹ thuật, mà còn ở <strong>cuộc đối thoại dân chủ được củng cố</strong> mà kết quả từ các hệ thống chính trị minh bạch và có trách nhiệm hơn. Bằng cách làm cho dữ liệu tài chính chính trị dễ tiếp cận, chính xác và có thể hành động hơn, OpenSecrets đang góp phần vào một công dân được thông tin tốt hơn và các thể chế dân chủ phản hồi tốt hơn.</p>
+
 
 
 
@@ -1856,19 +1945,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1757519746"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1757519746"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1757519746"></script>
-    <script src="../../../js/jquery.sticky.js?1757519746"></script>
-    <script src="../../../js/featherlight.min.js?1757519746"></script>
-    <script src="../../../js/highlight.pack.js?1757519746"></script>
+    <script src="../../../js/clipboard.min.js?1757671282"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1757671282"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1757671282"></script>
+    <script src="../../../js/jquery.sticky.js?1757671282"></script>
+    <script src="../../../js/featherlight.min.js?1757671282"></script>
+    <script src="../../../js/highlight.pack.js?1757671282"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1757519746"></script>
-    <script src="../../../js/learn.js?1757519746"></script>
-    <script src="../../../js/hugo-learn.js?1757519746"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1757671282"></script>
+    <script src="../../../js/learn.js?1757671282"></script>
+    <script src="../../../js/hugo-learn.js?1757671282"></script>
 
-    <link href="../../../mermaid/mermaid.css?1757519746" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1757519746"></script>
+    <link href="../../../mermaid/mermaid.css?1757671282" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1757671282"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
