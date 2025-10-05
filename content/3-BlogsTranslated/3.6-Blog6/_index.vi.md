@@ -10,118 +10,143 @@ pre: " <b> 3.6. </b> "
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+# Từ Linh Hoạt Đến Khung: Thực Thi Thứ Tự Công Cụ Trong MCP Servers
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+The **Model Context Protocol (MCP)** được tạo ra nhằm mang lại tính nhất quán trong cách các ứng dụng tương tác với các mô hình AI sinh. Thay vì phải chắp vá từng tích hợp riêng lẻ cho mỗi mô hình hoặc môi trường lưu trữ, MCP cung cấp một **lớp giao tiếp chuẩn hóa**.
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
+## Giới Thiệu: Tại Sao MCP Quan Trọng
 
----
+**Model Context Protocol (MCP)** được tạo ra để mang tính nhất quán vào cách các ứng dụng tương tác với các mô hình Generative AI. Thay vì ghép lại các tích hợp riêng biệt cho mỗi mô hình hoặc môi trường hosting, MCP cung cấp **lớp giao tiếp chuẩn hóa**.
 
-## Hướng dẫn kiến trúc
+Việc chuẩn hóa này làm cho nó mạnh mẽ cho các ứng dụng AI, đặc biệt là những ứng dụng dựa vào agent sử dụng công cụ bên ngoài. Nhưng với sự linh hoạt này đi kèm một khoảng trống: **MCP không tự nhiên thực thi trình tự mà các công cụ nên được sử dụng**. Trong các tình huống như **Infrastructure as Code (IaC)**, sự thiếu thứ tự này có thể dẫn đến thất bại workflow quan trọng.
 
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
-
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
-
-**Kiến trúc giải pháp bây giờ như sau:**
-
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
 
 ---
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
+## Thách Thức: Tại Sao Thứ Tự Công Cụ Quan Trọng
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+MCP cho phép một LLM (thông qua agent) gọi bất kỳ công cụ có sẵn nào—chẳng hạn như gửi email hoặc lấy dữ liệu thời tiết—mà không có hạn chế về thứ tự. Nhưng trong thực tế, nhiều công cụ có phụ thuộc.
 
----
+### Các Tình Huống Phụ Thuộc Phổ Biến
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+* **Chained calls** – Một công cụ phải chạy trước công cụ khác.
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+  * Ví dụ: `getOrderId()` phải đứng trước `getOrderDetail()`.
+  * Ví dụ: `fetch_weather_data()` phải chạy trước `send_email()`.
+* **Hành Vi Mặc Định Của MCP** – Tất cả công cụ hoạt động như các hàm độc lập. Framework không biết cái nào nên đến trước.
 
----
+Điều này đặc biệt có vấn đề trong các quy trình có cấu trúc như **CI/CD pipelines**, nơi mọi giai đoạn phải chạy theo thứ tự nghiêm ngặt:
 
-## The pub/sub hub
+1. Một pull request kích hoạt pipeline.
+2. Linting, unit tests, và security checks được chạy.
+3. Một lỗi dừng workflow ngay lập tức.
 
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
-
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+Thêm vào đó **hành vi không xác định của LLMs**—nơi các prompt giống hệt nhau không luôn tạo ra output giống hệt nhau—và bạn thấy nhu cầu về **một cơ chế để thực thi thứ tự mà không hy sinh sự linh hoạt**.
 
 ---
 
-## Core microservice
+## Hiểu Về MCP Communication
 
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
+MCP định nghĩa ba giai đoạn lifecycle:
 
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+1. **Initialization** – Client và server thỏa thuận phiên bản giao thức và khả năng.
+2. **Operation** – Client gọi công cụ và xử lý responses.
+3. **Shutdown** – Kết nối đóng một cách graceful.
 
----
+Trong **initialization**, MCP server chia sẻ các công cụ có sẵn, schema của chúng, và hướng dẫn sử dụng. Dữ liệu schema này cho phép AI agent học không chỉ những công cụ nào tồn tại, mà còn những input và output chúng mong đợi.
 
-## Front door microservice
-
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+Ví dụ, một tool schema có thể yêu cầu một `Result from get_aws_session_info()` hoặc một `security_scan_token`. Bằng cách expose những yêu cầu này sớm, MCP tạo cơ hội để hướng dẫn workflows.
 
 ---
 
-## Staging ER7 microservice
+## Giải Pháp: Token-Based Orchestration
 
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+Vì MCP không cung cấp phụ thuộc trực tiếp giữa các công cụ, **CCAPI MCP server** giới thiệu **mô hình token messenger**.
+
+Thay vì các công cụ truyền thông tin cho nhau, server phát hành **các token bảo mật cryptographic** hoạt động như bằng chứng một phụ thuộc đã được thỏa mãn.
+
+### Cách Nó Hoạt Động
+
+#### 1. Enhanced Functions với `@mcp.tool()`
+
+* Mọi công cụ được wrap với quy tắc validation input và định nghĩa schema.
+* Tài liệu làm rõ ràng những gì mỗi công cụ yêu cầu.
+* Ví dụ: `generate_infrastructure_code()` sẽ không chạy trừ khi một `session_token` hợp lệ được cung cấp.
+
+#### 2. Dependency Discovery Tại Initialization
+
+* Server publish bản đồ phụ thuộc đầy đủ trong quá trình khởi động.
+* AI agent học những tham số (và tokens) nào cần thiết trước khi một công cụ có thể chạy.
+* Ví dụ trình tự:
+
+  ```
+  get_aws_session_info() → generate_infrastructure_code() → run_checkov() → create_resource()
+  ```
+
+#### 3. Server-Side Token Validation
+
+* Tokens được lưu trữ trong memory (`_workflow_store`) và expire sau khi sử dụng.
+* Công cụ consume tokens và tạo ra tokens mới, tạo thành một chuỗi.
+* Nếu token bị thiếu, hết hạn, hoặc tái sử dụng, hoạt động thất bại ngay lập tức.
+
+Điều này đảm bảo công cụ tuân theo trình tự dự định mà không cần LLM "đoán" thứ tự đúng.
 
 ---
 
-## Tính năng mới trong giải pháp
+## Ví Dụ Workflow
 
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+1. `get_aws_session_info()` → tạo ra `session_token`.
+2. `generate_infrastructure_code()` → validate `session_token`, consume nó, và tạo `generated_code_token`.
+3. `run_checkov()` → yêu cầu `generated_code_token`, sau đó tạo ra `security_scan_token`.
+4. `create_resource()` → thực thi chỉ khi `security_scan_token` hợp lệ.
+
+Điều này tạo ra **chuỗi cryptographic của trust** thực thi tính toàn vẹn workflow.
+
+---
+
+## Thách Thức và Hạn Chế
+
+### 1. Quản Lý Session
+
+* Tokens được gắn với sessions và reset khi sessions expire.
+* Điều này phản ánh **AWS credential expiration**, phù hợp bảo mật với lifecycle workflow.
+
+### 2. Concurrent Sessions
+
+* Mỗi workflow chạy độc lập, tránh cross-contamination giữa các agent.
+
+### 3. Persistence
+
+* Tokens được gắn với memory vì bảo mật.
+* Persistent storage có thể nhưng thường không cần thiết, vì tokens được thiết kế ngắn hạn.
+
+---
+
+## Nhìn Về Phía Trước: Tương Lai Của MCP
+
+Trong khi token orchestration hoạt động ngày nay, giao thức MCP có thể phát triển để hỗ trợ workflows deterministic một cách tự nhiên hơn.
+
+* **Schema-Defined Dependencies**
+
+  ```python
+  @mcp.tool(depends_on=["run_checkov"])
+  ```
+* **Lifecycle Hooks** – Tương tự như hooks của Claude Code, những hooks này sẽ thực thi thứ tự được đảm bảo bên trong framework.
+
+Đối với IaC, CI/CD, và các domain deterministic khác, những cải tiến này sẽ thiết yếu cho việc áp dụng ở quy mô.
+
+---
+
+## Kết Luận
+
+Điểm mạnh của MCP nằm ở sự linh hoạt của nó, nhưng các workflow enterprise phức tạp yêu cầu **tính dự đoán và kiểm soát**.
+
+Bằng cách thêm **token-based orchestration** vào **CCAPI MCP server**:
+
+* Thực thi thứ tự công cụ nghiêm ngặt.
+* Bảo mật workflows với validation server-side.
+* Giữ kiến trúc linh hoạt của MCP.
+
+Cách tiếp cận này cho thấy MCP có thể chuyển từ **linh hoạt đến framework**—hỗ trợ cả đổi mới và độ tin cậy nghiêm ngặt được yêu cầu cho quản lý cloud infrastructure.
+
+Câu chuyện của MCP vẫn đang diễn ra, nhưng token-based orchestration cung cấp một con đường rõ ràng phía trước: **từ thử nghiệm đến operations enterprise-grade**.

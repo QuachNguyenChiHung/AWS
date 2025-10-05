@@ -9,118 +9,143 @@ pre: " <b> 3.6. </b> "
 ⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
 {{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# From Flexibility to Framework: Enforcing Tool Order in MCP Servers
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+The **Model Context Protocol (MCP)** was created to bring consistency to how applications interact with Generative AI models. Instead of piecing together separate integrations for every model or hosting environment, MCP provides a **standardized communication layer**.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+## Introduction: Why MCP is Important
 
----
 
-## Architecture Guidance
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
+This standardization makes it powerful for AI applications, especially those that rely on agents using external tools. But with this flexibility comes a gap: **MCP doesn’t natively enforce the sequence in which tools should be used**. In scenarios like **Infrastructure as Code (IaC)**, this lack of ordering can lead to critical workflow failures.
 
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## The Challenge: Why Tool Ordering Matters
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+MCP lets an LLM (via an agent) call any available tool—such as sending an email or fetching weather data—without restrictions on order. But in practice, many tools have dependencies.
 
----
+### Common Dependency Scenarios
 
-## Technology Choices and Communication Scope
+* **Chained calls** – One tool must run before another.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+  * Example: `getOrderId()` must precede `getOrderDetail()`.
+  * Example: `fetch_weather_data()` must run before `send_email()`.
+* **MCP’s Default Behavior** – All tools act as independent functions. The framework doesn’t know which one should come first.
 
----
+This is especially problematic in structured processes like **CI/CD pipelines**, where every stage must run in a strict order:
 
-## The Pub/Sub Hub
+1. A pull request triggers the pipeline.
+2. Linting, unit tests, and security checks are run.
+3. A failure halts the workflow immediately.
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
-
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+Add to this the **non-deterministic behavior of LLMs**—where identical prompts don’t always yield identical outputs—and you see the need for **a mechanism to enforce order without sacrificing flexibility**.
 
 ---
 
-## Core Microservice
+## Understanding MCP Communication
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
+MCP defines three lifecycle phases:
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+1. **Initialization** – The client and server negotiate protocol version and capabilities.
+2. **Operation** – The client invokes tools and processes responses.
+3. **Shutdown** – The connection closes gracefully.
 
----
+During **initialization**, the MCP server shares available tools, their schemas, and usage instructions. This schema data allows the AI agent to learn not only what tools exist, but also what inputs and outputs they expect.
 
-## Front Door Microservice
-
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+For instance, a tool schema might require a `Result from get_aws_session_info()` or a `security_scan_token`. By exposing these requirements early, MCP creates an opportunity to guide workflows.
 
 ---
 
-## Staging ER7 Microservice
+## The Solution: Token-Based Orchestration
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+Because MCP doesn’t provide direct dependencies between tools, the **CCAPI MCP server** introduces a **token messenger pattern**.
+
+Instead of tools passing information to each other, the server issues **cryptographically secure tokens** that act as proof a dependency was satisfied.
+
+### How It Works
+
+#### 1. Enhanced Functions with `@mcp.tool()`
+
+* Every tool is wrapped with input validation rules and schema definitions.
+* Documentation makes explicit what each tool requires.
+* Example: `generate_infrastructure_code()` won’t run unless a valid `session_token` is supplied.
+
+#### 2. Dependency Discovery at Initialization
+
+* The server publishes a full dependency map during startup.
+* The AI agent learns which parameters (and tokens) are needed before a tool can run.
+* Example sequence:
+
+  ```
+  get_aws_session_info() → generate_infrastructure_code() → run_checkov() → create_resource()
+  ```
+
+#### 3. Server-Side Token Validation
+
+* Tokens are stored in memory (`_workflow_store`) and expire after use.
+* Tools consume tokens and generate new ones, forming a chain.
+* If a token is missing, expired, or reused, the operation fails instantly.
+
+This ensures tools follow the intended sequence without the LLM “guessing” the right order.
 
 ---
 
-## New Features in the Solution
+## Example Workflow
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+1. `get_aws_session_info()` → generates `session_token`.
+2. `generate_infrastructure_code()` → validates `session_token`, consumes it, and creates `generated_code_token`.
+3. `run_checkov()` → requires `generated_code_token`, then produces `security_scan_token`.
+4. `create_resource()` → executes only if `security_scan_token` is valid.
+
+This creates a **cryptographic chain of trust** that enforces workflow integrity.
+
+---
+
+## Challenges and Limitations
+
+### 1. Session Management
+
+* Tokens are bound to sessions and reset when sessions expire.
+* This mirrors **AWS credential expiration**, aligning security with workflow lifecycles.
+
+### 2. Concurrent Sessions
+
+* Each workflow runs independently, avoiding cross-contamination between agents.
+
+### 3. Persistence
+
+* Tokens are memory-bound for security.
+* Persistent storage is possible but generally unnecessary, as tokens are meant to be short-lived.
+
+---
+
+## Looking Ahead: The Future of MCP
+
+While token orchestration works today, the MCP protocol could evolve to support deterministic workflows more natively.
+
+* **Schema-Defined Dependencies**
+
+  ```python
+  @mcp.tool(depends_on=["run_checkov"])
+  ```
+* **Lifecycle Hooks** – Similar to Claude Code’s hooks, these would enforce guaranteed ordering inside the framework.
+
+For IaC, CI/CD, and other deterministic domains, these enhancements will be essential for adoption at scale.
+
+---
+
+## Conclusion
+
+MCP’s strength lies in its flexibility, but complex enterprise workflows require **predictability and control**.
+
+By adding **token-based orchestration** to the **CCAPI MCP server**:
+
+* Enforced strict tool ordering.
+* Secured workflows with server-side validation.
+* Preserved MCP’s flexible architecture.
+
+This approach shows how MCP can move from **flexibility to framework**—supporting both innovation and the strict reliability required for cloud infrastructure management.
+
+The story of MCP is still unfolding, but token-based orchestration offers a clear path forward: **from experimentation to enterprise-grade operations**.

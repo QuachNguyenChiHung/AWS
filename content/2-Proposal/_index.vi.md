@@ -11,57 +11,225 @@ pre: " <b> 2. </b> "
 
 Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+# Bán thời trang : FFF
 
 ### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+Giải pháp được đề xuất là nền tảng trang web bán thông tin phát triển khai trên AWS, tận dụng công nghệ serverless và AI để quản lý doanh nghiệp một hệ thống thương mại điện tử an toàn, ổn định, chi phí tối ưu và dễ dàng mở rộng.
 
 ### 2. Tuyên bố vấn đề  
 *Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+Doanh nghiệp nhỏ hoặc startup thường không đủ ngân sách để xây dựng hạ tầng phức tạp.
+Việc tự vận hành server truyền thống tốn kém (phần cứng, bảo trì, nhân sự vận hành).
+Khi số lượng khách hàng tăng đột biến, hệ thống truyền thống dễ bị quá tải, gây gián đoạn dịch vụ.
+Không có AI gợi ý sản phẩm, chatbot tư vấn, hoặc hệ thống dữ liệu hỗ trợ ra quyết định.
+Khó theo dõi hành vi khách hàng, tối ưu bán hàng và marketing.
 
 *Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+Kiến trúc serverless → tự động mở rộng, tối ưu chi phí, không cần quản lý hạ tầng phức tạp.
+Đảm bảo tính an toàn, ổn định, khả dụng cao nhờ dịch vụ AWS bảo mật và giám sát.
+Phù hợp cho doanh nghiệp vừa & nhỏ cần thử nghiệm thị trường trước khi đầu tư lớn.
+Chỉ từ 50–100 USD/tháng, giúp giảm rủi ro tài chính.
+AI Chatbot hỗ trợ khách hàng 24/7, giảm tải nhân viên tư vấn, tăng sự hài lòng, gợi ý sản phẩm giúp tăng tỷ lệ chuyển đổi và giá trị đơn hàng.
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
 
 ### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
-
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
-
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
 
 *Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+#### 1. Frontend (Web + CDN)
+- **Amazon S3** → Lưu trữ và host static web (Next.js build). Giúp giảm chi phí, không cần web server truyền thống.
+- **Amazon CloudFront** → CDN phân phối nội dung toàn cầu, hỗ trợ SSL, giảm độ trễ tải trang.
+- **Amazon Route 53** → Quản lý domain, DNS, routing traffic đến CloudFront/S3.
 
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+#### 2. Backend & API
+- **Amazon API Gateway** → Cổng API nhận request từ frontend, điều phối đến Lambda/Fargate.
+- **AWS Lambda** → Chạy code serverless (Node.js, Python...) cho API mà không cần server.
+- **Amazon ECS Fargate** → Chạy container backend (nếu có service phức tạp, cần runtime dài hơn Lambda).
+- **Amazon ECR** → Lưu trữ Docker image để ECS Fargate lấy và chạy.
+
+#### 3. Database & Storage
+- **Amazon RDS (PostgreSQL)** → Database quan hệ chính (lưu users, products, orders...).
+- **Amazon DynamoDB** → NoSQL database để lưu session, metadata, cache nhẹ.
+- **Amazon S3** → Lưu ảnh sản phẩm, hóa đơn, dữ liệu phân tích (data lake).
+- **Amazon ElastiCache (Redis)** → Cache in-memory để tăng tốc đọc dữ liệu, giữ session tạm thời.
+
+#### 4. Search & Events
+- **Amazon OpenSearch** → Search engine cho sản phẩm, phân tích log.
+- **Amazon SQS** → Queue để xử lý đơn hàng hoặc tác vụ async (giảm tải API chính).
+- **Amazon SNS** → Gửi thông báo (email, SMS, push notification) khi có sự kiện.
+- **Amazon EventBridge** → Event bus để kết nối service (ví dụ trigger AI pipeline khi có order mới).
+
+#### 5. AI & Machine Learning
+- **Amazon Personalize** → Tạo gợi ý sản phẩm cá nhân hóa cho từng khách hàng.
+- **Amazon Lex** → Chatbot AI hỗ trợ khách hàng 24/7.
+- **Amazon Comprehend** → Phân tích cảm xúc và từ khóa trong đánh giá khách hàng.
+- **Amazon Fraud Detector** → Phát hiện giao dịch gian lận.
+- **Amazon Forecast** → Dự báo tồn kho và nhu cầu bán hàng (triển khai giai đoạn sau).
+- **Amazon SageMaker** → Train/deploy model ML tùy chỉnh nếu giải pháp AI mặc định không đủ.
+
+#### 6. Data Lake & ETL
+- **Amazon S3 (Data Lake)** → Lưu dữ liệu raw + processed để phân tích.
+- **AWS Glue** → ETL job dọn dẹp và chuẩn hóa dữ liệu.
+- **Amazon Athena** → Query dữ liệu trực tiếp trên S3 bằng SQL (serverless).
+- **AWS Lake Formation** → Quản lý quyền truy cập dữ liệu trong data lake.
+- **Amazon Kinesis** → Thu thập sự kiện, clickstream từ người dùng theo thời gian thực.
+
+#### 7. Authentication & Security
+- **Amazon Cognito** → Đăng ký, đăng nhập, quản lý user pool (SSO, OAuth2).
+- **AWS IAM** → Quản lý role và quyền truy cập giữa các dịch vụ.
+- **AWS KMS** → Mã hóa dữ liệu trong RDS, S3, DynamoDB.
+- **AWS Secrets Manager** → Lưu API keys, mật khẩu DB, xoay vòng secret tự động.
+- **AWS WAF** → Lọc request xấu, chống tấn công OWASP Top 10.
+- **AWS Shield** → Bảo vệ khỏi tấn công DDoS.
+
+#### 8. Observability & Monitoring
+- **Amazon CloudWatch** → Thu thập log, metric, thiết lập cảnh báo.
+- **AWS X-Ray** → Trace request end-to-end, tìm bottleneck.
+- **Amazon Managed Grafana** → Dashboard trực quan hóa metric, logs.
+- **OpenSearch Dashboards** → Giao diện tìm kiếm & phân tích log từ OpenSearch.
+- **Amazon SNS** → Gửi cảnh báo khi có lỗi hoặc vượt ngưỡng.
+
+#### 9. CI/CD & IaC
+- **Terraform / AWS CDK** → IaC (Infrastructure as Code) để triển khai hạ tầng tự động.
+- **GitHub Actions** → CI/CD pipeline: lint → test → build → deploy lên AWS.
+- **Amazon CodeArtifact** (optional) → Quản lý private package repository.
+
+#### 10. Backup & DR
+- **Amazon RDS Snapshot** → Backup database tự động.
+- **Amazon S3 Versioning + Cross-Region Replication** → Backup file và data lake sang vùng khác (DR).
 
 ### 4. Triển khai kỹ thuật  
 *Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+#### 1. Tech Lead / Architect
+
+**Tuần 0–2**
+- Thiết kế kiến trúc: VPC, RDS, S3, Cognito, OpenSearch.
+- Viết tài liệu kiến trúc + sơ đồ mạng.
+- Review Terraform modules.
+
+**Tuần 3–12**
+- Code review, approve PRs.
+- Đảm bảo SLO: latency, error budget, cost.
+- Kiểm thử DR drill, review runbooks.
+
+✅ **Deliverables:**  
+- Diagram, tài liệu kiến trúc  
+- SLO/SLA  
+- IAM model
+
+---
+
+#### 2. Frontend Engineer
+
+**Tuần 1–2**
+- Scaffold Vite project (JavaScript + Bootstrap).
+- Tích hợp Cognito auth (login/signup).
+
+**Tuần 3–6**
+- Xây dựng UI: home, product list, product detail, cart, checkout.
+- Upload hình ảnh qua S3 pre-signed URL.
+
+**Tuần 7–9**
+- Tích hợp chatbot widget (Lex).
+- Tích hợp gợi ý sản phẩm từ Personalize.
+
+**Tuần 10–12**
+- E2E tests (Playwright).
+- Tối ưu SEO + Lighthouse (>= 90).
+- Deploy build → CloudFront.
+
+✅ **Deliverables:**  
+- Source code web  
+- UI hoàn chỉnh  
+- Test report  
+- Build production
+
+---
+
+#### 3. Backend Engineer
+
+**Tuần 1–3**
+- Scaffold NestJS API, định nghĩa OpenAPI spec.
+- Thiết kế DB schema (Postgres, Prisma migration).
+
+**Tuần 4–6**
+- API: sản phẩm, giỏ hàng, đơn hàng.
+- Payment integration (stub).
+- Upload media (S3).
+
+**Tuần 7–9**
+- Lambda consumer cho SQS (order events).
+- API gợi ý (Personalize).
+- Fraud Detector scoring API.
+
+**Tuần 10–12**
+- Hardening: rate limit, validation.
+- Integration tests (Jest + Supertest).
+- Blue/green deployment support.
+
+✅ **Deliverables:**  
+- OpenAPI docs  
+- API tested  
+- DB migrations  
+- Docker image
+
+---
+
+#### 4. DevOps / SRE
+
+**Tuần 0–2**
+- Repo `/infra` + Terraform skeleton.
+- Setup GitHub Actions (lint → test → plan → apply).
+- State backend: S3 + DynamoDB lock.
+
+**Tuần 3–6**
+- Provision VPC, RDS, S3, Cognito, OpenSearch.
+- Deploy staging environment.
+
+**Tuần 7–9**
+- Monitoring: Grafana dashboards.
+- Alerts: SNS → Slack/email.
+- Backup policies: RDS snapshots, S3 versioning.
+
+**Tuần 10–12**
+- DR drill (restore RDS, cross-region S3).
+- Cost alerts, rightsizing.
+- Prod cutover: Route53 switch.
+
+✅ **Deliverables:**  
+- Terraform repo  
+- CI/CD pipelines  
+- Monitoring dashboards  
+- Runbooks
+
+---
+
+#### 5. Data / ML Engineer
+
+**Tuần 1–3**
+- Thiết kế schema event (click, view, purchase).
+- Pipeline: Kinesis → S3 raw.
+- Glue job ETL → Parquet.
+
+**Tuần 4–6**
+- Feed data vào Personalize.
+- Train + deploy campaign.
+
+**Tuần 7–9**
+- Chatbot Lex intents: FAQ, tracking order, gợi ý sản phẩm.
+- Fulfillment Lambda: query RDS, gọi Personalize API.
+
+**Tuần 10–12**
+- Forecast model cho tồn kho.
+- Model Monitor (drift detection).
+- Evaluation report.
+
+✅ **Deliverables:**  
+- ETL jobs + Parquet data  
+- Personalize campaign + chatbot intents  
+- Forecast model + monitoring  
+- Báo cáo đánh giá
+
 
 ### 5. Lộ trình & Mốc triển khai  
 - *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
@@ -69,7 +237,6 @@ Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây d�
     - Tháng 1: Học AWS và nâng cấp phần cứng.  
     - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
     - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
 
 ### 6. Ước tính ngân sách  
 Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  

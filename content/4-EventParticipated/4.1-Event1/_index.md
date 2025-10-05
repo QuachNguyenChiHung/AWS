@@ -10,117 +10,121 @@ pre: " <b> 4.1. </b> "
 ⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
 {{% /notice %}}
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# Summary Report: “Vietnam Cloud Day 2025 : Ho Chi Minh City Connect Edition for Builders”
 
 ### Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- Explore cloud migration & modernization strategies for enterprises
+- Showcase generative AI-powered tools for developers and businesses
+- Discuss executive leadership strategies for navigating AI disruption
+- Share best practices in cloud security, scalability, and operations
 
 ### Speakers
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- **Eric Yeo** – Country General Manager, Vietnam, Cambodia, Laos & Myanmar, AWS
+- **Dr. Jens Lottner** – CEO, Techcombank
+- **Ms. Trang Phung** – CEO & Co-Founder, U2U Network
+- **Jaime Valles** – Vice President, General Manager Asia Pacific and Japan, AWS
+- **Jeff Johnson** – Managing Director, ASEAN, AWS
+- **Vu Van** – Co-founder & CEO, ELSA Corp
+- **Nguyen Hoa Binh** – Chairman, Nexttech Group
+- **Dieter Botha** – CEO, TymeX
 
 ### Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+#### Executive & Customer Keynotes
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+- **AWS Vision & Strategy**: Cloud as a growth driver for Vietnam's digital economy
+- **Customer Success Stories**: Techcombank and U2U Network shared journeys in adopting cloud and innovating with AI
 
-#### Transitioning to modern application architecture – Microservices
+#### Panel Discussion: Navigating the GenAI Revolution
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+- **Leadership perspective**: How to align AI initiatives with business goals
+- **Culture building**: Encouraging innovation and managing organizational change
+- **Governance**: Balancing experimentation with compliance and risk management
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+#### Large-Scale Migration & Modernization
 
-#### Domain-Driven Design (DDD)
+Lessons from thousands of migrations:
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+- Mental models to de-risk transitions
+- Modernization pathways (rehost, replatform, refactor)
+- Real-world case study from Techcombank
 
-#### Event-Driven Architecture
+#### Modernizing Applications with Generative AI
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+- Amazon Q Developer showcased as an AI collaborator across SDLC
+- **Key capabilities**: Automated code generation, test creation, optimization suggestions, and security posture improvements
 
-#### Compute Evolution
+#### Application Modernization Panel
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+Experts from OCB, LPBank Securities, Ninety Eight discussed:
 
-#### Amazon Q Developer
+- Business agility through modernization
+- Best practices for managing legacy systems
+- Adoption challenges and success factors
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+#### Security & Operations
+
+- AI-enhanced cloud security: Threat detection, remediation automation
+- Zero-trust principles applied from dev to production environments  
 
 ### Key Takeaways
 
-#### Design Mindset
+#### Business & Strategy
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+- AI is now a board-level topic — leadership must set clear business-aligned objectives
+- Migration-first mindset: Lay a strong foundation before deep modernization
 
-#### Technical Architecture
+#### Technology & Architecture
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+- Event-driven and microservices architectures as the future of scalable systems
+- Automation-first approach to security, code quality, and operations
+- VMware-to-AWS roadmaps for cost-effective cloud transformation
 
-#### Modernization Strategy
+#### People & Culture
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+- Build a culture of experimentation but keep guardrails for compliance
+- Upskill teams to use AI tools effectively (Amazon Q Developer, LLM-powered workflows)  
 
 ### Applying to Work
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+- Audit existing workloads to identify quick wins for modernization
+- Introduce event-driven design where possible to improve scalability
+- Pilot Amazon Q Developer for documentation, test generation, and code review
+- Strengthen security posture with AWS security services and AI-powered monitoring
+- Use panel insights to drive internal alignment on AI and cloud strategy  
 
 ### Event Experience
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+Attending the "Connect Edition for Builders" in Ho Chi Minh City offered both strategic and technical depth:
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+#### Learning from Leaders
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+- Heard directly from AWS regional leadership about cloud's role in Vietnam's growth
+- Gained CEO-level perspectives on balancing innovation with risk
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+#### Technical Insights
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+- Deep-dive into AWS migration accelerators, EKS modernization patterns, and serverless-first strategies
+- Real demos of Amazon Q Developer improving code lifecycle efficiency
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+#### Networking
+
+- Engaged with tech leaders from banks, startups, and cloud-native companies
+- Shared best practices with peers on application modernization and GenAI adoption
+
+#### Lessons Learned
+
+- Modernization is a journey: phased, measurable, and business-driven
+- Generative AI is a force multiplier — not just for code, but for documentation, testing, and security
+- Security by design must be embedded early, not bolted on later  
 
 #### Some event photos
-*Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+![Your profile picture](/images/e1.jpg)
+![Your profile picture](/images/e2.jpg)
+![Your profile picture](/images/e3.jpg)
+![Your profile picture](/images/e4.jpg)
+![Your profile picture](/images/e5.jpg)
+![Your profile picture](/images/e6.jpg)
+![Your profile picture](/images/e7.jpg)

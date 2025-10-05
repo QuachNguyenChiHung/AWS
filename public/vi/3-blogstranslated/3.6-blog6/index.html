@@ -15,21 +15,21 @@
     <title>Blog 6 :: Báo cáo thực tập</title>
 
     
-    <link href="../../../css/nucleus.css?1757671247" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1757671247" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1757671247" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1757671247" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1757671247" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1757671247" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1757671247" rel="stylesheet">
-    <link href="../../../css/theme.css?1757671247" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1757671247" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1759668132" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1759668132" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1759668132" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1759668132" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1759668132" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1759668132" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1759668132" rel="stylesheet">
+    <link href="../../../css/theme.css?1759668132" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1759668132" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1757671247" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1759668132" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1757671247"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1759668132"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1757671247"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1757671247"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1759668132"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1759668132"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/workshop-template\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1757671247"></script>
+<script type="text/javascript" src="../../../js/search.js?1759668132"></script>
  
   </div>
 
@@ -456,7 +456,7 @@
         "
 >
   <a href="../../../vi/3-blogstranslated/3.5-blog5/">
-     <b> 3.6. </b> Blog 5 
+     <b> 3.5. </b> Blog 5 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -986,17 +986,28 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li><a href="#hướng-dẫn-kiến-trúc">Hướng dẫn kiến trúc</a></li>
-    <li><a href="#lựa-chọn-công-nghệ-và-phạm-vi-giao-tiếp">Lựa chọn công nghệ và phạm vi giao tiếp</a></li>
-    <li><a href="#the-pubsub-hub">The pub/sub hub</a></li>
-    <li><a href="#core-microservice">Core microservice</a></li>
-    <li><a href="#front-door-microservice">Front door microservice</a></li>
-    <li><a href="#staging-er7-microservice">Staging ER7 microservice</a></li>
-    <li><a href="#tính-năng-mới-trong-giải-pháp">Tính năng mới trong giải pháp</a>
+    <li><a href="#giới-thiệu-tại-sao-mcp-quan-trọng">Giới Thiệu: Tại Sao MCP Quan Trọng</a></li>
+    <li><a href="#thách-thức-tại-sao-thứ-tự-công-cụ-quan-trọng">Thách Thức: Tại Sao Thứ Tự Công Cụ Quan Trọng</a>
       <ul>
-        <li><a href="#1-aws-cloudformation-cross-stack-references">1. AWS CloudFormation cross-stack references</a></li>
+        <li><a href="#các-tình-huống-phụ-thuộc-phổ-biến">Các Tình Huống Phụ Thuộc Phổ Biến</a></li>
       </ul>
     </li>
+    <li><a href="#hiểu-về-mcp-communication">Hiểu Về MCP Communication</a></li>
+    <li><a href="#giải-pháp-token-based-orchestration">Giải Pháp: Token-Based Orchestration</a>
+      <ul>
+        <li><a href="#cách-nó-hoạt-động">Cách Nó Hoạt Động</a></li>
+      </ul>
+    </li>
+    <li><a href="#ví-dụ-workflow">Ví Dụ Workflow</a></li>
+    <li><a href="#thách-thức-và-hạn-chế">Thách Thức và Hạn Chế</a>
+      <ul>
+        <li><a href="#1-quản-lý-session">1. Quản Lý Session</a></li>
+        <li><a href="#2-concurrent-sessions">2. Concurrent Sessions</a></li>
+        <li><a href="#3-persistence">3. Persistence</a></li>
+      </ul>
+    </li>
+    <li><a href="#nhìn-về-phía-trước-tương-lai-của-mcp">Nhìn Về Phía Trước: Tương Lai Của MCP</a></li>
+    <li><a href="#kết-luận">Kết Luận</a></li>
   </ul>
 </nav></div>
 </div>
@@ -1030,129 +1041,125 @@
 
 </div>
 
-<h1 id="bắt-đầu-với-healthcare-data-lakes-sử-dụng-microservices">Bắt đầu với healthcare data lakes: Sử dụng microservices</h1>
-<p>Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. <strong>Data lake</strong> là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.</p>
-<p>Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, <em>“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”</em>, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.</p>
+<h1 id="từ-linh-hoạt-đến-khung-thực-thi-thứ-tự-công-cụ-trong-mcp-servers">Từ Linh Hoạt Đến Khung: Thực Thi Thứ Tự Công Cụ Trong MCP Servers</h1>
+<p>The <strong>Model Context Protocol (MCP)</strong> được tạo ra nhằm mang lại tính nhất quán trong cách các ứng dụng tương tác với các mô hình AI sinh. Thay vì phải chắp vá từng tích hợp riêng lẻ cho mỗi mô hình hoặc môi trường lưu trữ, MCP cung cấp một <strong>lớp giao tiếp chuẩn hóa</strong>.</p>
+<h2 id="giới-thiệu-tại-sao-mcp-quan-trọng">Giới Thiệu: Tại Sao MCP Quan Trọng</h2>
+<p><strong>Model Context Protocol (MCP)</strong> được tạo ra để mang tính nhất quán vào cách các ứng dụng tương tác với các mô hình Generative AI. Thay vì ghép lại các tích hợp riêng biệt cho mỗi mô hình hoặc môi trường hosting, MCP cung cấp <strong>lớp giao tiếp chuẩn hóa</strong>.</p>
+<p>Việc chuẩn hóa này làm cho nó mạnh mẽ cho các ứng dụng AI, đặc biệt là những ứng dụng dựa vào agent sử dụng công cụ bên ngoài. Nhưng với sự linh hoạt này đi kèm một khoảng trống: <strong>MCP không tự nhiên thực thi trình tự mà các công cụ nên được sử dụng</strong>. Trong các tình huống như <strong>Infrastructure as Code (IaC)</strong>, sự thiếu thứ tự này có thể dẫn đến thất bại workflow quan trọng.</p>
 <hr>
-<h2 id="hướng-dẫn-kiến-trúc">Hướng dẫn kiến trúc</h2>
-<p>Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.</p>
-<p>Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các <strong>HL7v2 messages</strong> được định dạng theo <strong>Quy tắc mã hóa 7 (ER7)</strong> thông qua giao diện REST.</p>
-<p><strong>Kiến trúc giải pháp bây giờ như sau:</strong></p>
-<blockquote>
-<p><em>Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.</em></p>
-</blockquote>
-<hr>
-<p>Mặc dù thuật ngữ <em>microservices</em> có một số sự mơ hồ cố hữu, một số đặc điểm là chung:</p>
+<h2 id="thách-thức-tại-sao-thứ-tự-công-cụ-quan-trọng">Thách Thức: Tại Sao Thứ Tự Công Cụ Quan Trọng</h2>
+<p>MCP cho phép một LLM (thông qua agent) gọi bất kỳ công cụ có sẵn nào—chẳng hạn như gửi email hoặc lấy dữ liệu thời tiết—mà không có hạn chế về thứ tự. Nhưng trong thực tế, nhiều công cụ có phụ thuộc.</p>
+<h3 id="các-tình-huống-phụ-thuộc-phổ-biến">Các Tình Huống Phụ Thuộc Phổ Biến</h3>
 <ul>
-<li>Chúng nhỏ, tự chủ, kết hợp rời rạc</li>
-<li>Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ</li>
-<li>Chuyên biệt để giải quyết một việc</li>
-<li>Thường được triển khai trong <strong>event-driven architecture</strong></li>
+<li>
+<p><strong>Chained calls</strong> – Một công cụ phải chạy trước công cụ khác.</p>
+<ul>
+<li>Ví dụ: <code>getOrderId()</code> phải đứng trước <code>getOrderDetail()</code>.</li>
+<li>Ví dụ: <code>fetch_weather_data()</code> phải chạy trước <code>send_email()</code>.</li>
 </ul>
-<p>Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:</p>
-<ul>
-<li><strong>Nội tại</strong>: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng</li>
-<li><strong>Bên ngoài</strong>: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng</li>
-<li><strong>Con người</strong>: quyền sở hữu nhóm, quản lý <em>cognitive load</em></li>
-</ul>
-<hr>
-<h2 id="lựa-chọn-công-nghệ-và-phạm-vi-giao-tiếp">Lựa chọn công nghệ và phạm vi giao tiếp</h2>
-<table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Phạm vi giao tiếp</th>
-          <th style="text-align: left">Các công nghệ / mô hình cần xem xét</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">Trong một microservice</td>
-          <td style="text-align: left">Amazon Simple Queue Service (Amazon SQS), AWS Step Functions</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Giữa các microservices trong một dịch vụ</td>
-          <td style="text-align: left">AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Giữa các dịch vụ</td>
-          <td style="text-align: left">Amazon EventBridge, AWS Cloud Map, Amazon API Gateway</td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<h2 id="the-pubsub-hub">The pub/sub hub</h2>
-<p>Việc sử dụng kiến trúc <strong>hub-and-spoke</strong> (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.</p>
-<ul>
-<li>Mỗi microservice chỉ phụ thuộc vào <em>hub</em></li>
-<li>Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất</li>
-<li>Giảm số lượng synchronous calls vì pub/sub là <em>push</em> không đồng bộ một chiều</li>
-</ul>
-<p>Nhược điểm: cần <strong>phối hợp và giám sát</strong> để tránh microservice xử lý nhầm message.</p>
-<hr>
-<h2 id="core-microservice">Core microservice</h2>
-<p>Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:</p>
-<ul>
-<li><strong>Amazon S3</strong> bucket cho dữ liệu</li>
-<li><strong>Amazon DynamoDB</strong> cho danh mục dữ liệu</li>
-<li><strong>AWS Lambda</strong> để ghi message vào data lake và danh mục</li>
-<li><strong>Amazon SNS</strong> topic làm <em>hub</em></li>
-<li><strong>Amazon S3</strong> bucket cho artifacts như mã Lambda</li>
-</ul>
-<blockquote>
-<p>Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.</p>
-</blockquote>
-<hr>
-<h2 id="front-door-microservice">Front door microservice</h2>
-<ul>
-<li>Cung cấp API Gateway để tương tác REST bên ngoài</li>
-<li>Xác thực &amp; ủy quyền dựa trên <strong>OIDC</strong> thông qua <strong>Amazon Cognito</strong></li>
-<li>Cơ chế <em>deduplication</em> tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-<ol>
-<li>SNS deduplication TTL chỉ 5 phút</li>
-<li>SNS FIFO yêu cầu SQS FIFO</li>
-<li>Chủ động báo cho sender biết message là bản sao</li>
-</ol>
+</li>
+<li>
+<p><strong>Hành Vi Mặc Định Của MCP</strong> – Tất cả công cụ hoạt động như các hàm độc lập. Framework không biết cái nào nên đến trước.</p>
 </li>
 </ul>
-<hr>
-<h2 id="staging-er7-microservice">Staging ER7 microservice</h2>
-<ul>
-<li>Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute</li>
-<li>Step Functions Express Workflow để chuyển ER7 → JSON</li>
-<li>Hai Lambda:
+<p>Điều này đặc biệt có vấn đề trong các quy trình có cấu trúc như <strong>CI/CD pipelines</strong>, nơi mọi giai đoạn phải chạy theo thứ tự nghiêm ngặt:</p>
 <ol>
-<li>Sửa format ER7 (newline, carriage return)</li>
-<li>Parsing logic</li>
+<li>Một pull request kích hoạt pipeline.</li>
+<li>Linting, unit tests, và security checks được chạy.</li>
+<li>Một lỗi dừng workflow ngay lập tức.</li>
 </ol>
+<p>Thêm vào đó <strong>hành vi không xác định của LLMs</strong>—nơi các prompt giống hệt nhau không luôn tạo ra output giống hệt nhau—và bạn thấy nhu cầu về <strong>một cơ chế để thực thi thứ tự mà không hy sinh sự linh hoạt</strong>.</p>
+<hr>
+<h2 id="hiểu-về-mcp-communication">Hiểu Về MCP Communication</h2>
+<p>MCP định nghĩa ba giai đoạn lifecycle:</p>
+<ol>
+<li><strong>Initialization</strong> – Client và server thỏa thuận phiên bản giao thức và khả năng.</li>
+<li><strong>Operation</strong> – Client gọi công cụ và xử lý responses.</li>
+<li><strong>Shutdown</strong> – Kết nối đóng một cách graceful.</li>
+</ol>
+<p>Trong <strong>initialization</strong>, MCP server chia sẻ các công cụ có sẵn, schema của chúng, và hướng dẫn sử dụng. Dữ liệu schema này cho phép AI agent học không chỉ những công cụ nào tồn tại, mà còn những input và output chúng mong đợi.</p>
+<p>Ví dụ, một tool schema có thể yêu cầu một <code>Result from get_aws_session_info()</code> hoặc một <code>security_scan_token</code>. Bằng cách expose những yêu cầu này sớm, MCP tạo cơ hội để hướng dẫn workflows.</p>
+<hr>
+<h2 id="giải-pháp-token-based-orchestration">Giải Pháp: Token-Based Orchestration</h2>
+<p>Vì MCP không cung cấp phụ thuộc trực tiếp giữa các công cụ, <strong>CCAPI MCP server</strong> giới thiệu <strong>mô hình token messenger</strong>.</p>
+<p>Thay vì các công cụ truyền thông tin cho nhau, server phát hành <strong>các token bảo mật cryptographic</strong> hoạt động như bằng chứng một phụ thuộc đã được thỏa mãn.</p>
+<h3 id="cách-nó-hoạt-động">Cách Nó Hoạt Động</h3>
+<h4 id="1-enhanced-functions-với-mcptool">1. Enhanced Functions với <code>@mcp.tool()</code></h4>
+<ul>
+<li>Mọi công cụ được wrap với quy tắc validation input và định nghĩa schema.</li>
+<li>Tài liệu làm rõ ràng những gì mỗi công cụ yêu cầu.</li>
+<li>Ví dụ: <code>generate_infrastructure_code()</code> sẽ không chạy trừ khi một <code>session_token</code> hợp lệ được cung cấp.</li>
+</ul>
+<h4 id="2-dependency-discovery-tại-initialization">2. Dependency Discovery Tại Initialization</h4>
+<ul>
+<li>
+<p>Server publish bản đồ phụ thuộc đầy đủ trong quá trình khởi động.</p>
 </li>
-<li>Kết quả hoặc lỗi được đẩy lại vào pub/sub hub</li>
+<li>
+<p>AI agent học những tham số (và tokens) nào cần thiết trước khi một công cụ có thể chạy.</p>
+</li>
+<li>
+<p>Ví dụ trình tự:</p>
+<pre tabindex="0"><code>get_aws_session_info() → generate_infrastructure_code() → run_checkov() → create_resource()
+</code></pre></li>
+</ul>
+<h4 id="3-server-side-token-validation">3. Server-Side Token Validation</h4>
+<ul>
+<li>Tokens được lưu trữ trong memory (<code>_workflow_store</code>) và expire sau khi sử dụng.</li>
+<li>Công cụ consume tokens và tạo ra tokens mới, tạo thành một chuỗi.</li>
+<li>Nếu token bị thiếu, hết hạn, hoặc tái sử dụng, hoạt động thất bại ngay lập tức.</li>
+</ul>
+<p>Điều này đảm bảo công cụ tuân theo trình tự dự định mà không cần LLM &ldquo;đoán&rdquo; thứ tự đúng.</p>
+<hr>
+<h2 id="ví-dụ-workflow">Ví Dụ Workflow</h2>
+<ol>
+<li><code>get_aws_session_info()</code> → tạo ra <code>session_token</code>.</li>
+<li><code>generate_infrastructure_code()</code> → validate <code>session_token</code>, consume nó, và tạo <code>generated_code_token</code>.</li>
+<li><code>run_checkov()</code> → yêu cầu <code>generated_code_token</code>, sau đó tạo ra <code>security_scan_token</code>.</li>
+<li><code>create_resource()</code> → thực thi chỉ khi <code>security_scan_token</code> hợp lệ.</li>
+</ol>
+<p>Điều này tạo ra <strong>chuỗi cryptographic của trust</strong> thực thi tính toàn vẹn workflow.</p>
+<hr>
+<h2 id="thách-thức-và-hạn-chế">Thách Thức và Hạn Chế</h2>
+<h3 id="1-quản-lý-session">1. Quản Lý Session</h3>
+<ul>
+<li>Tokens được gắn với sessions và reset khi sessions expire.</li>
+<li>Điều này phản ánh <strong>AWS credential expiration</strong>, phù hợp bảo mật với lifecycle workflow.</li>
+</ul>
+<h3 id="2-concurrent-sessions">2. Concurrent Sessions</h3>
+<ul>
+<li>Mỗi workflow chạy độc lập, tránh cross-contamination giữa các agent.</li>
+</ul>
+<h3 id="3-persistence">3. Persistence</h3>
+<ul>
+<li>Tokens được gắn với memory vì bảo mật.</li>
+<li>Persistent storage có thể nhưng thường không cần thiết, vì tokens được thiết kế ngắn hạn.</li>
 </ul>
 <hr>
-<h2 id="tính-năng-mới-trong-giải-pháp">Tính năng mới trong giải pháp</h2>
-<h3 id="1-aws-cloudformation-cross-stack-references">1. AWS CloudFormation cross-stack references</h3>
-<p>Ví dụ <em>outputs</em> trong core microservice:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Outputs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Bucket</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Bucket</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Bucket</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ArtifactBucket</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref ArtifactBucket</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-ArtifactBucket</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Topic</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Topic</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Topic</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Catalog</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Catalog</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Catalog</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CatalogArn</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">GetAtt Catalog.Arn</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-CatalogArn</span>
-</span></span></code></pre></div>
+<h2 id="nhìn-về-phía-trước-tương-lai-của-mcp">Nhìn Về Phía Trước: Tương Lai Của MCP</h2>
+<p>Trong khi token orchestration hoạt động ngày nay, giao thức MCP có thể phát triển để hỗ trợ workflows deterministic một cách tự nhiên hơn.</p>
+<ul>
+<li>
+<p><strong>Schema-Defined Dependencies</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a6e22e">@mcp.tool</span>(depends_on<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;run_checkov&#34;</span>])
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Lifecycle Hooks</strong> – Tương tự như hooks của Claude Code, những hooks này sẽ thực thi thứ tự được đảm bảo bên trong framework.</p>
+</li>
+</ul>
+<p>Đối với IaC, CI/CD, và các domain deterministic khác, những cải tiến này sẽ thiết yếu cho việc áp dụng ở quy mô.</p>
+<hr>
+<h2 id="kết-luận">Kết Luận</h2>
+<p>Điểm mạnh của MCP nằm ở sự linh hoạt của nó, nhưng các workflow enterprise phức tạp yêu cầu <strong>tính dự đoán và kiểm soát</strong>.</p>
+<p>Bằng cách thêm <strong>token-based orchestration</strong> vào <strong>CCAPI MCP server</strong>:</p>
+<ul>
+<li>Thực thi thứ tự công cụ nghiêm ngặt.</li>
+<li>Bảo mật workflows với validation server-side.</li>
+<li>Giữ kiến trúc linh hoạt của MCP.</li>
+</ul>
+<p>Cách tiếp cận này cho thấy MCP có thể chuyển từ <strong>linh hoạt đến framework</strong>—hỗ trợ cả đổi mới và độ tin cậy nghiêm ngặt được yêu cầu cho quản lý cloud infrastructure.</p>
+<p>Câu chuyện của MCP vẫn đang diễn ra, nhưng token-based orchestration cung cấp một con đường rõ ràng phía trước: <strong>từ thử nghiệm đến operations enterprise-grade</strong>.</p>
+
 
 
 
@@ -1856,19 +1863,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1757671247"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1757671247"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1757671247"></script>
-    <script src="../../../js/jquery.sticky.js?1757671247"></script>
-    <script src="../../../js/featherlight.min.js?1757671247"></script>
-    <script src="../../../js/highlight.pack.js?1757671247"></script>
+    <script src="../../../js/clipboard.min.js?1759668132"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1759668132"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1759668132"></script>
+    <script src="../../../js/jquery.sticky.js?1759668132"></script>
+    <script src="../../../js/featherlight.min.js?1759668132"></script>
+    <script src="../../../js/highlight.pack.js?1759668132"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1757671247"></script>
-    <script src="../../../js/learn.js?1757671247"></script>
-    <script src="../../../js/hugo-learn.js?1757671247"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1759668132"></script>
+    <script src="../../../js/learn.js?1759668132"></script>
+    <script src="../../../js/hugo-learn.js?1759668132"></script>
 
-    <link href="../../../mermaid/mermaid.css?1757671247" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1757671247"></script>
+    <link href="../../../mermaid/mermaid.css?1759668132" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1759668132"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

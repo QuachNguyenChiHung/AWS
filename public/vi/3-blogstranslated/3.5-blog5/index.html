@@ -15,21 +15,21 @@
     <title>Blog 5 :: Báo cáo thực tập</title>
 
     
-    <link href="../../../css/nucleus.css?1757671247" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1757671247" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1757671247" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1757671247" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1757671247" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1757671247" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1757671247" rel="stylesheet">
-    <link href="../../../css/theme.css?1757671247" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1757671247" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1759668132" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1759668132" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1759668132" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1759668132" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1759668132" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1759668132" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1759668132" rel="stylesheet">
+    <link href="../../../css/theme.css?1759668132" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1759668132" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1757671247" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1759668132" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1757671247"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1759668132"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1757671247"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1757671247"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1759668132"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1759668132"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/workshop-template\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1757671247"></script>
+<script type="text/javascript" src="../../../js/search.js?1759668132"></script>
  
   </div>
 
@@ -456,7 +456,7 @@
         "
 >
   <a href="../../../vi/3-blogstranslated/3.5-blog5/">
-     <b> 3.6. </b> Blog 5 
+     <b> 3.5. </b> Blog 5 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -986,17 +986,27 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li><a href="#hướng-dẫn-kiến-trúc">Hướng dẫn kiến trúc</a></li>
-    <li><a href="#lựa-chọn-công-nghệ-và-phạm-vi-giao-tiếp">Lựa chọn công nghệ và phạm vi giao tiếp</a></li>
-    <li><a href="#the-pubsub-hub">The pub/sub hub</a></li>
-    <li><a href="#core-microservice">Core microservice</a></li>
-    <li><a href="#front-door-microservice">Front door microservice</a></li>
-    <li><a href="#staging-er7-microservice">Staging ER7 microservice</a></li>
-    <li><a href="#tính-năng-mới-trong-giải-pháp">Tính năng mới trong giải pháp</a>
+    <li><a href="#chuyển-đổi-hướng-tới-hệ-thống-multi-agent">Chuyển Đổi Hướng Tới Hệ Thống Multi-Agent</a></li>
+    <li><a href="#từ-supervisor-đến-arbiter">Từ Supervisor Đến Arbiter</a></li>
+    <li><a href="#mô-hình-blackboard-được-xem-xét-lại">Mô Hình Blackboard Được Xem Xét Lại</a></li>
+    <li><a href="#cách-thức-hoạt-động-của-arbiter">Cách Thức Hoạt Động Của Arbiter</a>
       <ul>
-        <li><a href="#1-aws-cloudformation-cross-stack-references">1. AWS CloudFormation cross-stack references</a></li>
+        <li><a href="#arbiter-vs-supervisor">Arbiter vs Supervisor</a></li>
       </ul>
     </li>
+    <li><a href="#fabricator-agent-tạo-khả-năng-theo-yêu-cầu">Fabricator Agent: Tạo Khả Năng Theo Yêu Cầu</a>
+      <ul>
+        <li><a href="#cách-thức-hoạt-động">Cách Thức Hoạt Động</a></li>
+      </ul>
+    </li>
+    <li><a href="#generic-wrapper-runtime-thực-thi-động">Generic Wrapper: Runtime Thực Thi Động</a>
+      <ul>
+        <li><a href="#lợi-ích-của-hot-loading">Lợi Ích Của Hot-Loading</a></li>
+      </ul>
+    </li>
+    <li><a href="#workflow-end-to-end">Workflow End-to-End</a></li>
+    <li><a href="#khả-năng-chính-của-hệ-thống-arbiter">Khả Năng Chính Của Hệ Thống Arbiter</a></li>
+    <li><a href="#kết-luận-từ-supervision-đến-adaptation">Kết Luận: Từ Supervision Đến Adaptation</a></li>
   </ul>
 </nav></div>
 </div>
@@ -1030,129 +1040,114 @@
 
 </div>
 
-<h1 id="bắt-đầu-với-healthcare-data-lakes-sử-dụng-microservices">Bắt đầu với healthcare data lakes: Sử dụng microservices</h1>
-<p>Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. <strong>Data lake</strong> là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.</p>
-<p>Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, <em>“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”</em>, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.</p>
+<h1 id="cộng-tác-multi-agent-với-strands">Cộng Tác Multi-Agent với Strands</h1>
+<p>Khi các hệ thống tự động phát triển, sự cộng tác giữa nhiều agent đang chuyển từ lý thuyết thành yếu tố thiết yếu. Khi các agent có được khả năng suy luận nâng cao, khả năng thích ứng và sử dụng công cụ, câu hỏi không còn là <em>“Một agent có thể giải quyết một nhiệm vụ không?”</em> mà là <em>“Làm thế nào để nhiều agent có thể làm việc cùng nhau một cách hiệu quả?”</em></p>
+<h2 id="chuyển-đổi-hướng-tới-hệ-thống-multi-agent">Chuyển Đổi Hướng Tới Hệ Thống Multi-Agent</h2>
+<p>Mô hình <strong>Supervisor</strong>, được giới thiệu trong công trình trước đây về các AI agent bất đồng bộ với Amazon Bedrock, đã cung cấp bước đầu tiên theo hướng này. Hoạt động như một người điều phối tập trung, Supervisor quản lý các agent loosely coupled bằng cách ủy thác nhiệm vụ, xử lý fallback, và theo dõi trạng thái. Điều này cho phép các tổ chức tiến từ prototype single-agent đến các hệ thống multi-agent sơ khai.</p>
+<p>Nhưng khi các hệ thống trở nên năng động hơn, những hạn chế của supervision tĩnh xuất hiện. Workflow thay đổi liên tục, khả năng mới nổi lên, và coordination phải thích ứng theo thời gian thực. Đây là lúc mô hình <strong>Arbiter</strong> xuất hiện—bước tiến hóa tiếp theo của orchestration agentic, được thiết kế cho coordination thích ứng, có thể mở rộng và nhận thức context.</p>
 <hr>
-<h2 id="hướng-dẫn-kiến-trúc">Hướng dẫn kiến trúc</h2>
-<p>Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.</p>
-<p>Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các <strong>HL7v2 messages</strong> được định dạng theo <strong>Quy tắc mã hóa 7 (ER7)</strong> thông qua giao diện REST.</p>
-<p><strong>Kiến trúc giải pháp bây giờ như sau:</strong></p>
-<blockquote>
-<p><em>Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.</em></p>
-</blockquote>
-<hr>
-<p>Mặc dù thuật ngữ <em>microservices</em> có một số sự mơ hồ cố hữu, một số đặc điểm là chung:</p>
-<ul>
-<li>Chúng nhỏ, tự chủ, kết hợp rời rạc</li>
-<li>Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ</li>
-<li>Chuyên biệt để giải quyết một việc</li>
-<li>Thường được triển khai trong <strong>event-driven architecture</strong></li>
-</ul>
-<p>Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:</p>
-<ul>
-<li><strong>Nội tại</strong>: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng</li>
-<li><strong>Bên ngoài</strong>: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng</li>
-<li><strong>Con người</strong>: quyền sở hữu nhóm, quản lý <em>cognitive load</em></li>
-</ul>
-<hr>
-<h2 id="lựa-chọn-công-nghệ-và-phạm-vi-giao-tiếp">Lựa chọn công nghệ và phạm vi giao tiếp</h2>
-<table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Phạm vi giao tiếp</th>
-          <th style="text-align: left">Các công nghệ / mô hình cần xem xét</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">Trong một microservice</td>
-          <td style="text-align: left">Amazon Simple Queue Service (Amazon SQS), AWS Step Functions</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Giữa các microservices trong một dịch vụ</td>
-          <td style="text-align: left">AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Giữa các dịch vụ</td>
-          <td style="text-align: left">Amazon EventBridge, AWS Cloud Map, Amazon API Gateway</td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<h2 id="the-pubsub-hub">The pub/sub hub</h2>
-<p>Việc sử dụng kiến trúc <strong>hub-and-spoke</strong> (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.</p>
-<ul>
-<li>Mỗi microservice chỉ phụ thuộc vào <em>hub</em></li>
-<li>Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất</li>
-<li>Giảm số lượng synchronous calls vì pub/sub là <em>push</em> không đồng bộ một chiều</li>
-</ul>
-<p>Nhược điểm: cần <strong>phối hợp và giám sát</strong> để tránh microservice xử lý nhầm message.</p>
-<hr>
-<h2 id="core-microservice">Core microservice</h2>
-<p>Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:</p>
-<ul>
-<li><strong>Amazon S3</strong> bucket cho dữ liệu</li>
-<li><strong>Amazon DynamoDB</strong> cho danh mục dữ liệu</li>
-<li><strong>AWS Lambda</strong> để ghi message vào data lake và danh mục</li>
-<li><strong>Amazon SNS</strong> topic làm <em>hub</em></li>
-<li><strong>Amazon S3</strong> bucket cho artifacts như mã Lambda</li>
-</ul>
-<blockquote>
-<p>Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.</p>
-</blockquote>
-<hr>
-<h2 id="front-door-microservice">Front door microservice</h2>
-<ul>
-<li>Cung cấp API Gateway để tương tác REST bên ngoài</li>
-<li>Xác thực &amp; ủy quyền dựa trên <strong>OIDC</strong> thông qua <strong>Amazon Cognito</strong></li>
-<li>Cơ chế <em>deduplication</em> tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
+<h2 id="từ-supervisor-đến-arbiter">Từ Supervisor Đến Arbiter</h2>
+<p>Mô hình Supervisor hoạt động tốt với workflow dự đoán được và các agent ổn định. Tuy nhiên, môi trường hiện đại đòi hỏi nhiều hơn: khả năng tạo agent động, match nhiệm vụ theo ngữ nghĩa, và phối hợp thông qua trạng thái chia sẻ.</p>
+<p>Mô hình <strong>Arbiter</strong> mở rộng Supervisor với ba đổi mới cốt lõi:</p>
 <ol>
-<li>SNS deduplication TTL chỉ 5 phút</li>
-<li>SNS FIFO yêu cầu SQS FIFO</li>
-<li>Chủ động báo cho sender biết message là bản sao</li>
+<li><strong>Semantic Capability Matching</strong> – Arbiter suy luận về loại agent cần thiết, ngay cả khi agent đó chưa tồn tại.</li>
+<li><strong>Delegated Agent Creation</strong> – Khi không tìm thấy agent phù hợp, Arbiter gọi <strong>Fabricator agent</strong> để tạo agent mới một cách động.</li>
+<li><strong>Task Planning với Contextual Memory</strong> – Nhiệm vụ được phân tách thành kế hoạch, theo dõi trong bộ nhớ, thử lại nếu cần, và đánh giá hiệu suất agent.</li>
 </ol>
-</li>
-</ul>
+<p>Điều này chuyển đổi orchestration từ <em>supervision tĩnh</em> sang <em>coordination thích ứng</em>.</p>
 <hr>
-<h2 id="staging-er7-microservice">Staging ER7 microservice</h2>
+<h2 id="mô-hình-blackboard-được-xem-xét-lại">Mô Hình Blackboard Được Xem Xét Lại</h2>
+<p>Mô hình Arbiter mượn các nguyên lý từ <strong>mô hình blackboard</strong>, một kiến trúc cổ điển từ AI phân tán. Trong cách tiếp cận này, các agent chia sẻ một workspace chung (&ldquo;blackboard&rdquo;), đăng các giải pháp một phần hoặc cập nhật. Các agent khác quan sát và phản ứng, thúc đẩy giải quyết vấn đề cộng tác.</p>
+<p>Trong triển khai của chúng tôi, blackboard trở thành một <strong>semantic event substrate</strong>:</p>
 <ul>
-<li>Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute</li>
-<li>Step Functions Express Workflow để chuyển ER7 → JSON</li>
-<li>Hai Lambda:
+<li>Các agent publish và consume các trạng thái liên quan đến nhiệm vụ.</li>
+<li>Arbiter phối hợp thông qua các semantic event này.</li>
+<li>Cộng tác trở thành event-driven và loosely coupled.</li>
+</ul>
+<p>Thiết kế này cho phép khả năng thích ứng ở quy mô lớn—nơi các agent không cần API cứng nhắc, chỉ cần khả năng phản ứng với trạng thái đang phát triển.</p>
+<hr>
+<h2 id="cách-thức-hoạt-động-của-arbiter">Cách Thức Hoạt Động Của Arbiter</h2>
+<p>Arbiter tuân theo một workflow event-driven có cấu trúc:</p>
 <ol>
-<li>Sửa format ER7 (newline, carriage return)</li>
-<li>Parsing logic</li>
-</ol>
+<li>
+<p><strong>Interpretation</strong> – Một LLM diễn giải event, trích xuất mục tiêu và các sub-task.</p>
 </li>
-<li>Kết quả hoặc lỗi được đẩy lại vào pub/sub hub</li>
+<li>
+<p><strong>Capability Assessment</strong> – Arbiter đánh giá các agent có sẵn thông qua local index hoặc capability manifest.</p>
+</li>
+<li>
+<p><strong>Delegation hoặc Generation</strong> –</p>
+<ul>
+<li>Nếu agent tồn tại, nhiệm vụ được định tuyến trực tiếp.</li>
+<li>Nếu không có agent nào tồn tại, Arbiter yêu cầu <strong>Fabricator</strong> tạo một agent.</li>
+</ul>
+</li>
+<li>
+<p><strong>Blackboard Coordination</strong> – Tất cả các agent tham gia đọc/ghi vào blackboard chia sẻ.</p>
+</li>
+<li>
+<p><strong>Reflection và Adaptation</strong> – Hiệu suất được ghi log và sử dụng để tinh chỉnh coordination tương lai hoặc kích hoạt tạo agent mới.</p>
+</li>
+</ol>
+<h3 id="arbiter-vs-supervisor">Arbiter vs Supervisor</h3>
+<ul>
+<li><strong>Supervisor:</strong> Orchestration dựa vào danh sách cấu hình tĩnh.</li>
+<li><strong>Arbiter:</strong> Coordination thích ứng động thông qua blackboard ngữ nghĩa chia sẻ.</li>
+</ul>
+<p>Điều này cho phép điều chỉnh giữa nhiệm vụ, cộng tác phong phú hơn, và học tập liên tục.</p>
+<hr>
+<h2 id="fabricator-agent-tạo-khả-năng-theo-yêu-cầu">Fabricator Agent: Tạo Khả Năng Theo Yêu Cầu</h2>
+<p><strong>Fabricator</strong> mở rộng khả năng thích ứng của Arbiter bằng cách tạo ra các agent mới khi những agent hiện có không thể xử lý một nhiệm vụ.</p>
+<h3 id="cách-thức-hoạt-động">Cách Thức Hoạt Động</h3>
+<ul>
+<li>Nhận yêu cầu khả năng từ Arbiter.</li>
+<li>Tạo mã worker agent mới sử dụng Strands.</li>
+<li>Lưu trữ agent trong S3 để sử dụng runtime.</li>
+<li>Đăng ký khả năng trong DynamoDB để có sẵn ngay lập tức.</li>
+<li>Publish agent mới vào hệ thống để orchestration.</li>
+</ul>
+<p>Cách tiếp cận này chuyển đổi hệ thống từ <em>được lập trình trước</em> thành <em>tự mở rộng</em>.</p>
+<hr>
+<h2 id="generic-wrapper-runtime-thực-thi-động">Generic Wrapper: Runtime Thực Thi Động</h2>
+<p>Để chạy các agent mới này mà không cần cung cấp thêm infrastructure, <strong>Generic Wrapper</strong> cho phép hot-loading:</p>
+<ul>
+<li>Các agent được thực thi từ mã được lưu trữ trong S3.</li>
+<li>Một wrapper duy nhất dynamically load và thực thi mã agent.</li>
+<li>Kết quả được publish lại qua EventBridge để Arbiter theo dõi.</li>
+</ul>
+<p>Điều này tách biệt <strong>tăng trưởng agent</strong> khỏi <strong>mở rộng infrastructure</strong>, cho phép hàng trăm agent tồn tại mà không có bottleneck vận hành.</p>
+<h3 id="lợi-ích-của-hot-loading">Lợi Ích Của Hot-Loading</h3>
+<ul>
+<li><strong>Có thể mở rộng:</strong> Hỗ trợ tạo agent không giới hạn.</li>
+<li><strong>Hiệu quả:</strong> Tránh infrastructure mới cho mỗi agent.</li>
+<li><strong>Chuẩn hóa:</strong> Tất cả agent giao tiếp thông qua cấu trúc event nhất quán.</li>
+<li><strong>Có khả năng phục hồi:</strong> Lỗi được cô lập và xử lý một cách graceful.</li>
 </ul>
 <hr>
-<h2 id="tính-năng-mới-trong-giải-pháp">Tính năng mới trong giải pháp</h2>
-<h3 id="1-aws-cloudformation-cross-stack-references">1. AWS CloudFormation cross-stack references</h3>
-<p>Ví dụ <em>outputs</em> trong core microservice:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Outputs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Bucket</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Bucket</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Bucket</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ArtifactBucket</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref ArtifactBucket</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-ArtifactBucket</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Topic</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Topic</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Topic</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Catalog</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Catalog</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Catalog</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CatalogArn</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">GetAtt Catalog.Arn</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-CatalogArn</span>
-</span></span></code></pre></div>
+<h2 id="workflow-end-to-end">Workflow End-to-End</h2>
+<ol>
+<li><strong>Event nhận được</strong> → Arbiter diễn giải và phân tách nhiệm vụ.</li>
+<li><strong>Kiểm tra khả năng</strong> → Tìm agent phù hợp hoặc yêu cầu Fabricator.</li>
+<li><strong>Fabricator được gọi</strong> → Tạo agent mới nếu cần, đăng ký nó.</li>
+<li><strong>Generic Wrapper thực thi</strong> → Hot-load và chạy mã agent.</li>
+<li><strong>Blackboard chia sẻ được cập nhật</strong> → Các agent cộng tác qua semantic state.</li>
+<li><strong>Reflection loop</strong> → Arbiter ghi log kết quả, thích ứng workflow tương lai.</li>
+</ol>
+<hr>
+<h2 id="khả-năng-chính-của-hệ-thống-arbiter">Khả Năng Chính Của Hệ Thống Arbiter</h2>
+<ul>
+<li><strong>Xử Lý Bất Đồng Bộ</strong> – Phân phối nhiệm vụ dựa trên SQS.</li>
+<li><strong>Quản Lý Trạng Thái Bền Vững</strong> – Theo dõi workflow DynamoDB.</li>
+<li><strong>Khả Năng Mở Rộng</strong> – Kiến trúc hot-loading hỗ trợ tăng trưởng agent vô tận.</li>
+<li><strong>Orchestration Thông Minh</strong> – LLM phân tách nhiệm vụ và sắp xếp workflow.</li>
+<li><strong>Khả Năng Tự Mở Rộng</strong> – Tạo agent dựa trên Strands theo yêu cầu.</li>
+<li><strong>Giao Tiếp Chuẩn Hóa</strong> – Giao thức event-driven đảm bảo độ tin cậy.</li>
+</ul>
+<hr>
+<h2 id="kết-luận-từ-supervision-đến-adaptation">Kết Luận: Từ Supervision Đến Adaptation</h2>
+<p>Mô hình Arbiter đại diện cho một bước nhảy vọt từ orchestration tĩnh hướng tới <strong>coordination thích ứng, generative và có khả năng phục hồi</strong>. Bằng cách kết hợp semantic reasoning, tạo agent động, và cộng tác dựa trên blackboard, nó chuyển đổi các hệ sinh thái agent thành <strong>hệ thống tự phát triển</strong>.</p>
+<p>Nơi Supervisor mang lại cho chúng ta trật tự, Arbiter mang lại khả năng thích ứng—mở đường cho các hệ thống multi-agent phi tập trung, thông minh có thể <strong>học hỏi, thích ứng và cộng tác ở quy mô lớn</strong>.</p>
+
 
 
 
@@ -1856,19 +1851,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1757671247"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1757671247"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1757671247"></script>
-    <script src="../../../js/jquery.sticky.js?1757671247"></script>
-    <script src="../../../js/featherlight.min.js?1757671247"></script>
-    <script src="../../../js/highlight.pack.js?1757671247"></script>
+    <script src="../../../js/clipboard.min.js?1759668132"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1759668132"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1759668132"></script>
+    <script src="../../../js/jquery.sticky.js?1759668132"></script>
+    <script src="../../../js/featherlight.min.js?1759668132"></script>
+    <script src="../../../js/highlight.pack.js?1759668132"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1757671247"></script>
-    <script src="../../../js/learn.js?1757671247"></script>
-    <script src="../../../js/hugo-learn.js?1757671247"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1759668132"></script>
+    <script src="../../../js/learn.js?1759668132"></script>
+    <script src="../../../js/hugo-learn.js?1759668132"></script>
 
-    <link href="../../../mermaid/mermaid.css?1757671247" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1757671247"></script>
+    <link href="../../../mermaid/mermaid.css?1759668132" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1759668132"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

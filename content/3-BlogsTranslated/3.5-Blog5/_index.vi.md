@@ -3,125 +3,137 @@ title: "Blog 5"
 date: "`r Sys.Date()`"
 weight: 1
 chapter: false
-pre: " <b> 3.6. </b> "
+pre: " <b> 3.5. </b> "
 ---
 
 {{% notice warning %}}
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+# Cộng Tác Multi-Agent với Strands
+  
+Khi các hệ thống tự động phát triển, sự cộng tác giữa nhiều agent đang chuyển từ lý thuyết thành yếu tố thiết yếu. Khi các agent có được khả năng suy luận nâng cao, khả năng thích ứng và sử dụng công cụ, câu hỏi không còn là *“Một agent có thể giải quyết một nhiệm vụ không?”* mà là *“Làm thế nào để nhiều agent có thể làm việc cùng nhau một cách hiệu quả?”*
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+## Chuyển Đổi Hướng Tới Hệ Thống Multi-Agent
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
 
----
 
-## Hướng dẫn kiến trúc
+Mô hình **Supervisor**, được giới thiệu trong công trình trước đây về các AI agent bất đồng bộ với Amazon Bedrock, đã cung cấp bước đầu tiên theo hướng này. Hoạt động như một người điều phối tập trung, Supervisor quản lý các agent loosely coupled bằng cách ủy thác nhiệm vụ, xử lý fallback, và theo dõi trạng thái. Điều này cho phép các tổ chức tiến từ prototype single-agent đến các hệ thống multi-agent sơ khai.
 
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
-
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
-
-**Kiến trúc giải pháp bây giờ như sau:**
-
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+Nhưng khi các hệ thống trở nên năng động hơn, những hạn chế của supervision tĩnh xuất hiện. Workflow thay đổi liên tục, khả năng mới nổi lên, và coordination phải thích ứng theo thời gian thực. Đây là lúc mô hình **Arbiter** xuất hiện—bước tiến hóa tiếp theo của orchestration agentic, được thiết kế cho coordination thích ứng, có thể mở rộng và nhận thức context.
 
 ---
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
+## Từ Supervisor Đến Arbiter
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
 
----
+Mô hình Supervisor hoạt động tốt với workflow dự đoán được và các agent ổn định. Tuy nhiên, môi trường hiện đại đòi hỏi nhiều hơn: khả năng tạo agent động, match nhiệm vụ theo ngữ nghĩa, và phối hợp thông qua trạng thái chia sẻ.
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+Mô hình **Arbiter** mở rộng Supervisor với ba đổi mới cốt lõi:
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+1. **Semantic Capability Matching** – Arbiter suy luận về loại agent cần thiết, ngay cả khi agent đó chưa tồn tại.
+2. **Delegated Agent Creation** – Khi không tìm thấy agent phù hợp, Arbiter gọi **Fabricator agent** để tạo agent mới một cách động.
+3. **Task Planning với Contextual Memory** – Nhiệm vụ được phân tách thành kế hoạch, theo dõi trong bộ nhớ, thử lại nếu cần, và đánh giá hiệu suất agent.
+
+Điều này chuyển đổi orchestration từ *supervision tĩnh* sang *coordination thích ứng*.
 
 ---
 
-## The pub/sub hub
+## Mô Hình Blackboard Được Xem Xét Lại
 
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
+Mô hình Arbiter mượn các nguyên lý từ **mô hình blackboard**, một kiến trúc cổ điển từ AI phân tán. Trong cách tiếp cận này, các agent chia sẻ một workspace chung ("blackboard"), đăng các giải pháp một phần hoặc cập nhật. Các agent khác quan sát và phản ứng, thúc đẩy giải quyết vấn đề cộng tác.
 
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+Trong triển khai của chúng tôi, blackboard trở thành một **semantic event substrate**:
 
----
+* Các agent publish và consume các trạng thái liên quan đến nhiệm vụ.
+* Arbiter phối hợp thông qua các semantic event này.
+* Cộng tác trở thành event-driven và loosely coupled.
 
-## Core microservice
-
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
-
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+Thiết kế này cho phép khả năng thích ứng ở quy mô lớn—nơi các agent không cần API cứng nhắc, chỉ cần khả năng phản ứng với trạng thái đang phát triển.
 
 ---
 
-## Front door microservice
+## Cách Thức Hoạt Động Của Arbiter
 
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+Arbiter tuân theo một workflow event-driven có cấu trúc:
+
+1. **Interpretation** – Một LLM diễn giải event, trích xuất mục tiêu và các sub-task.
+2. **Capability Assessment** – Arbiter đánh giá các agent có sẵn thông qua local index hoặc capability manifest.
+3. **Delegation hoặc Generation** –
+
+   * Nếu agent tồn tại, nhiệm vụ được định tuyến trực tiếp.
+   * Nếu không có agent nào tồn tại, Arbiter yêu cầu **Fabricator** tạo một agent.
+4. **Blackboard Coordination** – Tất cả các agent tham gia đọc/ghi vào blackboard chia sẻ.
+5. **Reflection và Adaptation** – Hiệu suất được ghi log và sử dụng để tinh chỉnh coordination tương lai hoặc kích hoạt tạo agent mới.
+
+### Arbiter vs Supervisor
+
+* **Supervisor:** Orchestration dựa vào danh sách cấu hình tĩnh.
+* **Arbiter:** Coordination thích ứng động thông qua blackboard ngữ nghĩa chia sẻ.
+
+Điều này cho phép điều chỉnh giữa nhiệm vụ, cộng tác phong phú hơn, và học tập liên tục.
 
 ---
 
-## Staging ER7 microservice
+## Fabricator Agent: Tạo Khả Năng Theo Yêu Cầu
 
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+**Fabricator** mở rộng khả năng thích ứng của Arbiter bằng cách tạo ra các agent mới khi những agent hiện có không thể xử lý một nhiệm vụ.
+
+### Cách Thức Hoạt Động
+
+* Nhận yêu cầu khả năng từ Arbiter.
+* Tạo mã worker agent mới sử dụng Strands.
+* Lưu trữ agent trong S3 để sử dụng runtime.
+* Đăng ký khả năng trong DynamoDB để có sẵn ngay lập tức.
+* Publish agent mới vào hệ thống để orchestration.
+
+Cách tiếp cận này chuyển đổi hệ thống từ *được lập trình trước* thành *tự mở rộng*.
 
 ---
 
-## Tính năng mới trong giải pháp
+## Generic Wrapper: Runtime Thực Thi Động
 
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Để chạy các agent mới này mà không cần cung cấp thêm infrastructure, **Generic Wrapper** cho phép hot-loading:
+
+* Các agent được thực thi từ mã được lưu trữ trong S3.
+* Một wrapper duy nhất dynamically load và thực thi mã agent.
+* Kết quả được publish lại qua EventBridge để Arbiter theo dõi.
+
+Điều này tách biệt **tăng trưởng agent** khỏi **mở rộng infrastructure**, cho phép hàng trăm agent tồn tại mà không có bottleneck vận hành.
+
+### Lợi Ích Của Hot-Loading
+
+* **Có thể mở rộng:** Hỗ trợ tạo agent không giới hạn.
+* **Hiệu quả:** Tránh infrastructure mới cho mỗi agent.
+* **Chuẩn hóa:** Tất cả agent giao tiếp thông qua cấu trúc event nhất quán.
+* **Có khả năng phục hồi:** Lỗi được cô lập và xử lý một cách graceful.
+
+---
+
+## Workflow End-to-End
+
+1. **Event nhận được** → Arbiter diễn giải và phân tách nhiệm vụ.
+2. **Kiểm tra khả năng** → Tìm agent phù hợp hoặc yêu cầu Fabricator.
+3. **Fabricator được gọi** → Tạo agent mới nếu cần, đăng ký nó.
+4. **Generic Wrapper thực thi** → Hot-load và chạy mã agent.
+5. **Blackboard chia sẻ được cập nhật** → Các agent cộng tác qua semantic state.
+6. **Reflection loop** → Arbiter ghi log kết quả, thích ứng workflow tương lai.
+
+---
+
+## Khả Năng Chính Của Hệ Thống Arbiter
+
+* **Xử Lý Bất Đồng Bộ** – Phân phối nhiệm vụ dựa trên SQS.
+* **Quản Lý Trạng Thái Bền Vững** – Theo dõi workflow DynamoDB.
+* **Khả Năng Mở Rộng** – Kiến trúc hot-loading hỗ trợ tăng trưởng agent vô tận.
+* **Orchestration Thông Minh** – LLM phân tách nhiệm vụ và sắp xếp workflow.
+* **Khả Năng Tự Mở Rộng** – Tạo agent dựa trên Strands theo yêu cầu.
+* **Giao Tiếp Chuẩn Hóa** – Giao thức event-driven đảm bảo độ tin cậy.
+
+---
+
+## Kết Luận: Từ Supervision Đến Adaptation
+
+Mô hình Arbiter đại diện cho một bước nhảy vọt từ orchestration tĩnh hướng tới **coordination thích ứng, generative và có khả năng phục hồi**. Bằng cách kết hợp semantic reasoning, tạo agent động, và cộng tác dựa trên blackboard, nó chuyển đổi các hệ sinh thái agent thành **hệ thống tự phát triển**.
+
+Nơi Supervisor mang lại cho chúng ta trật tự, Arbiter mang lại khả năng thích ứng—mở đường cho các hệ thống multi-agent phi tập trung, thông minh có thể **học hỏi, thích ứng và cộng tác ở quy mô lớn**.

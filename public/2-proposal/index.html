@@ -15,21 +15,21 @@
     <title>Proposal :: Internship Report</title>
 
     
-    <link href="../css/nucleus.css?1757671247" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1757671247" rel="stylesheet">
-    <link href="../css/hybrid.css?1757671247" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1757671247" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1757671247" rel="stylesheet">
-    <link href="../css/auto-complete.css?1757671247" rel="stylesheet">
-    <link href="../css/atom-one-dark-reasonable.css?1757671247" rel="stylesheet">
-    <link href="../css/theme.css?1757671247" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1757671247" rel="stylesheet">
+    <link href="../css/nucleus.css?1759668131" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1759668131" rel="stylesheet">
+    <link href="../css/hybrid.css?1759668131" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1759668131" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1759668131" rel="stylesheet">
+    <link href="../css/auto-complete.css?1759668131" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1759668131" rel="stylesheet">
+    <link href="../css/theme.css?1759668131" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1759668131" rel="stylesheet">
     
-    <link href="../css/theme-workshop.css?1757671247" rel="stylesheet">
+    <link href="../css/theme-workshop.css?1759668131" rel="stylesheet">
     
     
 
-    <script src="../js/jquery-3.3.1.min.js?1757671247"></script>
+    <script src="../js/jquery-3.3.1.min.js?1759668131"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1757671247"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1757671247"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1759668131"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1759668131"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/workshop-template\/";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1757671247"></script>
+<script type="text/javascript" src="../js/search.js?1759668131"></script>
  
   </div>
 
@@ -980,20 +980,15 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li><a href="#a-unified-aws-serverless-solution-for-real-time-weather-monitoring">A Unified AWS Serverless Solution for Real-Time Weather Monitoring</a>
+    <li>
       <ul>
         <li><a href="#1-executive-summary">1. Executive Summary</a></li>
         <li><a href="#2-problem-statement">2. Problem Statement</a></li>
-        <li><a href="#whats-the-problem">What’s the Problem?</a></li>
-        <li><a href="#the-solution">The Solution</a></li>
-        <li><a href="#benefits-and-return-on-investment">Benefits and Return on Investment</a></li>
         <li><a href="#3-solution-architecture">3. Solution Architecture</a></li>
         <li><a href="#aws-services-used">AWS Services Used</a></li>
-        <li><a href="#component-design">Component Design</a></li>
         <li><a href="#4-technical-implementation">4. Technical Implementation</a></li>
         <li><a href="#5-timeline--milestones">5. Timeline &amp; Milestones</a></li>
         <li><a href="#6-budget-estimation">6. Budget Estimation</a></li>
-        <li><a href="#infrastructure-costs">Infrastructure Costs</a></li>
         <li><a href="#7-risk-assessment">7. Risk Assessment</a></li>
         <li><a href="#8-expected-outcomes">8. Expected Outcomes</a></li>
       </ul>
@@ -1032,73 +1027,257 @@
 </div>
 
 <p>In this section, you need to summarize the contents of the workshop that you <strong>plan</strong> to conduct.</p>
-<h1 id="iot-weather-platform-for-lab-research">IoT Weather Platform for Lab Research</h1>
-<h2 id="a-unified-aws-serverless-solution-for-real-time-weather-monitoring">A Unified AWS Serverless Solution for Real-Time Weather Monitoring</h2>
+<h1 id="fashion-selling-fff">Fashion Selling: FFF</h1>
 <h3 id="1-executive-summary">1. Executive Summary</h3>
-<p>The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.</p>
+<p>The proposed solution is a web platform for fashion sales developed on AWS, utilizing serverless technology and AI to manage a secure, stable, cost-optimized, and easily scalable e-commerce system.</p>
 <h3 id="2-problem-statement">2. Problem Statement</h3>
-<h3 id="whats-the-problem">What’s the Problem?</h3>
-<p>Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.</p>
-<h3 id="the-solution">The Solution</h3>
-<p>The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.</p>
-<h3 id="benefits-and-return-on-investment">Benefits and Return on Investment</h3>
-<p>The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.</p>
+<p><em>Current Problem</em><br>
+Small businesses or startups often lack the budget to build complex infrastructure.<br>
+Operating traditional servers is expensive (hardware, maintenance, operations personnel).<br>
+When customer numbers surge, traditional systems are prone to overload, causing service disruptions.<br>
+Lack of AI for product recommendations, consulting chatbots, or data systems to support decision-making.<br>
+Difficult to track customer behavior, optimize sales, and marketing.</p>
+<p><em>Solution</em><br>
+Serverless architecture → automatic scaling, cost optimization, no need to manage complex infrastructure.<br>
+Ensure safety, stability, high availability through secure and monitored AWS services.<br>
+Suitable for small and medium enterprises needing to test the market before large investments.<br>
+Only $50–100/month, helping reduce financial risk.<br>
+AI Chatbot supports customers 24/7, reduces consulting staff load, increases satisfaction, product recommendations help increase conversion rates and order value.</p>
 <h3 id="3-solution-architecture">3. Solution Architecture</h3>
-<p>The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:</p>
-<p><img alt="IoT Weather Station Architecture" src="../images/2-Proposal/edge_architecture.jpeg"></p>
-<p><img alt="IoT Weather Platform Architecture" src="../images/2-Proposal/platform_architecture.jpeg"></p>
 <h3 id="aws-services-used">AWS Services Used</h3>
+<h4 id="1-frontend-web--cdn">1. Frontend (Web + CDN)</h4>
 <ul>
-<li><strong>AWS IoT Core</strong>: Ingests MQTT data from 5 stations, scalable to 15.</li>
-<li><strong>AWS Lambda</strong>: Processes data and triggers Glue jobs (two functions).</li>
-<li><strong>Amazon API Gateway</strong>: Facilitates web app communication.</li>
-<li><strong>Amazon S3</strong>: Stores raw data in a data lake and processed outputs (two buckets).</li>
-<li><strong>AWS Glue</strong>: Crawlers catalog data, and ETL jobs transform and load it.</li>
-<li><strong>AWS Amplify</strong>: Hosts the Next.js web interface.</li>
-<li><strong>Amazon Cognito</strong>: Secures access for lab users.</li>
+<li><strong>Amazon S3</strong> → Store and host static web (Next.js build). Helps reduce costs, no need for traditional web servers.</li>
+<li><strong>Amazon CloudFront</strong> → Global CDN content distribution, SSL support, reduce page load latency.</li>
+<li><strong>Amazon Route 53</strong> → Manage domain, DNS, route traffic to CloudFront/S3.</li>
 </ul>
-<h3 id="component-design">Component Design</h3>
+<h4 id="2-backend--api">2. Backend &amp; API</h4>
 <ul>
-<li><strong>Edge Devices</strong>: Raspberry Pi collects and filters sensor data, sending it to IoT Core.</li>
-<li><strong>Data Ingestion</strong>: AWS IoT Core receives MQTT messages from the edge devices.</li>
-<li><strong>Data Storage</strong>: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.</li>
-<li><strong>Data Processing</strong>: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.</li>
-<li><strong>Web Interface</strong>: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.</li>
-<li><strong>User Management</strong>: Amazon Cognito manages user access, allowing up to 5 active accounts.</li>
+<li><strong>Amazon API Gateway</strong> → API gateway receives requests from frontend, routes to Lambda/Fargate.</li>
+<li><strong>AWS Lambda</strong> → Run serverless code (Node.js, Python&hellip;) for APIs without servers.</li>
+<li><strong>Amazon ECS Fargate</strong> → Run container backend (if there are complex services, need longer runtime than Lambda).</li>
+<li><strong>Amazon ECR</strong> → Store Docker images for ECS Fargate to pull and run.</li>
+</ul>
+<h4 id="3-database--storage">3. Database &amp; Storage</h4>
+<ul>
+<li><strong>Amazon RDS (PostgreSQL)</strong> → Main relational database (store users, products, orders&hellip;).</li>
+<li><strong>Amazon DynamoDB</strong> → NoSQL database to store sessions, metadata, light cache.</li>
+<li><strong>Amazon S3</strong> → Store product images, invoices, analytics data (data lake).</li>
+<li><strong>Amazon ElastiCache (Redis)</strong> → In-memory cache to speed up data reads, hold temporary sessions.</li>
+</ul>
+<h4 id="4-search--events">4. Search &amp; Events</h4>
+<ul>
+<li><strong>Amazon OpenSearch</strong> → Search engine for products, log analytics.</li>
+<li><strong>Amazon SQS</strong> → Queue to process orders or async tasks (reduce load on main API).</li>
+<li><strong>Amazon SNS</strong> → Send notifications (email, SMS, push) when events occur.</li>
+<li><strong>Amazon EventBridge</strong> → Event bus to connect services (e.g., trigger AI pipeline when new order).</li>
+</ul>
+<h4 id="5-ai--machine-learning">5. AI &amp; Machine Learning</h4>
+<ul>
+<li><strong>Amazon Personalize</strong> → Create personalized product recommendations for each customer.</li>
+<li><strong>Amazon Lex</strong> → AI chatbot to support customers 24/7.</li>
+<li><strong>Amazon Comprehend</strong> → Analyze emotions and keywords in customer reviews.</li>
+<li><strong>Amazon Fraud Detector</strong> → Detect fraudulent transactions.</li>
+<li><strong>Amazon Forecast</strong> → Forecast inventory and sales demand (deploy in later phase).</li>
+<li><strong>Amazon SageMaker</strong> → Train/deploy custom ML models if default AI solutions are insufficient.</li>
+</ul>
+<h4 id="6-data-lake--etl">6. Data Lake &amp; ETL</h4>
+<ul>
+<li><strong>Amazon S3 (Data Lake)</strong> → Store raw + processed data for analytics.</li>
+<li><strong>AWS Glue</strong> → ETL jobs to clean and standardize data.</li>
+<li><strong>Amazon Athena</strong> → Query data directly on S3 with SQL (serverless).</li>
+<li><strong>AWS Lake Formation</strong> → Manage data access permissions in the data lake.</li>
+<li><strong>Amazon Kinesis</strong> → Collect real-time events, clickstreams from users.</li>
+</ul>
+<h4 id="7-authentication--security">7. Authentication &amp; Security</h4>
+<ul>
+<li><strong>Amazon Cognito</strong> → Registration, login, user pool management (SSO, OAuth2).</li>
+<li><strong>AWS IAM</strong> → Manage roles and access permissions between services.</li>
+<li><strong>AWS KMS</strong> → Encrypt data in RDS, S3, DynamoDB.</li>
+<li><strong>AWS Secrets Manager</strong> → Store API keys, DB passwords, automatic secret rotation.</li>
+<li><strong>AWS WAF</strong> → Filter bad requests, protect against OWASP Top 10 attacks.</li>
+<li><strong>AWS Shield</strong> → Protect against DDoS attacks.</li>
+</ul>
+<h4 id="8-observability--monitoring">8. Observability &amp; Monitoring</h4>
+<ul>
+<li><strong>Amazon CloudWatch</strong> → Collect logs, metrics, set up alerts.</li>
+<li><strong>AWS X-Ray</strong> → Trace requests end-to-end, find bottlenecks.</li>
+<li><strong>Amazon Managed Grafana</strong> → Visualize metrics, logs dashboards.</li>
+<li><strong>OpenSearch Dashboards</strong> → Interface to search &amp; analyze logs from OpenSearch.</li>
+<li><strong>Amazon SNS</strong> → Send alerts on errors or threshold exceedances.</li>
+</ul>
+<h4 id="9-cicd--iac">9. CI/CD &amp; IaC</h4>
+<ul>
+<li><strong>Terraform / AWS CDK</strong> → IaC (Infrastructure as Code) for automatic infrastructure deployment.</li>
+<li><strong>GitHub Actions</strong> → CI/CD pipeline: lint → test → build → deploy to AWS.</li>
+<li><strong>Amazon CodeArtifact</strong> (optional) → Manage private package repository.</li>
+</ul>
+<h4 id="10-backup--dr">10. Backup &amp; DR</h4>
+<ul>
+<li><strong>Amazon RDS Snapshot</strong> → Automatic database backup.</li>
+<li><strong>Amazon S3 Versioning + Cross-Region Replication</strong> → Backup files and data lake to another region (DR).</li>
 </ul>
 <h3 id="4-technical-implementation">4. Technical Implementation</h3>
-<p><strong>Implementation Phases</strong>
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:</p>
+<p><em>Implementation Phases</em></p>
+<h4 id="1-tech-lead--architect">1. Tech Lead / Architect</h4>
+<p><strong>Week 0–2</strong></p>
 <ul>
-<li>Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)</li>
-<li>Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).</li>
-<li>Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).</li>
-<li>Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).</li>
+<li>Design architecture: VPC, RDS, S3, Cognito, OpenSearch.</li>
+<li>Write architecture documentation + network diagrams.</li>
+<li>Review Terraform modules.</li>
 </ul>
-<p><strong>Technical Requirements</strong></p>
+<p><strong>Week 3–12</strong></p>
 <ul>
-<li>Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.</li>
-<li>Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.</li>
+<li>Code review, approve PRs.</li>
+<li>Ensure SLO: latency, error budget, cost.</li>
+<li>Test DR drill, review runbooks.</li>
+</ul>
+<p>✅ <strong>Deliverables:</strong></p>
+<ul>
+<li>Diagram, architecture documentation</li>
+<li>SLO/SLA</li>
+<li>IAM model</li>
+</ul>
+<hr>
+<h4 id="2-frontend-engineer">2. Frontend Engineer</h4>
+<p><strong>Week 1–2</strong></p>
+<ul>
+<li>Scaffold Vite project (JavaScript + Bootstrap).</li>
+<li>Integrate Cognito auth (login/signup).</li>
+</ul>
+<p><strong>Week 3–6</strong></p>
+<ul>
+<li>Build UI: home, product list, product detail, cart, checkout.</li>
+<li>Upload images via S3 pre-signed URL.</li>
+</ul>
+<p><strong>Week 7–9</strong></p>
+<ul>
+<li>Integrate chatbot widget (Lex).</li>
+<li>Integrate product recommendations from Personalize.</li>
+</ul>
+<p><strong>Week 10–12</strong></p>
+<ul>
+<li>E2E tests (Playwright).</li>
+<li>Optimize SEO + Lighthouse (&gt;= 90).</li>
+<li>Deploy build → CloudFront.</li>
+</ul>
+<p>✅ <strong>Deliverables:</strong></p>
+<ul>
+<li>Web source code</li>
+<li>Complete UI</li>
+<li>Test report</li>
+<li>Production build</li>
+</ul>
+<hr>
+<h4 id="3-backend-engineer">3. Backend Engineer</h4>
+<p><strong>Week 1–3</strong></p>
+<ul>
+<li>Scaffold NestJS API, define OpenAPI spec.</li>
+<li>Design DB schema (Postgres, Prisma migration).</li>
+</ul>
+<p><strong>Week 4–6</strong></p>
+<ul>
+<li>API: products, cart, orders.</li>
+<li>Payment integration (stub).</li>
+<li>Upload media (S3).</li>
+</ul>
+<p><strong>Week 7–9</strong></p>
+<ul>
+<li>Lambda consumer for SQS (order events).</li>
+<li>Recommendation API (Personalize).</li>
+<li>Fraud Detector scoring API.</li>
+</ul>
+<p><strong>Week 10–12</strong></p>
+<ul>
+<li>Hardening: rate limit, validation.</li>
+<li>Integration tests (Jest + Supertest).</li>
+<li>Blue/green deployment support.</li>
+</ul>
+<p>✅ <strong>Deliverables:</strong></p>
+<ul>
+<li>OpenAPI docs</li>
+<li>Tested APIs</li>
+<li>DB migrations</li>
+<li>Docker image</li>
+</ul>
+<hr>
+<h4 id="4-devops--sre">4. DevOps / SRE</h4>
+<p><strong>Week 0–2</strong></p>
+<ul>
+<li>Repo <code>/infra</code> + Terraform skeleton.</li>
+<li>Setup GitHub Actions (lint → test → plan → apply).</li>
+<li>State backend: S3 + DynamoDB lock.</li>
+</ul>
+<p><strong>Week 3–6</strong></p>
+<ul>
+<li>Provision VPC, RDS, S3, Cognito, OpenSearch.</li>
+<li>Deploy staging environment.</li>
+</ul>
+<p><strong>Week 7–9</strong></p>
+<ul>
+<li>Monitoring: Grafana dashboards.</li>
+<li>Alerts: SNS → Slack/email.</li>
+<li>Backup policies: RDS snapshots, S3 versioning.</li>
+</ul>
+<p><strong>Week 10–12</strong></p>
+<ul>
+<li>DR drill (restore RDS, cross-region S3).</li>
+<li>Cost alerts, rightsizing.</li>
+<li>Prod cutover: Route53 switch.</li>
+</ul>
+<p>✅ <strong>Deliverables:</strong></p>
+<ul>
+<li>Terraform repo</li>
+<li>CI/CD pipelines</li>
+<li>Monitoring dashboards</li>
+<li>Runbooks</li>
+</ul>
+<hr>
+<h4 id="5-data--ml-engineer">5. Data / ML Engineer</h4>
+<p><strong>Week 1–3</strong></p>
+<ul>
+<li>Design event schema (click, view, purchase).</li>
+<li>Pipeline: Kinesis → S3 raw.</li>
+<li>Glue job ETL → Parquet.</li>
+</ul>
+<p><strong>Week 4–6</strong></p>
+<ul>
+<li>Feed data into Personalize.</li>
+<li>Train + deploy campaign.</li>
+</ul>
+<p><strong>Week 7–9</strong></p>
+<ul>
+<li>Chatbot Lex intents: FAQ, order tracking, product recommendations.</li>
+<li>Fulfillment Lambda: query RDS, call Personalize API.</li>
+</ul>
+<p><strong>Week 10–12</strong></p>
+<ul>
+<li>Forecast model for inventory.</li>
+<li>Model Monitor (drift detection).</li>
+<li>Evaluation report.</li>
+</ul>
+<p>✅ <strong>Deliverables:</strong></p>
+<ul>
+<li>ETL jobs + Parquet data</li>
+<li>Personalize campaign + chatbot intents</li>
+<li>Forecast model + monitoring</li>
+<li>Evaluation report</li>
 </ul>
 <h3 id="5-timeline--milestones">5. Timeline &amp; Milestones</h3>
-<p><strong>Project Timeline</strong></p>
 <ul>
-<li>Pre-Internship (Month 0): 1 month for planning and old station review.</li>
-<li>Internship (Months 1-3): 3 months.
+<li><em>Pre-Internship (Month 0)</em>: 1 month for planning and evaluating old stations.</li>
+<li><em>Internship (Months 1–3)</em>:
 <ul>
-<li>Month 1: Study AWS and upgrade hardware.</li>
+<li>Month 1: Learn AWS and upgrade hardware.</li>
 <li>Month 2: Design and adjust architecture.</li>
 <li>Month 3: Implement, test, and launch.</li>
 </ul>
 </li>
-<li>Post-Launch: Up to 1 year for research.</li>
 </ul>
 <h3 id="6-budget-estimation">6. Budget Estimation</h3>
-<p>You can find the budget estimation on the <a href="https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01">AWS Pricing Calculator</a>.<br>
-Or you can download the <a href="../attachments/budget_estimation.pdf">Budget Estimation File</a>.</p>
-<h3 id="infrastructure-costs">Infrastructure Costs</h3>
-<ul>
-<li>AWS Services:
+<p>You can find the budget estimation on the <a href="https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01">AWS Pricing Calculator</a><br>
+Or download the <a href="../attachments/budget_estimation.pdf">Budget Estimation File</a>.</p>
+<p><em>Infrastructure Costs</em></p>
 <ul>
 <li>AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).</li>
 <li>S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).</li>
@@ -1109,37 +1288,31 @@ Or you can download the <a href="../attachments/budget_estimation.pdf">Budget Es
 <li>AWS Glue Crawlers: $0.07/month (1 crawler).</li>
 <li>MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).</li>
 </ul>
-</li>
-</ul>
-<p>Total: $0.7/month, $8.40/12 months</p>
+<p><em>Total</em>: $0.7/month, $8.40/12 months</p>
 <ul>
-<li>Hardware: $265 one-time (Raspberry Pi 5 and sensors).</li>
+<li><em>Hardware</em>: $265 one-time (Raspberry Pi 5 and sensors).</li>
 </ul>
 <h3 id="7-risk-assessment">7. Risk Assessment</h3>
-<h4 id="risk-matrix">Risk Matrix</h4>
+<p><em>Risk Matrix</em></p>
 <ul>
-<li>Network Outages: Medium impact, medium probability.</li>
-<li>Sensor Failures: High impact, low probability.</li>
-<li>Cost Overruns: Medium impact, low probability.</li>
+<li>Network Loss: Medium impact, medium probability.</li>
+<li>Sensor Failure: High impact, low probability.</li>
+<li>Budget Overrun: Medium impact, low probability.</li>
 </ul>
-<h4 id="mitigation-strategies">Mitigation Strategies</h4>
+<p><em>Mitigation Strategies</em></p>
 <ul>
 <li>Network: Local storage on Raspberry Pi with Docker.</li>
-<li>Sensors: Regular checks and spares.</li>
-<li>Cost: AWS budget alerts and optimization.</li>
+<li>Sensors: Regular checks, spare parts.</li>
+<li>Cost: AWS budget alerts, service optimization.</li>
 </ul>
-<h4 id="contingency-plans">Contingency Plans</h4>
+<p><em>Contingency Plans</em></p>
 <ul>
-<li>Revert to manual methods if AWS fails.</li>
-<li>Use CloudFormation for cost-related rollbacks.</li>
+<li>Revert to manual collection if AWS fails.</li>
+<li>Use CloudFormation to restore cost-related configurations.</li>
 </ul>
 <h3 id="8-expected-outcomes">8. Expected Outcomes</h3>
-<h4 id="technical-improvements">Technical Improvements:</h4>
-<p>Real-time data and analytics replace manual processes.<br>
-Scalable to 10-15 stations.</p>
-<h4 id="long-term-value">Long-term Value</h4>
-<p>1-year data foundation for AI research.<br>
-Reusable for future projects.</p>
+<p><em>Technical Improvements</em>: Real-time data and analytics replace manual processes. Scalable to 10–15 stations.<br>
+<em>Long-term Value</em>: 1-year data foundation for AI research, reusable for future projects.</p>
 
 
 
@@ -1840,19 +2013,19 @@ Reusable for future projects.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1757671247"></script>
-    <script src="../js/perfect-scrollbar.min.js?1757671247"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1757671247"></script>
-    <script src="../js/jquery.sticky.js?1757671247"></script>
-    <script src="../js/featherlight.min.js?1757671247"></script>
-    <script src="../js/highlight.pack.js?1757671247"></script>
+    <script src="../js/clipboard.min.js?1759668131"></script>
+    <script src="../js/perfect-scrollbar.min.js?1759668131"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1759668131"></script>
+    <script src="../js/jquery.sticky.js?1759668131"></script>
+    <script src="../js/featherlight.min.js?1759668131"></script>
+    <script src="../js/highlight.pack.js?1759668131"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1757671247"></script>
-    <script src="../js/learn.js?1757671247"></script>
-    <script src="../js/hugo-learn.js?1757671247"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1759668131"></script>
+    <script src="../js/learn.js?1759668131"></script>
+    <script src="../js/hugo-learn.js?1759668131"></script>
 
-    <link href="../mermaid/mermaid.css?1757671247" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1757671247"></script>
+    <link href="../mermaid/mermaid.css?1759668131" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1759668131"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

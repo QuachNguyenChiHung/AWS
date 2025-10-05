@@ -18,42 +18,44 @@ pre: " <b> 1.3. </b> "
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - Ôn lại React và các component cơ bản <br>&emsp; + Functional Components <br>&emsp; + Class Components <br>&emsp; + Props và State <br>&emsp; + Event Handling <br>&emsp; + Component Lifecycle | 09/23/2025   | 09/23/2025      |                                           |
+| 3   | - Học TypeScript về interface, type, class <br>&emsp; + Khai báo interface và type aliases <br>&emsp; + Generic types <br>&emsp; + Union và intersection types <br>&emsp; + Class inheritance và access modifiers | 09/24/2025   | 09/24/2025      |                                           |
+| 4   | - Học TypeScript về data tĩnh và các khái niệm liên quan <br>&emsp; + Static properties và methods <br>&emsp; + Readonly properties <br>&emsp; + Enum types <br>&emsp; + Utility types (Partial, Required, Pick) | 09/25/2025   | 09/25/2025      |                                           |
+| 5   | - Thảo luận về dự án bán quần áo tên FFF <br>&emsp; + Phân tích requirements và user stories <br>&emsp; + Thiết kế UI/UX mockup <br>&emsp; + Lựa chọn tech stack cho frontend <br>&emsp; + Planning sprint và timeline | 09/26/2025   | 09/26/2025      |                                           |
+| 6   | - Được phân công làm frontend cho dự án FFF <br>&emsp; + Setup development environment <br>&emsp; + Khởi tạo React project với TypeScript <br>&emsp; + Cài đặt dependencies cần thiết <br>&emsp; + Tạo component structure cơ bản | 09/26/2025   | 09/26/2025      |                                           |
 
 
 ### Kết quả đạt được tuần 3:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* **Ôn tập React thành công:**
+  * Nắm vững Functional Components và Class Components
+  * Hiểu rõ cách sử dụng Props và State management
+  * Thành thạo Event Handling trong React
+  * Nắm được Component Lifecycle và các hooks cơ bản
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* **Học TypeScript cơ bản:**
+  * Khai báo và sử dụng interface, type aliases
+  * Hiểu và áp dụng Generic types
+  * Nắm vững Union và intersection types
+  * Sử dụng Class inheritance và access modifiers
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* **Nâng cao kiến thức TypeScript:**
+  * Sử dụng Static properties và methods
+  * Hiểu Readonly properties và immutability
+  * Làm việc với Enum types
+  * Áp dụng Utility types (Partial, Required, Pick)
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* **Tham gia dự án FFF:**
+  * Phân tích được requirements và user stories
+  * Tham gia thiết kế UI/UX mockup
+  * Đóng góp ý kiến cho việc lựa chọn tech stack frontend
+  * Lên kế hoạch sprint và timeline chi tiết
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* **Chuẩn bị môi trường phát triển:**
+  * Setup development environment hoàn chỉnh
+  * Khởi tạo React project với TypeScript configuration
+  * Cài đặt và cấu hình các dependencies cần thiết
+  * Tạo component structure và folder organization
+  * Sẵn sàng bắt đầu phát triển frontend cho dự án FFF
 
 
