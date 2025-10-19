@@ -21,11 +21,11 @@ pre: " <b> 1.4. </b> "
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                      | Start Date  | Completion Date | Reference Material |
 | --- | ------------------------------------------------------------------------------------------------------------------------- | ----------- | --------------- | ------------------ |
-| 2   | - Learn about AWS security <br> - Explore Lightsail service <br> - Start designing UI with React Vite                    | 11/08/2025  | 11/08/2025      |
-| 3   | - Continue completing React Vite UI <br> - Learn about connecting to Spring Boot backend                                 | 12/08/2025  | 12/08/2025      |
-| 4   | - Connect React Vite UI with Spring Boot backend <br> - Learn about integrating MSSQL                                    | 13/08/2025  | 13/08/2025      |
-| 5   | - Complete backend connection with MSSQL <br> - Test the entire connection flow                                          | 14/08/2025  | 14/08/2025      |
-| 6   | - Finalize and polish UI/UX <br> - Write user guide documentation <br> - Review security and Lightsail                   | 15/08/2025  | 15/08/2025      |
+| 2   | - Learn about AWS security <br> - Explore Lightsail service <br> - Start designing UI with React Vite                    | 09/29/2025  | 09/29/2025      |
+| 3   | - Continue completing React Vite UI <br> - Learn about connecting to Spring Boot backend                                 | 09/30/2025  | 09/30/2025      |
+| 4   | - Connect React Vite UI with Spring Boot backend <br> - Learn about integrating MSSQL                                    | 10/01/2025  | 10/01/2025      |
+| 5   | - Complete backend connection with MSSQL <br> - Test the entire connection flow                                          | 10/02/2025  | 10/02/2025      |
+| 6   | - Finalize and polish UI/UX <br> - Write user guide documentation <br> - Review security and Lightsail                   | 10/03/2025  | 10/03/2025      |
 
 
 ### Week 4 Achievements:

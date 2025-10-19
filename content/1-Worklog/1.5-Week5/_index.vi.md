@@ -12,48 +12,45 @@ pre: " <b> 1.5. </b> "
 
 ### Mục tiêu tuần 5:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thảo luận với nhóm về chiến lược tích hợp AI thông qua kết nối API.
+* Hoàn thiện việc triển khai cơ sở dữ liệu với MSSQL cho hệ thống dự án.
+* Chuẩn bị toàn diện cho kỳ thi giữa kỳ kiến thức AWS.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - Họp nhóm thảo luận về tích hợp AI <br> - Nghiên cứu các API AI phù hợp cho hệ thống <br> - Xác định điểm tích hợp và kiến trúc luồng dữ liệu                                          | 10/06/2025   | 10/06/2025      |                                           |
+| 3   | - Thiết kế schema cơ sở dữ liệu MSSQL <br> - Tạo và cấu hình các bảng với quan hệ phù hợp <br> - Kiểm tra kết nối cơ sở dữ liệu                                                          | 10/07/2025   | 10/07/2025      |                                           |
+| 4   | - Triển khai các thao tác CRUD với MSSQL <br> - Tích hợp cơ sở dữ liệu vào hệ thống hiện tại <br> - Kiểm tra và tối ưu hóa hiệu năng                                                     | 10/08/2025   | 10/08/2025      |                                           |
+| 5   | - Ôn tập các dịch vụ AWS cốt lõi (EC2, S3, RDS, Lambda, IAM) <br> - Học khái niệm mạng AWS và VPC <br> - Thực hành AWS CLI và automation scripts                                         | 10/09/2025   | 10/09/2025      |                                           |
+| 6   | - Hoàn thiện việc chuẩn bị thi AWS <br> - Làm đề thi thử và đánh giá kiến thức <br> - Tổng kết và kiểm tra lại tích hợp AI và cơ sở dữ liệu                                              | 10/10/2025   | 10/10/2025      |                                           |
 
 
 ### Kết quả đạt được tuần 5:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Thành công trong việc thực hiện các cuộc thảo luận nhóm về chiến lược tích hợp AI:
+  * Xác định được các API AI phù hợp để nâng cao hệ thống
+  * Định nghĩa điểm tích hợp và kiến trúc luồng dữ liệu
+  * Thiết lập timeline cho các giai đoạn triển khai AI
+  * Nghiên cứu yêu cầu xác thực và bảo mật cho API AI
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Hoàn thành việc triển khai cơ sở dữ liệu MSSQL một cách toàn diện:
+  * Thiết kế và triển khai schema cơ sở dữ liệu được chuẩn hóa
+  * Tạo thành công tất cả các bảng cần thiết với quan hệ phù hợp
+  * Thiết lập kết nối cơ sở dữ liệu với connection pooling
+  * Triển khai và kiểm tra đầy đủ các thao tác CRUD
+  * Tích hợp cơ sở dữ liệu một cách liền mạch với các thành phần hệ thống hiện có
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Chuẩn bị kỹ lưỡng cho kỳ thi giữa kỳ AWS:
+  * Nắm vững các dịch vụ AWS cốt lõi (EC2, S3, RDS, Lambda, IAM)
+  * Hiểu các khái niệm mạng AWS bao gồm VPC, subnet và security group
+  * Thực hành AWS CLI commands và automation scripts
+  * Nghiên cứu mô hình giá cả AWS và chiến lược tối ưu hóa chi phí
+  * Hoàn thành nhiều đề thi thử với mức độ tự tin cao
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Nâng cao kỹ năng phát triển dự án:
+  * Cải thiện kỹ thuật thiết kế và tối ưu hóa cơ sở dữ liệu
+  * Tăng cường kiến thức về tích hợp API và kiến trúc hệ thống
+  * Phát triển hiểu biết tốt hơn về các mẫu ứng dụng cloud-native
 
 

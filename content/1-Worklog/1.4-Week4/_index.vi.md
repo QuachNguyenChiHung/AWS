@@ -22,11 +22,11 @@ pre: " <b> 1.4. </b> "
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Học về security trong AWS <br> - Tìm hiểu dịch vụ Lightsail <br> - Bắt đầu thiết kế UI với React Vite | 11/08/2025   | 11/08/2025      |
-| 3   | - Tiếp tục hoàn thiện UI React Vite <br> - Tìm hiểu kết nối backend Spring Boot | 12/08/2025   | 12/08/2025      |
-| 4   | - Kết nối UI React Vite với backend Spring Boot <br> - Tìm hiểu tích hợp MSSQL | 13/08/2025   | 13/08/2025      |
-| 5   | - Hoàn thiện kết nối backend Spring Boot với MSSQL <br> - Test toàn bộ luồng kết nối | 14/08/2025   | 14/08/2025      |
-| 6   | - Tổng kết, hoàn thiện UI/UX <br> - Viết tài liệu hướng dẫn sử dụng <br> - Ôn tập lại security và Lightsail | 15/08/2025   | 15/08/2025      |
+| 2   | - Học về security trong AWS <br> - Tìm hiểu dịch vụ Lightsail <br> - Bắt đầu thiết kế UI với React Vite | 09/29/2025   | 09/29/2025      |
+| 3   | - Tiếp tục hoàn thiện UI React Vite <br> - Tìm hiểu kết nối backend Spring Boot | 09/30/2025   | 09/30/2025      |
+| 4   | - Kết nối UI React Vite với backend Spring Boot <br> - Tìm hiểu tích hợp MSSQL | 10/01/2025   | 10/01/2025      |
+| 5   | - Hoàn thiện kết nối backend Spring Boot với MSSQL <br> - Test toàn bộ luồng kết nối | 10/02/2025   | 10/02/2025      |
+| 6   | - Tổng kết, hoàn thiện UI/UX <br> - Viết tài liệu hướng dẫn sử dụng <br> - Ôn tập lại security và Lightsail | 10/03/2025   | 10/03/2025      |
 
 
 ### Kết quả đạt được tuần 4:

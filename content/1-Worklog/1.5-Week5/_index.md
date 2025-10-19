@@ -12,46 +12,43 @@ pre: " <b> 1.5. </b> "
 
 ### Week 5 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Discuss AI integration strategies with the team using API connections.
+* Complete database implementation with MSSQL for the project system.
+* Prepare comprehensively for the AWS knowledge mid-term examination.
+* Review and consolidate AWS concepts learned in previous weeks.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 1   | - Orientation and introduction to internship program <br> - Setup working environment                                                                                                                   | 08/10/2025 | 08/10/2025      |                                           |
-| 2   | - Get to know with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                      | 08/11/2025 | 08/11/2025      |                                           |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 7   | - Weekly review and Q&A session <br> - Prepare summary report for Week 1                                                                                                                               | 08/16/2025 | 08/16/2025      |                                           |
+### Tasks to be implemented this week:
+| Day | Tasks                                                                                                                                                                                       | Start Date | Completion Date | Reference Material                        |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | ----------------------------------------- |
+| 2   | - Hold team meeting to discuss AI integration <br> - Research suitable AI APIs for the system <br> - Define integration points and data flow architecture                                   | 10/06/2025 | 10/06/2025      |                                           |
+| 3   | - Design MSSQL database schema <br> - Create and configure tables with proper relationships <br> - Test database connections                                                                 | 10/07/2025 | 10/07/2025      |                                           |
+| 4   | - Implement CRUD operations with MSSQL <br> - Integrate database into existing system <br> - Test and optimize performance                                                                   | 10/08/2025 | 10/08/2025      |                                           |
+| 5   | - Study AWS core services (EC2, S3, RDS, Lambda, IAM) <br> - Learn AWS networking concepts and VPC <br> - Practice AWS CLI and automation scripts                                          | 10/09/2025 | 10/09/2025      |                                           |
+| 6   | - Complete AWS exam preparation <br> - Take practice exams and assess knowledge <br> - Review and validate AI integration and database work                                                  | 10/10/2025 | 10/10/2025      |                                           |
 ### Week 5 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Successfully conducted team discussions on AI integration strategies:
+  * Identified suitable AI APIs for system enhancement
+  * Defined integration points and data flow architecture
+  * Established timeline for AI implementation phases
+  * Researched authentication and security requirements for AI APIs
 
-* Successfully created and configured an AWS Free Tier account.
+* Completed comprehensive MSSQL database implementation:
+  * Designed and implemented normalized database schema
+  * Successfully created all required tables with proper relationships
+  * Established database connections with connection pooling
+  * Implemented and tested full CRUD operations
+  * Integrated database seamlessly with existing system components
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Thoroughly prepared for AWS mid-term examination:
+  * Mastered core AWS services (EC2, S3, RDS, Lambda, IAM)
+  * Understood AWS networking concepts including VPC, subnets, and security groups
+  * Practiced AWS CLI commands and automation scripts
+  * Studied AWS pricing models and cost optimization strategies
+  * Completed multiple practice exams with high confidence level
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Enhanced project development skills:
+  * Improved database design and optimization techniques
+  * Strengthened API integration and system architecture knowledge
+  * Developed better understanding of cloud-native application patterns
