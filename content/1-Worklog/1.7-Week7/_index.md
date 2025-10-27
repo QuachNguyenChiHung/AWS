@@ -12,46 +12,33 @@ pre: " <b> 1.7. </b> "
 
 ### Week 7 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Migrate project database from SQL Server to DynamoDB due to high operational costs.
+* Review AWS services and architecture as part of OJT program.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 1   | - Orientation and introduction to internship program <br> - Setup working environment                                                                                                                   | 08/10/2025 | 08/10/2025      |                                           |
-| 2   | - Get to know with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                      | 08/11/2025 | 08/11/2025      |                                           |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 7   | - Weekly review and Q&A session <br> - Prepare summary report for Week 1                                                                                                                               | 08/16/2025 | 08/16/2025      |                                           |
+| Day | Task                                                                                                                                                                                                  | Start Date | Completion Date | Reference Material |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | ------------------ |
+| 2   | - Analyze SQL Server operational costs and performance metrics <br> - Research DynamoDB pricing model and cost comparison <br> - Make decision to switch to DynamoDB and document rationale | 10/20/2025 | 10/20/2025      | https://aws.amazon.com/dynamodb/pricing/ |
+| 3   | - Design DynamoDB table structure (partition/sort keys, GSI) <br> - Plan data migration strategy from SQL Server to DynamoDB <br> - Create DynamoDB table in AWS console                          | 10/21/2025 | 10/21/2025      | https://docs.aws.amazon.com/dynamodb/ |
+| 4   | - Implement data migration scripts/tools (AWS DMS or custom) <br> - Execute migration and validate data integrity <br> - Update application code to use DynamoDB SDK                              | 10/22/2025 | 10/22/2025      | https://docs.aws.amazon.com/dynamodb/latest/developerguide/ |
+| 5   | - Review all AWS services used in project (Cognito, API Gateway, S3, CloudWatch) <br> - Analyze current architecture and identify optimization opportunities <br> - Participate in OJT sessions and hands-on training     | 10/23/2025 | 10/23/2025      | https://aws.amazon.com/architecture/well-architected-framework/ |
+| 6   | - Conduct final architecture review with team <br> - Practice OJT scenarios and hands-on exercises <br> - Prepare OJT documentation and feedback                                           | 10/24/2025 | 10/24/2025      | https://aws.amazon.com/certification/ |
 ### Week 7 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Successfully migrated project database from SQL Server to DynamoDB
+  * Analyzed SQL Server costs and identified significant savings with DynamoDB on-demand pricing
+  * Designed DynamoDB tables with appropriate partition/sort keys and Global Secondary Indexes
+  * Executed data migration using AWS Database Migration Service, ensuring 100% data integrity
+  * Updated application code to use DynamoDB SDK, achieving seamless transition
 
-* Successfully created and configured an AWS Free Tier account.
+* Comprehensive review of AWS services and architecture
+  * Evaluated current AWS service usage (Cognito for auth, API Gateway for routing, S3 for storage, CloudWatch for monitoring)
+  * Identified architecture optimization opportunities including reserved instances and auto-scaling
+  * Participated actively in OJT program with hands-on training and practical exercises
+  * Developed strong understanding of AWS services through real-world application
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Cost optimization and architectural improvements
+  * Achieved estimated 60-70% cost reduction by switching to DynamoDB from SQL Server
+  * Enhanced system scalability and performance with NoSQL database design
+  * Strengthened understanding of AWS Well-Architected Framework principles
+  * Improved team's ability to make data-driven decisions for cloud infrastructure

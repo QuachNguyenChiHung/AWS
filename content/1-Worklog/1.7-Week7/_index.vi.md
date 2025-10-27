@@ -12,48 +12,37 @@ pre: " <b> 1.7. </b> "
 
 ### Mục tiêu tuần 7:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Di chuyển cơ sở dữ liệu dự án từ SQL Server sang DynamoDB do chi phí vận hành cao.
+* Ôn tập dịch vụ AWS và kiến trúc trong chương trình OJT.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc                                                                                                                                                                                          | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                                                                                                  |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------------------------------------------------------------------------------- |
+| 2   | - Phân tích chi phí vận hành SQL Server và các chỉ số hiệu năng <br> - Nghiên cứu mô hình giá DynamoDB và so sánh chi phí <br> - Quyết định chuyển sang DynamoDB và ghi nhận lý do | 10/20/2025   | 10/20/2025      | https://aws.amazon.com/dynamodb/pricing/                                                                       |
+| 3   | - Thiết kế cấu trúc bảng DynamoDB (partition/sort keys, GSI) <br> - Lập kế hoạch di chuyển dữ liệu từ SQL Server sang DynamoDB <br> - Tạo bảng DynamoDB trong AWS console     | 10/21/2025   | 10/21/2025      | https://docs.aws.amazon.com/dynamodb/                                                                          |
+| 4   | - Triển khai script/tool di chuyển dữ liệu (AWS DMS hoặc tùy chỉnh) <br> - Thực hiện di chuyển và xác thực tính toàn vẹn dữ liệu <br> - Cập nhật code ứng dụng để sử dụng DynamoDB SDK | 10/22/2025   | 10/22/2025      | https://docs.aws.amazon.com/dynamodb/latest/developerguide/                                                   |
+| 5   | - Ôn tập tất cả dịch vụ AWS sử dụng trong dự án (Cognito, API Gateway, S3, CloudWatch) <br> - Phân tích kiến trúc hiện tại và xác định cơ hội tối ưu hóa <br> - Tham gia các buổi OJT và đào tạo thực hành     | 10/23/2025   | 10/23/2025      | https://aws.amazon.com/architecture/well-architected-framework/                                               |
+| 6   | - Thực hiện ôn tập kiến trúc cuối cùng với nhóm <br> - Luyện tập tình huống OJT và bài tập thực hành <br> - Chuẩn bị tài liệu OJT và phản hồi                                     | 10/24/2025   | 10/24/2025      | https://aws.amazon.com/certification/                                                                          |
 
 
 ### Kết quả đạt được tuần 7:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Thành công di chuyển cơ sở dữ liệu dự án từ SQL Server sang DynamoDB
+  * Phân tích chi phí SQL Server và xác định tiết kiệm đáng kể với giá theo nhu cầu của DynamoDB
+  * Thiết kế bảng DynamoDB với partition/sort keys và Global Secondary Indexes phù hợp
+  * Thực hiện di chuyển dữ liệu bằng AWS Database Migration Service, đảm bảo 100% tính toàn vẹn dữ liệu
+  * Cập nhật code ứng dụng để sử dụng DynamoDB SDK, đạt chuyển đổi liền mạch
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Ôn tập toàn diện dịch vụ AWS và kiến trúc
+  * Đánh giá việc sử dụng dịch vụ AWS hiện tại (Cognito cho xác thực, API Gateway cho định tuyến, S3 cho lưu trữ, CloudWatch cho giám sát)
+  * Xác định cơ hội tối ưu hóa kiến trúc bao gồm reserved instances và auto-scaling
+  * Tham gia tích cực vào chương trình OJT với đào tạo thực hành và bài tập thực tế
+  * Phát triển hiểu biết vững chắc về dịch vụ AWS thông qua ứng dụng thực tế
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Tối ưu hóa chi phí và cải thiện kiến trúc
+  * Đạt tiết kiệm chi phí ước tính 60-70% bằng cách chuyển sang DynamoDB từ SQL Server
+  * Nâng cao khả năng mở rộng và hiệu năng hệ thống với thiết kế cơ sở dữ liệu NoSQL
+  * Tăng cường hiểu biết về các nguyên tắc AWS Well-Architected Framework
+  * Cải thiện khả năng của nhóm trong việc đưa ra quyết định dựa trên dữ liệu cho hạ tầng đám mây
 
 

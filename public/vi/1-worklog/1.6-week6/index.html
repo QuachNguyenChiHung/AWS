@@ -15,21 +15,21 @@
     <title>Worklog Tuần 6 :: Báo cáo thực tập</title>
 
     
-    <link href="../../../css/nucleus.css?1760594785" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1760594785" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1760594785" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1760594785" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1760594785" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1760594785" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1760594785" rel="stylesheet">
-    <link href="../../../css/theme.css?1760594785" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1760594785" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1761533356" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1761533356" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1761533356" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1761533356" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1761533356" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1761533356" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1761533356" rel="stylesheet">
+    <link href="../../../css/theme.css?1761533356" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1761533356" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1760594785" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1761533356" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1760594785"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1761533356"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1760594785"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1760594785"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1761533356"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1761533356"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/workshop-template\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1760594785"></script>
+<script type="text/javascript" src="../../../js/search.js?1761533356"></script>
  
   </div>
 
@@ -1028,8 +1028,10 @@
 
 <h3 id="mục-tiêu-tuần-6">Mục tiêu tuần 6:</h3>
 <ul>
-<li>Kết nối, làm quen với các thành viên trong First Cloud Journey.</li>
-<li>Hiểu dịch vụ AWS cơ bản, cách dùng console &amp; CLI.</li>
+<li>Học và thực hành Amazon Cognito (User Pool, App Client, luồng xác thực).</li>
+<li>Tìm hiểu Spring Data JpaRepository cho CRUD, phương thức truy vấn và phân trang.</li>
+<li>Thảo luận và chốt các dịch vụ AWS sẽ dùng cho dự án cùng cả nhóm.</li>
+<li>Chẩn đoán và khắc phục lỗi HTTP 500 của API backend Spring Boot.</li>
 </ul>
 <h3 id="các-công-việc-cần-triển-khai-trong-tuần-này">Các công việc cần triển khai trong tuần này:</h3>
 <table>
@@ -1045,84 +1047,75 @@
   <tbody>
       <tr>
           <td style="text-align: left">2</td>
-          <td style="text-align: left">- Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập</td>
+          <td style="text-align: left">- Tìm hiểu Amazon Cognito cơ bản (User Pool, App Client, domain) <br> - Thử luồng đăng ký/đăng nhập bằng Hosted UI hoặc SDK <br> - Kiểm tra ID/Access token và xác minh chữ ký JWT</td>
           <td style="text-align: left">10/13/2025</td>
           <td style="text-align: left">10/13/2025</td>
-          <td style="text-align: left"></td>
+          <td style="text-align: left"><a href="https://docs.aws.amazon.com/cognito/">https://docs.aws.amazon.com/cognito/</a></td>
       </tr>
       <tr>
           <td style="text-align: left">3</td>
-          <td style="text-align: left">- Tìm hiểu AWS và các loại dịch vụ <br>  + Compute <br>  + Storage <br>  + Networking <br>  + Database <br>  + &hellip; <br></td>
+          <td style="text-align: left">- Triển khai Spring Data JpaRepository cho các entity chính <br> - Thêm phương thức truy vấn, Pageable và sắp xếp <br> - Viết unit test cho CRUD của repository</td>
           <td style="text-align: left">10/14/2025</td>
           <td style="text-align: left">10/14/2025</td>
-          <td style="text-align: left"><a href="https://cloudjourney.awsstudygroup.com/">https://cloudjourney.awsstudygroup.com/</a></td>
+          <td style="text-align: left"><a href="https://docs.spring.io/spring-data/jpa/reference/">https://docs.spring.io/spring-data/jpa/reference/</a></td>
       </tr>
       <tr>
           <td style="text-align: left">4</td>
-          <td style="text-align: left">- Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console &amp; AWS CLI <br> - <strong>Thực hành:</strong> <br>  + Tạo AWS account <br>  + Cài AWS CLI &amp; cấu hình <br>   + Cách sử dụng AWS CLI</td>
+          <td style="text-align: left">- Họp nhóm: chọn dịch vụ AWS cho dự án (Cognito, API Gateway/ALB, RDS for SQL Server, S3, CloudWatch) <br> - Phác thảo sơ đồ kiến trúc tổng quan và luồng dữ liệu</td>
           <td style="text-align: left">10/15/2025</td>
           <td style="text-align: left">10/15/2025</td>
-          <td style="text-align: left"><a href="https://cloudjourney.awsstudygroup.com/">https://cloudjourney.awsstudygroup.com/</a></td>
+          <td style="text-align: left"><a href="https://wa.aws.amazon.com/">https://wa.aws.amazon.com/</a></td>
       </tr>
       <tr>
           <td style="text-align: left">5</td>
-          <td style="text-align: left">- Tìm hiểu EC2 cơ bản: <br>  + Instance types <br>  + AMI <br>  + EBS <br>  + &hellip; <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br></td>
+          <td style="text-align: left">- Tái hiện lỗi 500 của backend Spring Boot <br> - Thêm logging và xử lý ngoại lệ (@ControllerAdvice) <br> - Sửa các trường hợp null/validation ở service/repository, trả mã trạng thái đúng</td>
           <td style="text-align: left">10/16/2025</td>
           <td style="text-align: left">10/16/2025</td>
-          <td style="text-align: left"><a href="https://cloudjourney.awsstudygroup.com/">https://cloudjourney.awsstudygroup.com/</a></td>
+          <td style="text-align: left"><a href="https://docs.spring.io/spring-boot/reference/web/servlet.html#web.servlet.spring-mvc.exception-handling">https://docs.spring.io/spring-boot/reference/web/servlet.html#web.servlet.spring-mvc.exception-handling</a></td>
       </tr>
       <tr>
           <td style="text-align: left">6</td>
-          <td style="text-align: left">- <strong>Thực hành:</strong> <br>  + Tạo EC2 instance <br>  + Kết nối SSH <br>  + Gắn EBS volume</td>
+          <td style="text-align: left">- Thêm integration test cho API quan trọng <br> - Kiểm tra phản hồi 2xx/4xx bằng Postman/newman <br> - Cập nhật README và health checks/monitoring</td>
           <td style="text-align: left">10/17/2025</td>
           <td style="text-align: left">10/17/2025</td>
-          <td style="text-align: left"><a href="https://cloudjourney.awsstudygroup.com/">https://cloudjourney.awsstudygroup.com/</a></td>
+          <td style="text-align: left"><a href="https://spring.io/guides/gs/testing-web/">https://spring.io/guides/gs/testing-web/</a></td>
       </tr>
   </tbody>
 </table>
 <h3 id="kết-quả-đạt-được-tuần-6">Kết quả đạt được tuần 6:</h3>
 <ul>
 <li>
-<p>Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản:</p>
+<p>Amazon Cognito: thiết lập và xác thực luồng đăng nhập</p>
 <ul>
-<li>Compute</li>
-<li>Storage</li>
-<li>Networking</li>
-<li>Database</li>
-<li>&hellip;</li>
+<li>Tạo User Pool và App Client; cấu hình chính sách mật khẩu và (tuỳ chọn) MFA</li>
+<li>Thử đăng ký/đăng nhập bằng Hosted UI/SDK và lấy ID/Access token</li>
+<li>Xác minh JWT qua JWKs endpoint; xác nhận scope và claims cho truy cập API</li>
 </ul>
 </li>
 <li>
-<p>Đã tạo và cấu hình AWS Free Tier account thành công.</p>
-</li>
-<li>
-<p>Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.</p>
-</li>
-<li>
-<p>Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:</p>
+<p>Spring Data JPA: triển khai repository và cải thiện lớp truy cập dữ liệu</p>
 <ul>
-<li>Access Key</li>
-<li>Secret Key</li>
-<li>Region mặc định</li>
-<li>&hellip;</li>
+<li>Xây dựng repository mở rộng JpaRepository với phương thức truy vấn suy luận và phân trang</li>
+<li>Viết unit test cho CRUD, đảm bảo tính nhất quán giao dịch</li>
+<li>Giảm boilerplate và cải thiện khả năng đọc của tầng dữ liệu</li>
 </ul>
 </li>
 <li>
-<p>Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:</p>
+<p>Quyết định của nhóm về dịch vụ AWS cho dự án</p>
 <ul>
-<li>Kiểm tra thông tin tài khoản &amp; cấu hình</li>
-<li>Lấy danh sách region</li>
-<li>Xem dịch vụ EC2</li>
-<li>Tạo và quản lý key pair</li>
-<li>Kiểm tra thông tin dịch vụ đang chạy</li>
-<li>&hellip;</li>
+<li>Chọn Cognito cho xác thực, Amazon RDS for SQL Server cho dữ liệu quan hệ, S3 cho lưu trữ đối tượng</li>
+<li>Cân nhắc API Gateway so với ALB cho định tuyến; lựa chọn dựa trên nhu cầu tích hợp hiện tại</li>
+<li>Lập kế hoạch giám sát với CloudWatch và log có cấu trúc cho API</li>
 </ul>
 </li>
 <li>
-<p>Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.</p>
-</li>
-<li>
-<p>&hellip;</p>
+<p>Khắc phục lỗi HTTP 500 của backend Spring Boot và tăng cường xử lý lỗi</p>
+<ul>
+<li>Xác định nguyên nhân gốc (xử lý null, validation, ngoại lệ chưa bắt) qua log và trace</li>
+<li>Thêm xử lý ngoại lệ toàn cục với @ControllerAdvice và phản hồi lỗi nhất quán</li>
+<li>Áp dụng kiểm tra đầu vào (@Valid) và ánh xạ mã trạng thái đúng với ResponseEntity</li>
+<li>Tạo integration test để ngăn hồi quy; xác thực endpoint trả 2xx/4xx chính xác</li>
+</ul>
 </li>
 </ul>
 
@@ -1826,19 +1819,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1760594785"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1760594785"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1760594785"></script>
-    <script src="../../../js/jquery.sticky.js?1760594785"></script>
-    <script src="../../../js/featherlight.min.js?1760594785"></script>
-    <script src="../../../js/highlight.pack.js?1760594785"></script>
+    <script src="../../../js/clipboard.min.js?1761533356"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1761533356"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1761533356"></script>
+    <script src="../../../js/jquery.sticky.js?1761533356"></script>
+    <script src="../../../js/featherlight.min.js?1761533356"></script>
+    <script src="../../../js/highlight.pack.js?1761533356"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1760594785"></script>
-    <script src="../../../js/learn.js?1760594785"></script>
-    <script src="../../../js/hugo-learn.js?1760594785"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1761533356"></script>
+    <script src="../../../js/learn.js?1761533356"></script>
+    <script src="../../../js/hugo-learn.js?1761533356"></script>
 
-    <link href="../../../mermaid/mermaid.css?1760594785" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1760594785"></script>
+    <link href="../../../mermaid/mermaid.css?1761533356" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1761533356"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

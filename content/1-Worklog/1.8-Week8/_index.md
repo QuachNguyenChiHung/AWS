@@ -12,46 +12,36 @@ pre: " <b> 1.8. </b> "
 
 ### Week 8 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Prepare for OJT test through team study sessions and question review.
+* Complete Coursera course on Research Methods and Academic Writing Skills.
+* Successfully pass the OJT test at Bitexco Financial Tower.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 1   | - Orientation and introduction to internship program <br> - Setup working environment                                                                                                                   | 08/10/2025 | 08/10/2025      |                                           |
-| 2   | - Get to know with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                      | 08/11/2025 | 08/11/2025      |                                           |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 7   | - Weekly review and Q&A session <br> - Prepare summary report for Week 1                                                                                                                               | 08/16/2025 | 08/16/2025      |                                           |
+| Day | Task                                                                                                                                                                                                  | Start Date | Completion Date | Reference Material |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | ------------------ |
+| 2   | - Begin team study sessions to review OJT test questions <br> - Discuss key concepts and practice sample questions <br> - Identify areas needing additional focus                           | 10/27/2025 | 10/27/2025      | OJT study materials |
+| 3   | - Continue team review of OJT questions and scenarios <br> - Work through challenging topics as a group <br> - Share individual study progress and insights                                     | 10/28/2025 | 10/28/2025      | OJT study materials |
+| 4   | - Intensify OJT test preparation with focused group sessions <br> - Practice time management and test-taking strategies <br> - Review weak areas identified during study                        | 10/29/2025 | 10/29/2025      | OJT study materials |
+| 5   | - Final team review and mock test practice <br> - Complete remaining modules of Coursera Research Methods course <br> - Prepare mentally and logistically for test day                        | 10/30/2025 | 10/30/2025      | https://www.coursera.org/specializations/academic-english |
+| 6   | - Take OJT test at Bitexco Financial Tower <br> - Complete final assessments of Coursera course <br> - Submit course certificate and reflect on learning outcomes                             | 10/31/2025 | 10/31/2025      | https://www.coursera.org/specializations/academic-english |
 ### Week 8 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Successfully completed OJT test preparation through collaborative team study
+  * Conducted intensive team study sessions reviewing all OJT test questions and scenarios
+  * Identified and addressed knowledge gaps through group discussions and practice exercises
+  * Developed effective test-taking strategies and time management skills
 
-* Successfully created and configured an AWS Free Tier account.
+* Passed OJT test at Bitexco Financial Tower
+  * Completed the comprehensive OJT assessment on October 31, 2025
+  * Demonstrated proficiency in required skills and knowledge areas
+  * Received positive feedback and validation of learning progress
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Completed Coursera course: Research Methods and Academic Writing Skills
+  * Finished all course modules covering research methodologies and writing techniques
+  * Applied academic writing principles to improve documentation and reporting skills
+  * Earned course certificate demonstrating commitment to professional development
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Enhanced teamwork and study skills
+  * Improved collaborative learning abilities through group study sessions
+  * Strengthened communication and knowledge sharing within the team
+  * Developed better preparation and performance under pressure

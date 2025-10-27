@@ -12,47 +12,41 @@ pre: " <b> 1.6. </b> "
 
 ### Mục tiêu tuần 6:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Học và thực hành Amazon Cognito (User Pool, App Client, luồng xác thực).
+* Tìm hiểu Spring Data JpaRepository cho CRUD, phương thức truy vấn và phân trang.
+* Thảo luận và chốt các dịch vụ AWS sẽ dùng cho dự án cùng cả nhóm.
+* Chẩn đoán và khắc phục lỗi HTTP 500 của API backend Spring Boot.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 10/13/2025   | 10/13/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 10/14/2025   | 10/14/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 10/15/2025   | 10/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 10/16/2025   | 10/16/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 10/17/2025   | 10/17/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc                                                                                                                                                                                          | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                                                                                                  |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------------------------------------------------------------------------------- |
+| 2   | - Tìm hiểu Amazon Cognito cơ bản (User Pool, App Client, domain) <br> - Thử luồng đăng ký/đăng nhập bằng Hosted UI hoặc SDK <br> - Kiểm tra ID/Access token và xác minh chữ ký JWT             | 10/13/2025   | 10/13/2025      | https://docs.aws.amazon.com/cognito/                                                                              |
+| 3   | - Triển khai Spring Data JpaRepository cho các entity chính <br> - Thêm phương thức truy vấn, Pageable và sắp xếp <br> - Viết unit test cho CRUD của repository                                | 10/14/2025   | 10/14/2025      | https://docs.spring.io/spring-data/jpa/reference/                                                                 |
+| 4   | - Họp nhóm: chọn dịch vụ AWS cho dự án (Cognito, API Gateway/ALB, RDS for SQL Server, S3, CloudWatch) <br> - Phác thảo sơ đồ kiến trúc tổng quan và luồng dữ liệu                             | 10/15/2025   | 10/15/2025      | https://wa.aws.amazon.com/                                                                                         |
+| 5   | - Tái hiện lỗi 500 của backend Spring Boot <br> - Thêm logging và xử lý ngoại lệ (@ControllerAdvice) <br> - Sửa các trường hợp null/validation ở service/repository, trả mã trạng thái đúng | 10/16/2025   | 10/16/2025      | https://docs.spring.io/spring-boot/reference/web/servlet.html#web.servlet.spring-mvc.exception-handling           |
+| 6   | - Thêm integration test cho API quan trọng <br> - Kiểm tra phản hồi 2xx/4xx bằng Postman/newman <br> - Cập nhật README và health checks/monitoring                                            | 10/17/2025   | 10/17/2025      | https://spring.io/guides/gs/testing-web/                                                                          |
 
 
 ### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Amazon Cognito: thiết lập và xác thực luồng đăng nhập
+  * Tạo User Pool và App Client; cấu hình chính sách mật khẩu và (tuỳ chọn) MFA
+  * Thử đăng ký/đăng nhập bằng Hosted UI/SDK và lấy ID/Access token
+  * Xác minh JWT qua JWKs endpoint; xác nhận scope và claims cho truy cập API
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Spring Data JPA: triển khai repository và cải thiện lớp truy cập dữ liệu
+  * Xây dựng repository mở rộng JpaRepository với phương thức truy vấn suy luận và phân trang
+  * Viết unit test cho CRUD, đảm bảo tính nhất quán giao dịch
+  * Giảm boilerplate và cải thiện khả năng đọc của tầng dữ liệu
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Quyết định của nhóm về dịch vụ AWS cho dự án
+  * Chọn Cognito cho xác thực, Amazon RDS for SQL Server cho dữ liệu quan hệ, S3 cho lưu trữ đối tượng
+  * Cân nhắc API Gateway so với ALB cho định tuyến; lựa chọn dựa trên nhu cầu tích hợp hiện tại
+  * Lập kế hoạch giám sát với CloudWatch và log có cấu trúc cho API
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Khắc phục lỗi HTTP 500 của backend Spring Boot và tăng cường xử lý lỗi
+  * Xác định nguyên nhân gốc (xử lý null, validation, ngoại lệ chưa bắt) qua log và trace
+  * Thêm xử lý ngoại lệ toàn cục với @ControllerAdvice và phản hồi lỗi nhất quán
+  * Áp dụng kiểm tra đầu vào (@Valid) và ánh xạ mã trạng thái đúng với ResponseEntity
+  * Tạo integration test để ngăn hồi quy; xác thực endpoint trả 2xx/4xx chính xác
 
 
