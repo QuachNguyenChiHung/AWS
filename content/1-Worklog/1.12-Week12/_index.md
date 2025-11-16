@@ -12,46 +12,32 @@ pre: " <b> 1.12. </b> "
 
 ### Week 12 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Review the project end-to-end and fix any bugs prior to mentor presentation.
+* Deploy backend, database, and frontend into AWS (staging and production as appropriate) with repeatable CI/CD pipelines.
+* Prepare demo, runbooks, and monitoring so mentors can review a stable, observable system.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 1   | - Orientation and introduction to internship program <br> - Setup working environment                                                                                                                   | 08/10/2025 | 08/10/2025      |                                           |
-| 2   | - Get to know with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                      | 08/11/2025 | 08/11/2025      |                                           |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 7   | - Weekly review and Q&A session <br> - Prepare summary report for Week 1                                                                                                                               | 08/16/2025 | 08/16/2025      |                                           |
+| 1   | - Code review and bug triage: run static analysis, prioritize critical/major bugs, create fix plan                                                                                                     | 11/24/2025 | 11/24/2025      |                                         |
+| 2   | - Fix high-priority backend issues: unit & integration tests, database query optimizations, handle error paths and edge cases                                                                              | 11/25/2025 | 11/25/2025      |                                         |
+| 3   | - Prepare deployment artifacts: containerize services, build artifacts, verify infra-as-code templates (CloudFormation/CDK), and configure CI pipelines for staging deploys                          | 11/26/2025 | 11/26/2025      |                                         |
+| 4   | - Deploy backend & database to AWS staging (or production if ready): configure Secrets Manager/SSM, load balancer / ALB, autoscaling, and backups; validate connections and migrations             | 11/27/2025 | 11/27/2025      |                                         |
+| 5   | - Deploy frontend (S3 + CloudFront or hosting), run end-to-end smoke tests, run performance and load checks, prepare demo script and present rehearsal to team                                       | 11/28/2025 | 11/28/2025      |                                         |
 ### Week 12 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Completed code review and resolved critical/major bugs blocking presentation.
 
-* Successfully created and configured an AWS Free Tier account.
+* Backend and database deployed to AWS staging (and production where approved)
+  * CI/CD pipelines validated for automated builds and deploys to staging
+  * Database migrations applied and backups configured
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Frontend deployed and configured behind CDN (S3 + CloudFront) with routing and TLS
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Monitoring and observability configured
+  * Application logs centralized, metrics and basic dashboards created, and alerts configured for critical failures
 
-* Used AWS CLI to perform basic operations such as:
+* Performed end-to-end smoke tests and a rehearsal demo for mentors
+  * Prepared demo script, runbook, and rollback steps
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Project is presentation-ready with documented deployment steps and testing results.

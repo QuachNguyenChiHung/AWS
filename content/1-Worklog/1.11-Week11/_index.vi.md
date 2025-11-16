@@ -10,50 +10,40 @@ pre: " <b> 1.11. </b> "
 {{% /notice %}}
 
 
-### Mục tiêu tuần 11:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mục tiêu Tuần 11:
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+* Thêm chức năng giao dịch bằng thẻ tín dụng vào dự án để người dùng có thể thanh toán an toàn.
+* Tham dự AWS Cloud Mastery Series (Bitexco Financial Tower) và áp dụng kiến thức về DevOps/CI-CD và giám sát vào dự án.
+* Hoàn thành tích hợp, kiểm thử và triển khai luồng thanh toán, đồng thời viết tài liệu triển khai.
+
+### Công việc cần triển khai trong tuần này:
+| Ngày | Công việc                                                                                                                                                                                               | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| 2   | - Tham dự AWS Cloud Mastery Series tại Bitexco Financial Tower (cả ngày) <br> - Các phiên bao gồm: DevOps mindset, CI/CD (CodeCommit/CodeBuild/CodeDeploy/CodePipeline), IaC (CloudFormation/CDK), container (ECR/ECS/EKS), giám sát (CloudWatch/X-Ray) và best practices. | 11/17/2025   | 11/17/2025      |                                         |
+| 3   | - Thiết kế và tích hợp luồng thanh toán bằng thẻ tín dụng (chọn nhà cung cấp/gateway/tokenization) <br> - Triển khai endpoint server-side xử lý thanh toán và lưu trữ token <br> - Đảm bảo không lưu trữ dữ liệu nhạy cảm dưới dạng text thuần | 11/18/2025   | 11/18/2025      |                                         |
+| 4   | - Triển khai giao diện thanh toán phía client và kết nối tới API tokenization backend <br> - Thêm xác thực phía server, logging và xử lý retry/lỗi <br> - Thêm giám sát cho tỷ lệ thành công/thất bại thanh toán | 11/19/2025   | 11/19/2025      |                                         |
+| 5   | - Kiểm thử end-to-end luồng thanh toán (thành công, từ chối, lỗi mạng) <br> - Chạy kiểm tra bảo mật và đảm bảo các cân nhắc tuân thủ (tokenization, TLS) <br> - Sửa lỗi phát hiện trong quá trình test | 11/20/2025   | 11/20/2025      |                                         |
+| 6   | - Triển khai tính năng thanh toán lên môi trường staging <br> - Demo cho đội và thu phản hồi <br> - Viết tài liệu triển khai, runbook và cảnh báo giám sát cho production                     | 11/21/2025   | 11/21/2025      |                                         |
 
 
-### Kết quả đạt được tuần 11:
+### Thành tựu Tuần 11:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Đã tham dự AWS Cloud Mastery Series (Bitexco Financial Tower) vào 11/17/2025
+  * Tham gia các phiên về DevOps mindset, pipeline CI/CD (CodeCommit, CodeBuild, CodeDeploy, CodePipeline), IaC (CloudFormation, CDK), dịch vụ container (ECR/ECS/EKS) và giám sát (CloudWatch, X-Ray).
+  * Có thêm các ý tưởng thực tiễn để cải thiện CI/CD và chiến lược giám sát của dự án.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Đã triển khai chức năng thanh toán bằng thẻ tín dụng an toàn
+  * Thiết kế và tích hợp luồng thanh toán sử dụng tokenization (không lưu trữ thẻ thô)
+  * Triển khai endpoint backend, tích hợp phía client và xác thực phía server
+  * Thêm logging, retry và giám sát cho tỷ lệ thành công/thất bại thanh toán
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Đã kiểm tra luồng thanh toán bằng kiểm thử end-to-end và rà soát bảo mật
+  * Kiểm thử kịch bản thành công, từ chối, và lỗi mạng
+  * Áp dụng TLS, tokenization và các best practices bảo mật cơ bản
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Đã triển khai tính năng lên staging và viết tài liệu tích hợp
+  * Chuẩn bị runbook, cảnh báo giám sát và hướng dẫn tích hợp cho đội
+  * Demo tính năng cho đội và thu phản hồi để chuẩn bị rollout production
 
 

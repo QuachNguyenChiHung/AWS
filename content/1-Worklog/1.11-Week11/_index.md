@@ -12,46 +12,34 @@ pre: " <b> 1.11. </b> "
 
 ### Week 11 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Add credit card transaction capability to the project to enable user payments securely.
+* Attend AWS Cloud Mastery Series (Bitexco Financial Tower) and apply DevOps/CI-CD and observability learnings to the project.
+* Complete integration, testing, and deployment of payment flows and document the implementation.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 1   | - Orientation and introduction to internship program <br> - Setup working environment                                                                                                                   | 08/10/2025 | 08/10/2025      |                                           |
-| 2   | - Get to know with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                      | 08/11/2025 | 08/11/2025      |                                           |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 7   | - Weekly review and Q&A session <br> - Prepare summary report for Week 1                                                                                                                               | 08/16/2025 | 08/16/2025      |                                           |
+| 2   | - Attend AWS Cloud Mastery Series at Bitexco Financial Tower (full day) <br> - Sessions covered: DevOps mindset, CI/CD (CodeCommit/CodeBuild/CodeDeploy/CodePipeline), IaC (CloudFormation/CDK), containers (ECR/ECS/EKS), observability (CloudWatch/X-Ray), and best practices. | 11/17/2025 | 11/17/2025      |                                         |
+| 3   | - Design and integrate credit card payment flow (choose gateway / tokenization) <br> - Implement secure server-side payment endpoint and token handling <br> - Ensure sensitive data is not stored in cleartext | 11/18/2025 | 11/18/2025      |                                         |
+| 4   | - Implement client-side payment UI and connect to backend tokenization API <br> - Add server-side validation, logging and retry/error handling <br> - Add monitoring for payment failures and success rates | 11/19/2025 | 11/19/2025      |                                         |
+| 5   | - End-to-end testing of payment flows (success, decline, network failures) <br> - Run security checks and ensure compliance considerations (tokenization, TLS) <br> - Fix reported issues from tests | 11/20/2025 | 11/20/2025      |                                         |
+| 6   | - Deploy payment features to staging <br> - Demo to team and collect feedback <br> - Document implementation, runbooks and monitoring alerts for production rollout                         | 11/21/2025 | 11/21/2025      |                                         |
+
 ### Week 11 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Attended AWS Cloud Mastery Series (Bitexco Financial Tower) on 11/17/2025
+  * Participated in sessions covering DevOps mindset, CI/CD pipelines (CodeCommit, CodeBuild, CodeDeploy, CodePipeline), IaC (CloudFormation, CDK), container services (ECR/ECS/EKS), and observability (CloudWatch, X-Ray).
+  * Gained actionable ideas for improving our CI/CD workflows and monitoring strategy.
 
-* Successfully created and configured an AWS Free Tier account.
+* Implemented secure credit card payment capability
+  * Designed and integrated payment flow using tokenization (no raw card storage)
+  * Implemented backend payment endpoints, client integration, and server-side validation
+  * Added logging, retries, and monitoring for payment success/failure rates
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Verified payment flows with end-to-end tests and security checks
+  * Tested success, decline, and network-failure scenarios
+  * Applied TLS, tokenization and basic compliance best practices
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Deployed payment features to staging and documented the integration
+  * Prepared runbooks, monitoring alerts, and integration guide for the team
+  * Demoed features to the team and collected feedback for production rollout

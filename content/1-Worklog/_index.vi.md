@@ -13,26 +13,26 @@ pre: " <b> 1. </b> "
 
 Thông thường và cũng là tiêu chuẩn, một worklog được thực hiện trong khoảng 3 tháng (trong suốt thời gian thực tập) với nội dung các tuần như sau:
 
-**Tuần 1:** [Làm quen với AWS và các dịch vụ cơ bản trong AWS](1.1-week1/)
+**Tuần 1:** [Định hướng, thiết lập môi trường và giới thiệu FCJ](1.1-week1/)
 
-**Tuần 2:** [Làm công việc A...](1.2-week2/)
+**Tuần 2:** [Onboarding đội, đọc nội quy đơn vị và làm quen dự án ban đầu](1.2-week2/)
 
-**Tuần 3:** [Làm công việc B...](1.3-week3/)
+**Tuần 3:** [Tìm hiểu các nhóm dịch vụ AWS (Compute, Storage, Networking, Database) và khái niệm nền tảng](1.3-week3/)
 
-**Tuần 4:** [Làm công việc C...](1.4-week4/)
+**Tuần 4:** [Tạo tài khoản AWS Free Tier, cấu hình AWS CLI và thực hành EC2 cơ bản](1.4-week4/)
 
-**Tuần 5:** [Làm công việc D...](1.5-week5/)
+**Tuần 5:** [Lập kế hoạch tích hợp AI, công việc liên quan MSSQL và cập nhật thiết kế dự án](1.5-week5/)
 
-**Tuần 6:** [Làm công việc E...](1.6-week6/)
+**Tuần 6:** [Triển khai Cognito, làm việc với Spring Data JPARepository và sửa lỗi backend](1.6-week6/)
 
-**Tuần 7:** [Làm công việc G...](1.7-week7/)
+**Tuần 7:** [Di chuyển từ RDS SQL Server sang DynamoDB và triển khai CRUD cho admin](1.7-week7/)
 
-**Tuần 8:** [Làm công việc H...](1.8-week8/)
+**Tuần 8:** [Chuẩn bị kiểm tra OJT và hoàn thành chuyên môn Coursera](1.8-week8/)
 
-**Tuần 9:** [Làm công việc I...](1.9-week9/)
+**Tuần 9:** [Tiếp tục migration DynamoDB, cải thiện admin CRUD, và thực hành lệnh Linux/EC2](1.9-week9/)
 
-**Tuần 10:** [Làm công việc L...](1.10-week10/)
+**Tuần 10:** [Triển khai CRUD phía người dùng, họp tại Phuc Long và prototype tích hợp Chatbot Bedrock](1.10-week10/)
 
-**Tuần 11:** [Làm công việc M...](1.11-week11/)
+**Tuần 11:** [Thêm luồng thanh toán thẻ tín dụng và tham dự AWS Cloud Mastery Series (Bitexco)](1.11-week11/)
 
-**Tuần 12:** [Làm công việc N...](1.12-week12/)
+**Tuần 12:** [Rà soát lỗi dự án, triển khai backend/database/frontend lên AWS và chuẩn bị demo](1.12-week12/)

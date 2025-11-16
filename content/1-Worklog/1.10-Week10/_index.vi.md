@@ -22,8 +22,8 @@ pre: " <b> 1.10. </b> "
 | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------------------------- |
 | 2   | - Thêm chức năng sửa hồ sơ người dùng (avatar, địa chỉ, thông tin liên hệ) <br> - Kiểm thử frontend và API chỉnh sửa hồ sơ <br> - Viết unit test cho endpoint cập nhật       | 10/11/2025   | 10/11/2025      |                                                           |
 | 3   | - Thêm chức năng tạo/huỷ đơn hàng ở phía người dùng <br> - Triển khai logic validate đơn hàng và kiểm tra edge cases <br> - Viết integration test cho order APIs     | 10/12/2025   | 10/12/2025      |                                                           |
-| 4   | - Họp nhóm tại Phuc Long: thảo luận tích hợp Chatbot (AWS Bedrock) với backend <br> - Phác thảo API, flow xác thực và bảo mật cho Chatbot <br> - Ghi nhận nhiệm vụ và timeline | 10/13/2025   | 10/13/2025      | https://aws.amazon.com/bedrock/                              |
-| 5   | - Tích hợp thử nghiệm Chatbot với backend (mock/stub) <br> - Kiểm thử end-to-end luồng chat tới backend <br> - Chuẩn bị tài liệu hướng dẫn tích hợp cho nhóm     | 10/14/2025   | 10/14/2025      | https://docs.aws.amazon.com/                                  |
+| 4   | - Họp nhóm tại Phuc Long: thảo luận tích hợp Chatbot (AWS Bedrock) với backend <br> - Phác thảo API, flow xác thực và bảo mật cho Chatbot <br> - Ghi nhận nhiệm vụ và timeline | 10/13/2025   | 10/13/2025      |                                                           |
+| 5   | - Tích hợp thử nghiệm Chatbot với backend (mock/stub) <br> - Kiểm thử end-to-end luồng chat tới backend <br> - Chuẩn bị tài liệu hướng dẫn tích hợp cho nhóm     | 10/14/2025   | 10/14/2025      |                                                           |
 
 
 

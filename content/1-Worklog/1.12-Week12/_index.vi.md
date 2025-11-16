@@ -9,50 +9,39 @@ pre: " <b> 1.12 </b> "
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-### Mục tiêu tuần 12:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mục tiêu Tuần 12:
+
+* Rà soát toàn bộ dự án và sửa các lỗi trước khi trình bày với người hướng dẫn.
+* Triển khai backend, cơ sở dữ liệu và frontend lên AWS (staging và production nếu phù hợp) với các pipeline CI/CD tái sử dụng được.
+* Chuẩn bị demo, runbook và giám sát để người hướng dẫn có thể xem hệ thống ổn định và có khả năng quan sát.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Ngày | Công việc                                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
+| 1   | - Rà soát mã nguồn và phân loại lỗi: chạy phân tích tĩnh, ưu tiên lỗi critical/major, lên kế hoạch sửa lỗi                                                                                              | 11/24/2025 | 11/24/2025      |                                         |
+| 2   | - Sửa các lỗi backend quan trọng: chạy unit & integration tests, tối ưu truy vấn cơ sở dữ liệu, xử lý các đường lỗi và trường hợp biên                                                                    | 11/25/2025 | 11/25/2025      |                                         |
+| 3   | - Chuẩn bị artifact để deploy: containerize dịch vụ, build artifact, kiểm tra template hạ tầng (CloudFormation/CDK), và cấu hình pipeline CI cho deploy tới staging                                           | 11/26/2025 | 11/26/2025      |                                         |
+| 4   | - Triển khai backend & cơ sở dữ liệu lên AWS staging (hoặc production nếu sẵn sàng): cấu hình Secrets Manager/SSM, load balancer/ALB, autoscaling, backup; xác thực kết nối và migration                    | 11/27/2025 | 11/27/2025      |                                         |
+| 5   | - Triển khai frontend (S3 + CloudFront hoặc hosting tương đương), chạy end-to-end smoke tests, kiểm tra hiệu năng và tải, chuẩn bị kịch bản demo và diễn tập cho đội                                   | 11/28/2025 | 11/28/2025      |                                         |
 
 
-### Kết quả đạt được tuần 12:
+### Kết quả đạt được Tuần 12:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Hoàn thành rà soát mã nguồn và sửa các lỗi critical/major nhằm chuẩn bị cho buổi trình bày.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Backend và cơ sở dữ liệu đã được triển khai lên AWS staging (và production nếu đã được phê duyệt)
+  * Pipeline CI/CD đã được kiểm chứng cho build và deploy tự động tới môi trường staging
+  * Các migration cơ sở dữ liệu đã được áp dụng và backup được cấu hình
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Frontend đã được triển khai và cấu hình phía CDN (S3 + CloudFront) cùng TLS và routing
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Giám sát và khả năng quan sát được thiết lập
+  * Logs được tập trung, dashboards cơ bản và các cảnh báo cho lỗi quan trọng đã được cấu hình
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Đã thực hiện smoke tests end-to-end và diễn tập demo cho người hướng dẫn
+  * Chuẩn bị kịch bản demo, runbook và các bước rollback
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Dự án sẵn sàng để trình bày với tài liệu triển khai và kết quả kiểm thử đi kèm.
 
 
