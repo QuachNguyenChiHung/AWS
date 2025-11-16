@@ -12,48 +12,41 @@ pre: " <b> 1.9. </b> "
 
 ### Mục tiêu tuần 9:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Di chuyển dự án từ RDS SQL Server sang DynamoDB nhằm giảm chi phí vận hành.
+* Hoàn thiện phần quản trị (admin) với các thao tác CRUD cơ bản cho cửa hàng bán quần áo.
+* Học các lệnh cơ bản trên Linux để vận hành EC2 Ubuntu.
+
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc                                                                                                                                                                                          | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                                                                 |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ------------------------------------------------------------------------------ |
+| 2   | - Phân tích và lập kế hoạch di chuyển từ RDS SQL Server sang DynamoDB <br> - So sánh mô hình chi phí và dự kiến tiết kiệm <br> - Ghi chép kế hoạch di chuyển và chiến lược rollback   | 11/03/2025   | 11/03/2025      | https://aws.amazon.com/dynamodb/pricing/                                       |
+| 3   | - Thiết kế cấu trúc bảng DynamoDB (partition/sort keys, GSI) <br> - Triển khai script di chuyển dữ liệu (AWS DMS hoặc ETL tuỳ chỉnh) <br> - Bắt đầu di chuyển và xác thực mẫu dữ liệu | 11/04/2025   | 11/04/2025      | https://docs.aws.amazon.com/dynamodb/                                          |
+| 4   | - Hoàn tất di chuyển và kiểm tra tính toàn vẹn dữ liệu <br> - Cập nhật backend để sử dụng DynamoDB SDK <br> - Giám sát hiệu năng và điều chỉnh capacity/index nếu cần         | 11/05/2025   | 11/05/2025      | https://docs.aws.amazon.com/dms/latest/userguide/                             |
+| 5   | - Hoàn thành phần quản trị: triển khai CRUD cho sản phẩm, danh mục, đơn hàng <br> - Viết unit và integration test cho API quản trị <br> - Triển khai lên staging để kiểm thử | 11/06/2025   | 11/06/2025      | https://spring.io/guides/gs/accessing-data-jpa/                                |
+| 6   | - Học và thực hành lệnh Linux cơ bản trên EC2 Ubuntu (ssh, systemctl, journalctl, apt, quyền file) <br> - Kiểm tra ứng dụng hoạt động trên instance và ghi chép lệnh thường dùng | 11/07/2025   | 11/07/2025      | https://linuxcommand.org/; https://help.ubuntu.com/community/UsingTheTerminal  |
+
 
 
 ### Kết quả đạt được tuần 9:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Đã thành công di chuyển cơ sở dữ liệu dự án từ RDS SQL Server sang DynamoDB
+  * Hoàn tất phân tích chi phí và xác nhận tiết kiệm vận hành đáng kể
+  * Thiết kế schema DynamoDB và thực hiện di chuyển kèm kiểm tra xác thực dữ liệu
+  * Cập nhật backend để sử dụng DynamoDB client; xác minh chức năng ứng dụng
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Hoàn thành phần quản trị với đầy đủ CRUD
+  * Triển khai tạo/đọc/cập nhật/xoá cho sản phẩm, danh mục và đơn hàng
+  * Thêm unit test và integration test cho API quản trị
+  * Triển khai các thay đổi admin lên môi trường staging để kiểm thử
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Nâng cao kỹ năng Linux thực hành cho EC2 Ubuntu
+  * Sử dụng SSH để truy cập instance và quản lý dịch vụ với `systemctl` và `journalctl`
+  * Cài gói bằng `apt`, quản lý quyền file và kiểm tra log
+  * Ghi chép các lệnh phổ biến để vận hành EC2 ổn định
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Cải thiện chi phí dự án và sẵn sàng triển khai
+  * Việc chuyển sang DynamoDB cải thiện khả năng mở rộng và giảm chi phí dự kiến
+  * Cải thiện phần quản trị và kỹ năng Linux giúp nhóm dễ dàng vận hành và bảo trì hệ thống
 
 

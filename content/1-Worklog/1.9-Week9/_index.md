@@ -12,46 +12,36 @@ pre: " <b> 1.9. </b> "
 
 ### Week 9 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Migrate project from RDS SQL Server to DynamoDB to reduce operational costs.
+* Complete admin side features with basic CRUD operations for the clothes shop project.
+* Learn basic Linux commands to manage EC2 Ubuntu instances.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 1   | - Orientation and introduction to internship program <br> - Setup working environment                                                                                                                   | 08/10/2025 | 08/10/2025      |                                           |
-| 2   | - Get to know with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                      | 08/11/2025 | 08/11/2025      |                                           |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 7   | - Weekly review and Q&A session <br> - Prepare summary report for Week 1                                                                                                                               | 08/16/2025 | 08/16/2025      |                                           |
+| Day | Task                                                                                                                                                                                          | Start Date  | Completion Date | Reference Material                                                                 |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | --------------- | ---------------------------------------------------------------------------------- |
+| 2   | - Analyze and plan migration from RDS SQL Server to DynamoDB <br> - Compare cost models and expected savings <br> - Document migration plan and rollback strategy                             | 11/03/2025  | 11/03/2025      | https://aws.amazon.com/dynamodb/pricing/                                           |
+| 3   | - Design DynamoDB table schema (partition/sort keys, GSIs) <br> - Implement data migration scripts (AWS DMS or custom ETL) <br> - Start data migration and validate samples                  | 11/04/2025  | 11/04/2025      | https://docs.aws.amazon.com/dynamodb/                                              |
+| 4   | - Complete migration and verify data integrity <br> - Update backend to use DynamoDB SDK / client <br> - Monitor performance and adjust capacity or indexes as needed                     | 11/05/2025  | 11/05/2025      | https://docs.aws.amazon.com/dms/latest/userguide/                                 |
+| 5   | - Finish admin side features: implement full CRUD for products, categories, orders <br> - Write unit and integration tests for admin APIs <br> - Deploy admin changes to staging            | 11/06/2025  | 11/06/2025      | https://spring.io/guides/gs/accessing-data-jpa/                                    |
+| 6   | - Learn and practice basic Linux commands on EC2 Ubuntu (ssh, systemctl, journalctl, apt, file permissions) <br> - Verify application runs correctly on instance and document commands   | 11/07/2025  | 11/07/2025      | https://linuxcommand.org/; https://help.ubuntu.com/community/UsingTheTerminal      |
+
 ### Week 9 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Successfully migrated project database from RDS SQL Server to DynamoDB
+  * Completed cost analysis and confirmed significant operational savings
+  * Designed DynamoDB schema and executed migration with data validation checks
+  * Updated backend to use DynamoDB client; verified application functionality
 
-* Successfully created and configured an AWS Free Tier account.
+* Completed admin side functionality with full CRUD
+  * Implemented create/read/update/delete for products, categories, and orders
+  * Added unit and integration tests to cover admin APIs
+  * Deployed admin features to staging for verification
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Gained practical Linux skills for EC2 Ubuntu administration
+  * Used SSH to access instances and managed services with `systemctl` and `journalctl`
+  * Installed packages with `apt`, managed file permissions, and checked logs
+  * Documented common commands to operate EC2 instances reliably
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Improved project cost-efficiency and deployment readiness
+  * Transition to DynamoDB improved scalability and lowered expected costs
+  * Admin improvements and Linux know-how increased team's ability to operate and maintain the system

@@ -12,48 +12,39 @@ pre: " <b> 1.10. </b> "
 
 ### Mục tiêu tuần 10:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Triển khai các thao tác CRUD phía người dùng: sửa hồ sơ người dùng, thêm/xoá đơn hàng.
+* Tổ chức họp nhóm tại Phuc Long để thảo luận dự án và phương án kết nối Chatbot từ AWS Bedrock vào backend.
+* Kiểm thử và triển khai các thay đổi lên môi trường staging.
+
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc                                                                                                                                                                                         | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                                              |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------------------------- |
+| 2   | - Thêm chức năng sửa hồ sơ người dùng (avatar, địa chỉ, thông tin liên hệ) <br> - Kiểm thử frontend và API chỉnh sửa hồ sơ <br> - Viết unit test cho endpoint cập nhật       | 10/11/2025   | 10/11/2025      |                                                           |
+| 3   | - Thêm chức năng tạo/huỷ đơn hàng ở phía người dùng <br> - Triển khai logic validate đơn hàng và kiểm tra edge cases <br> - Viết integration test cho order APIs     | 10/12/2025   | 10/12/2025      |                                                           |
+| 4   | - Họp nhóm tại Phuc Long: thảo luận tích hợp Chatbot (AWS Bedrock) với backend <br> - Phác thảo API, flow xác thực và bảo mật cho Chatbot <br> - Ghi nhận nhiệm vụ và timeline | 10/13/2025   | 10/13/2025      | https://aws.amazon.com/bedrock/                              |
+| 5   | - Tích hợp thử nghiệm Chatbot với backend (mock/stub) <br> - Kiểm thử end-to-end luồng chat tới backend <br> - Chuẩn bị tài liệu hướng dẫn tích hợp cho nhóm     | 10/14/2025   | 10/14/2025      | https://docs.aws.amazon.com/                                  |
+
 
 
 ### Kết quả đạt được tuần 10:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Thêm chức năng CRUD phía người dùng thành công
+  * Triển khai chức năng sửa hồ sơ người dùng (cập nhật avatar, địa chỉ, thông tin liên hệ)
+  * Thêm/huỷ đơn hàng từ giao diện người dùng và đảm bảo các ràng buộc nghiệp vụ
+  * Viết unit và integration test để đảm bảo chất lượng API
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Họp nhóm tại Phuc Long và lên kế hoạch tích hợp Chatbot (AWS Bedrock)
+  * Thảo luận kiến trúc tích hợp Chatbot với backend, xác định điểm tích hợp và cơ chế xác thực
+  * Phác thảo luồng dữ liệu và API cần thiết cho tương tác Chatbot
+  * Ghi nhận nhiệm vụ và timeline cho việc tích hợp
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Kiểm thử tích hợp cơ bản và tài liệu hoá
+  * Thực hiện thử nghiệm mock Chatbot kết nối tới backend và kiểm tra luồng end-to-end
+  * Chuẩn bị hướng dẫn tích hợp và ví dụ code mẫu cho nhóm
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Cải thiện trải nghiệm người dùng và khả năng triển khai
+  * Nâng cao khả năng quản lý đơn hàng trực tiếp từ giao diện người dùng
+  * Tạo nền tảng tích hợp Chatbot để hỗ trợ mua sắm và tự động hoá tương tác khách hàng
 
 

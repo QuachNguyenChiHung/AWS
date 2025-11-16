@@ -15,21 +15,21 @@
     <title>Worklog Tuần 9 :: Báo cáo thực tập</title>
 
     
-    <link href="../../../css/nucleus.css?1761531549" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1761531549" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1761531549" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1761531549" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1761531549" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1761531549" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1761531549" rel="stylesheet">
-    <link href="../../../css/theme.css?1761531549" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1761531549" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1763302442" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1763302442" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1763302442" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1763302442" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1763302442" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1763302442" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1763302442" rel="stylesheet">
+    <link href="../../../css/theme.css?1763302442" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1763302442" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1761531549" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1763302442" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1761531549"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1763302442"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1761531549"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1761531549"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1763302442"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1763302442"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/workshop-template\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1761531549"></script>
+<script type="text/javascript" src="../../../js/search.js?1763302442"></script>
  
   </div>
 
@@ -1028,8 +1028,9 @@
 
 <h3 id="mục-tiêu-tuần-9">Mục tiêu tuần 9:</h3>
 <ul>
-<li>Kết nối, làm quen với các thành viên trong First Cloud Journey.</li>
-<li>Hiểu dịch vụ AWS cơ bản, cách dùng console &amp; CLI.</li>
+<li>Di chuyển dự án từ RDS SQL Server sang DynamoDB nhằm giảm chi phí vận hành.</li>
+<li>Hoàn thiện phần quản trị (admin) với các thao tác CRUD cơ bản cho cửa hàng bán quần áo.</li>
+<li>Học các lệnh cơ bản trên Linux để vận hành EC2 Ubuntu.</li>
 </ul>
 <h3 id="các-công-việc-cần-triển-khai-trong-tuần-này">Các công việc cần triển khai trong tuần này:</h3>
 <table>
@@ -1045,84 +1046,73 @@
   <tbody>
       <tr>
           <td style="text-align: left">2</td>
-          <td style="text-align: left">- Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập</td>
-          <td style="text-align: left">11/08/2025</td>
-          <td style="text-align: left">11/08/2025</td>
-          <td style="text-align: left"></td>
+          <td style="text-align: left">- Phân tích và lập kế hoạch di chuyển từ RDS SQL Server sang DynamoDB <br> - So sánh mô hình chi phí và dự kiến tiết kiệm <br> - Ghi chép kế hoạch di chuyển và chiến lược rollback</td>
+          <td style="text-align: left">11/03/2025</td>
+          <td style="text-align: left">11/03/2025</td>
+          <td style="text-align: left"><a href="https://aws.amazon.com/dynamodb/pricing/">https://aws.amazon.com/dynamodb/pricing/</a></td>
       </tr>
       <tr>
           <td style="text-align: left">3</td>
-          <td style="text-align: left">- Tìm hiểu AWS và các loại dịch vụ <br>  + Compute <br>  + Storage <br>  + Networking <br>  + Database <br>  + &hellip; <br></td>
-          <td style="text-align: left">12/08/2025</td>
-          <td style="text-align: left">12/08/2025</td>
-          <td style="text-align: left"><a href="https://cloudjourney.awsstudygroup.com/">https://cloudjourney.awsstudygroup.com/</a></td>
+          <td style="text-align: left">- Thiết kế cấu trúc bảng DynamoDB (partition/sort keys, GSI) <br> - Triển khai script di chuyển dữ liệu (AWS DMS hoặc ETL tuỳ chỉnh) <br> - Bắt đầu di chuyển và xác thực mẫu dữ liệu</td>
+          <td style="text-align: left">11/04/2025</td>
+          <td style="text-align: left">11/04/2025</td>
+          <td style="text-align: left"><a href="https://docs.aws.amazon.com/dynamodb/">https://docs.aws.amazon.com/dynamodb/</a></td>
       </tr>
       <tr>
           <td style="text-align: left">4</td>
-          <td style="text-align: left">- Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console &amp; AWS CLI <br> - <strong>Thực hành:</strong> <br>  + Tạo AWS account <br>  + Cài AWS CLI &amp; cấu hình <br>   + Cách sử dụng AWS CLI</td>
-          <td style="text-align: left">13/08/2025</td>
-          <td style="text-align: left">13/08/2025</td>
-          <td style="text-align: left"><a href="https://cloudjourney.awsstudygroup.com/">https://cloudjourney.awsstudygroup.com/</a></td>
+          <td style="text-align: left">- Hoàn tất di chuyển và kiểm tra tính toàn vẹn dữ liệu <br> - Cập nhật backend để sử dụng DynamoDB SDK <br> - Giám sát hiệu năng và điều chỉnh capacity/index nếu cần</td>
+          <td style="text-align: left">11/05/2025</td>
+          <td style="text-align: left">11/05/2025</td>
+          <td style="text-align: left"><a href="https://docs.aws.amazon.com/dms/latest/userguide/">https://docs.aws.amazon.com/dms/latest/userguide/</a></td>
       </tr>
       <tr>
           <td style="text-align: left">5</td>
-          <td style="text-align: left">- Tìm hiểu EC2 cơ bản: <br>  + Instance types <br>  + AMI <br>  + EBS <br>  + &hellip; <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br></td>
-          <td style="text-align: left">14/08/2025</td>
-          <td style="text-align: left">15/08/2025</td>
-          <td style="text-align: left"><a href="https://cloudjourney.awsstudygroup.com/">https://cloudjourney.awsstudygroup.com/</a></td>
+          <td style="text-align: left">- Hoàn thành phần quản trị: triển khai CRUD cho sản phẩm, danh mục, đơn hàng <br> - Viết unit và integration test cho API quản trị <br> - Triển khai lên staging để kiểm thử</td>
+          <td style="text-align: left">11/06/2025</td>
+          <td style="text-align: left">11/06/2025</td>
+          <td style="text-align: left"><a href="https://spring.io/guides/gs/accessing-data-jpa/">https://spring.io/guides/gs/accessing-data-jpa/</a></td>
       </tr>
       <tr>
           <td style="text-align: left">6</td>
-          <td style="text-align: left">- <strong>Thực hành:</strong> <br>  + Tạo EC2 instance <br>  + Kết nối SSH <br>  + Gắn EBS volume</td>
-          <td style="text-align: left">15/08/2025</td>
-          <td style="text-align: left">15/08/2025</td>
-          <td style="text-align: left"><a href="https://cloudjourney.awsstudygroup.com/">https://cloudjourney.awsstudygroup.com/</a></td>
+          <td style="text-align: left">- Học và thực hành lệnh Linux cơ bản trên EC2 Ubuntu (ssh, systemctl, journalctl, apt, quyền file) <br> - Kiểm tra ứng dụng hoạt động trên instance và ghi chép lệnh thường dùng</td>
+          <td style="text-align: left">11/07/2025</td>
+          <td style="text-align: left">11/07/2025</td>
+          <td style="text-align: left"><a href="https://linuxcommand.org/;">https://linuxcommand.org/;</a> <a href="https://help.ubuntu.com/community/UsingTheTerminal">https://help.ubuntu.com/community/UsingTheTerminal</a></td>
       </tr>
   </tbody>
 </table>
 <h3 id="kết-quả-đạt-được-tuần-9">Kết quả đạt được tuần 9:</h3>
 <ul>
 <li>
-<p>Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản:</p>
+<p>Đã thành công di chuyển cơ sở dữ liệu dự án từ RDS SQL Server sang DynamoDB</p>
 <ul>
-<li>Compute</li>
-<li>Storage</li>
-<li>Networking</li>
-<li>Database</li>
-<li>&hellip;</li>
+<li>Hoàn tất phân tích chi phí và xác nhận tiết kiệm vận hành đáng kể</li>
+<li>Thiết kế schema DynamoDB và thực hiện di chuyển kèm kiểm tra xác thực dữ liệu</li>
+<li>Cập nhật backend để sử dụng DynamoDB client; xác minh chức năng ứng dụng</li>
 </ul>
 </li>
 <li>
-<p>Đã tạo và cấu hình AWS Free Tier account thành công.</p>
-</li>
-<li>
-<p>Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.</p>
-</li>
-<li>
-<p>Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:</p>
+<p>Hoàn thành phần quản trị với đầy đủ CRUD</p>
 <ul>
-<li>Access Key</li>
-<li>Secret Key</li>
-<li>Region mặc định</li>
-<li>&hellip;</li>
+<li>Triển khai tạo/đọc/cập nhật/xoá cho sản phẩm, danh mục và đơn hàng</li>
+<li>Thêm unit test và integration test cho API quản trị</li>
+<li>Triển khai các thay đổi admin lên môi trường staging để kiểm thử</li>
 </ul>
 </li>
 <li>
-<p>Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:</p>
+<p>Nâng cao kỹ năng Linux thực hành cho EC2 Ubuntu</p>
 <ul>
-<li>Kiểm tra thông tin tài khoản &amp; cấu hình</li>
-<li>Lấy danh sách region</li>
-<li>Xem dịch vụ EC2</li>
-<li>Tạo và quản lý key pair</li>
-<li>Kiểm tra thông tin dịch vụ đang chạy</li>
-<li>&hellip;</li>
+<li>Sử dụng SSH để truy cập instance và quản lý dịch vụ với <code>systemctl</code> và <code>journalctl</code></li>
+<li>Cài gói bằng <code>apt</code>, quản lý quyền file và kiểm tra log</li>
+<li>Ghi chép các lệnh phổ biến để vận hành EC2 ổn định</li>
 </ul>
 </li>
 <li>
-<p>Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.</p>
-</li>
-<li>
-<p>&hellip;</p>
+<p>Cải thiện chi phí dự án và sẵn sàng triển khai</p>
+<ul>
+<li>Việc chuyển sang DynamoDB cải thiện khả năng mở rộng và giảm chi phí dự kiến</li>
+<li>Cải thiện phần quản trị và kỹ năng Linux giúp nhóm dễ dàng vận hành và bảo trì hệ thống</li>
+</ul>
 </li>
 </ul>
 
@@ -1826,19 +1816,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1761531549"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1761531549"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1761531549"></script>
-    <script src="../../../js/jquery.sticky.js?1761531549"></script>
-    <script src="../../../js/featherlight.min.js?1761531549"></script>
-    <script src="../../../js/highlight.pack.js?1761531549"></script>
+    <script src="../../../js/clipboard.min.js?1763302442"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1763302442"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1763302442"></script>
+    <script src="../../../js/jquery.sticky.js?1763302442"></script>
+    <script src="../../../js/featherlight.min.js?1763302442"></script>
+    <script src="../../../js/highlight.pack.js?1763302442"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1761531549"></script>
-    <script src="../../../js/learn.js?1761531549"></script>
-    <script src="../../../js/hugo-learn.js?1761531549"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1763302442"></script>
+    <script src="../../../js/learn.js?1763302442"></script>
+    <script src="../../../js/hugo-learn.js?1763302442"></script>
 
-    <link href="../../../mermaid/mermaid.css?1761531549" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1761531549"></script>
+    <link href="../../../mermaid/mermaid.css?1763302442" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1763302442"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

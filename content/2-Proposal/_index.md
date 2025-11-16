@@ -1,273 +1,319 @@
 ---
 title: "Proposal"
-date: "`r Sys.Date()`"
+date: 2025-10-01
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
 
-# Fashion Selling: FFF
+# AWS First Cloud AI Journey – Project Plan
+## Online Shopping Website: Furious Five Fashion (FFF)
+## AWS & AI-Powered E-commerce Website Solution
+### 1. Background and Motivation
+#### 1.1 Executive Summary
 
-### 1. Executive Summary  
-The proposed solution is a web platform for fashion sales developed on AWS, utilizing serverless technology and AI to manage a secure, stable, cost-optimized, and easily scalable e-commerce system.
+The client is a small-sized business specializing in fashion products for young customers. They aim to build an online clothing e-commerce website using AWS and AI, with the ability to scale flexibly, support long-term growth, and optimize operational costs.
 
-### 2. Problem Statement  
-*Current Problem*  
-Small businesses or startups often lack the budget to build complex infrastructure.  
-Operating traditional servers is expensive (hardware, maintenance, operations personnel).  
-When customer numbers surge, traditional systems are prone to overload, causing service disruptions.  
-Lack of AI for product recommendations, consulting chatbots, or data systems to support decision-making.  
-Difficult to track customer behavior, optimize sales, and marketing.
+The goal of this project is to shift from traditional manual management on physical servers to a flexible, intelligent, and cost-efficient cloud-based model. AWS enables the system to scale at any time, maintain fast access speed, and allow the business to focus on product development instead of infrastructure.
 
-*Solution*  
-Serverless architecture → automatic scaling, cost optimization, no need to manage complex infrastructure.  
-Ensure safety, stability, high availability through secure and monitored AWS services.  
-Suitable for small and medium enterprises needing to test the market before large investments.  
-Only $50–100/month, helping reduce financial risk.  
-AI Chatbot supports customers 24/7, reduces consulting staff load, increases satisfaction, product recommendations help increase conversion rates and order value.
+The system is designed to support end-to-end e-commerce operations: hosting and distributing web content, managing product and order databases, supporting payments, and monitoring system performance. Everything aims toward stability, security, and long-term scalability.
 
-### 3. Solution Architecture  
+The Furious Five implementation team will accompany the client throughout the process—advising, designing the architecture, and configuring key AWS services such as Lambda, S3, DynamoDB, CloudFront, and Route 53. Beyond building the system, they also help optimize costs, ensure security, and train the internal team to manage the infrastructure effectively.
 
-### AWS Services Used  
-#### 1. Frontend (Web + CDN)
-- **Amazon S3** → Store and host static web (Next.js build). Helps reduce costs, no need for traditional web servers.
-- **Amazon CloudFront** → Global CDN content distribution, SSL support, reduce page load latency.
-- **Amazon Route 53** → Manage domain, DNS, route traffic to CloudFront/S3.
+This project is not just a technical plan—it marks an important step in the company’s digital transformation journey.
 
-#### 2. Backend & API
-- **Amazon API Gateway** → API gateway receives requests from frontend, routes to Lambda/Fargate.
-- **AWS Lambda** → Run serverless code (Node.js, Python...) for APIs without servers.
-- **Amazon ECS Fargate** → Run container backend (if there are complex services, need longer runtime than Lambda).
-- **Amazon ECR** → Store Docker images for ECS Fargate to pull and run.
+#### 1.2 Project Success Criteria
 
-#### 3. Database & Storage
-- **Amazon RDS (PostgreSQL)** → Main relational database (store users, products, orders...).
-- **Amazon DynamoDB** → NoSQL database to store sessions, metadata, light cache.
-- **Amazon S3** → Store product images, invoices, analytics data (data lake).
-- **Amazon ElastiCache (Redis)** → In-memory cache to speed up data reads, hold temporary sessions.
+To ensure the success of the Furious Five Fashion project, the following clear and measurable criteria must be met, representing both business goals and technical effectiveness:
 
-#### 4. Search & Events
-- **Amazon OpenSearch** → Search engine for products, log analytics.
-- **Amazon SQS** → Queue to process orders or async tasks (reduce load on main API).
-- **Amazon SNS** → Send notifications (email, SMS, push) when events occur.
-- **Amazon EventBridge** → Event bus to connect services (e.g., trigger AI pipeline when new order).
+System Performance
+The website must maintain response times under 2 seconds for all user actions, even during peak hours.
 
-#### 5. AI & Machine Learning
-- **Amazon Personalize** → Create personalized product recommendations for each customer.
-- **Amazon Lex** → AI chatbot to support customers 24/7.
-- **Amazon Comprehend** → Analyze emotions and keywords in customer reviews.
-- **Amazon Fraud Detector** → Detect fraudulent transactions.
-- **Amazon Forecast** → Forecast inventory and sales demand (deploy in later phase).
-- **Amazon SageMaker** → Train/deploy custom ML models if default AI solutions are insufficient.
+Availability
+The system must achieve 99.9% uptime, monitored and automatically reported through services like CloudWatch.
 
-#### 6. Data Lake & ETL
-- **Amazon S3 (Data Lake)** → Store raw + processed data for analytics.
-- **AWS Glue** → ETL jobs to clean and standardize data.
-- **Amazon Athena** → Query data directly on S3 with SQL (serverless).
-- **AWS Lake Formation** → Manage data access permissions in the data lake.
-- **Amazon Kinesis** → Collect real-time events, clickstreams from users.
+Scalability
+AWS infrastructure must scale automatically when traffic increases by at least 2× without causing service disruption.
 
-#### 7. Authentication & Security
-- **Amazon Cognito** → Registration, login, user pool management (SSO, OAuth2).
-- **AWS IAM** → Manage roles and access permissions between services.
-- **AWS KMS** → Encrypt data in RDS, S3, DynamoDB.
-- **AWS Secrets Manager** → Store API keys, DB passwords, automatic secret rotation.
-- **AWS WAF** → Filter bad requests, protect against OWASP Top 10 attacks.
-- **AWS Shield** → Protect against DDoS attacks.
+Cost Optimization
+Monthly operating costs must remain under 30% of the projected budget, supported by AWS cost-monitoring tools such as Cost Explorer and Trusted Advisor.
 
-#### 8. Observability & Monitoring
-- **Amazon CloudWatch** → Collect logs, metrics, set up alerts.
-- **AWS X-Ray** → Trace requests end-to-end, find bottlenecks.
-- **Amazon Managed Grafana** → Visualize metrics, logs dashboards.
-- **OpenSearch Dashboards** → Interface to search & analyze logs from OpenSearch.
-- **Amazon SNS** → Send alerts on errors or threshold exceedances.
+Security
+No data leaks or unauthorized access. All customer data must be protected by AWS security standards (IAM policies, encryption, HTTPS, etc.).
 
-#### 9. CI/CD & IaC
-- **Terraform / AWS CDK** → IaC (Infrastructure as Code) for automatic infrastructure deployment.
-- **GitHub Actions** → CI/CD pipeline: lint → test → build → deploy to AWS.
-- **Amazon CodeArtifact** (optional) → Manage private package repository.
+Deployment & Operations
+Infrastructure must be fully deployed within 4 weeks, with complete documentation so the internal team can manage the environment effectively.
 
-#### 10. Backup & DR
-- **Amazon RDS Snapshot** → Automatic database backup.
-- **Amazon S3 Versioning + Cross-Region Replication** → Backup files and data lake to another region (DR).
+Training & Knowledge Transfer
+The internal technical team must be trained to confidently maintain, monitor, and secure the system without depending entirely on external support.
 
-### 4. Technical Implementation  
-*Implementation Phases*  
+#### 1.3 Assumptions
 
-#### 1. Tech Lead / Architect
+To ensure alignment and smooth execution of the FFF project, the following assumptions have been made:
 
-**Week 0–2**
-- Design architecture: VPC, RDS, S3, Cognito, OpenSearch.
-- Write architecture documentation + network diagrams.
-- Review Terraform modules.
+The team already has access to AWS accounts with required permissions and has basic knowledge of essential AWS services such as Lambda, S3, IAM, and Route 53. Stable Internet connectivity is assumed since all infrastructure runs in the cloud. The team is also aware of basic security and compliance requirements before deployment.
 
-**Week 3–12**
-- Code review, approve PRs.
-- Ensure SLO: latency, error budget, cost.
-- Test DR drill, review runbooks.
+The project depends on multiple external factors: stable service availability in the selected AWS region, smooth domain routing via Route 53, and effective collaboration between development teams to ensure the web application operates properly in the cloud environment.
 
-✅ **Deliverables:**  
-- Diagram, architecture documentation  
-- SLO/SLA  
-- IAM model
+The project is part of an internship, so the budget is limited—favoring free-tier usage and low-cost service configurations. Due to limited experience and tight timelines, the chosen architecture remains simple and practical.
 
----
+Potential risks include IAM misconfigurations, accidental overspending due to unused resources, AWS regional outages, service incompatibilities, or limited expertise in troubleshooting cloud systems.
 
-#### 2. Frontend Engineer
+Despite these risks, the project is built on clear expectations: this is a pilot environment, with layered monitoring, backup, and cost-management strategies in place. Every challenge is considered an opportunity to learn and grow in cloud engineering.
 
-**Week 1–2**
-- Scaffold Vite project (JavaScript + Bootstrap).
-- Integrate Cognito auth (login/signup).
+![E-commerce Website Solution ](/images/2-Proposal/proposal.jpg)
 
-**Week 3–6**
-- Build UI: home, product list, product detail, cart, checkout.
-- Upload images via S3 pre-signed URL.
+### 2. SOLUTION ARCHITECTURE
+#### 2.1 Technical Architecture Diagram
 
-**Week 7–9**
-- Integrate chatbot widget (Lex).
-- Integrate product recommendations from Personalize.
+The following architecture is designed for FFF, deployed in AWS Region Singapore (ap-southeast-1). It emphasizes flexibility, security, automation, scalability, and simplicity—appropriate for an internship-level project while following AWS best practices.
 
-**Week 10–12**
-- E2E tests (Playwright).
-- Optimize SEO + Lighthouse (>= 90).
-- Deploy build → CloudFront.
+The system follows a multi-layer design consisting of six key components:
 
-✅ **Deliverables:**  
-- Web source code  
-- Complete UI  
-- Test report  
-- Production build
+Frontend & Security Layer
+Users access the website through Route 53. Incoming traffic is protected with AWS WAF and optimized via CloudFront CDN. Source code is managed and deployed through GitLab CI/CD using CloudFormation templates.
 
----
+API & Compute Layer
+API Gateway routes all requests to AWS Lambda, which handles application logic. Cognito manages authentication and access control.
 
-#### 3. Backend Engineer
+Storage Layer
+Two S3 buckets store static content (StaticData) and user uploads.
 
-**Week 1–3**
-- Scaffold NestJS API, define OpenAPI spec.
-- Design DB schema (Postgres, Prisma migration).
+Data Layer
+DynamoDB stores product metadata and unstructured data. IAM ensures secure interactions between components.
 
-**Week 4–6**
-- API: products, cart, orders.
-- Payment integration (stub).
-- Upload media (S3).
+AI Layer
+Amazon Rekognition and Amazon Bedrock power image processing and generative AI features.
 
-**Week 7–9**
-- Lambda consumer for SQS (order events).
-- Recommendation API (Personalize).
-- Fraud Detector scoring API.
+Observability & Security Layer
+CloudWatch, SNS, and SES provide monitoring, alerting, and system notifications.
 
-**Week 10–12**
-- Hardening: rate limit, validation.
-- Integration tests (Jest + Supertest).
-- Blue/green deployment support.
+#### 2.2 Technical Implementation Plan
 
-✅ **Deliverables:**  
-- OpenAPI docs  
-- Tested APIs  
-- DB migrations  
-- Docker image
+Infrastructure will be managed and deployed using Infrastructure as Code (IaC) with AWS CloudFormation to ensure repeatability, stability, and ease of maintenance.
 
----
+Key AWS components—S3, Lambda, API Gateway, DynamoDB, Cognito, and CloudWatch—will be defined entirely through CloudFormation templates stored in GitLab for version control and rollback capability.
 
-#### 4. DevOps / SRE
+Sensitive configurations such as IAM permissions or WAF rules require approval before deployment and follow the internal governance process with review and validation.
 
-**Week 0–2**
-- Repo `/infra` + Terraform skeleton.
-- Setup GitHub Actions (lint → test → plan → apply).
-- State backend: S3 + DynamoDB lock.
+All critical system paths—from authentication to data processing—are covered by automated and manual test cases to ensure stability, security, and scalability.
 
-**Week 3–6**
-- Provision VPC, RDS, S3, Cognito, OpenSearch.
-- Deploy staging environment.
+This technical plan enables the FFF team to deploy and manage a professional cloud environment, learning real DevOps and AWS best practices.
 
-**Week 7–9**
-- Monitoring: Grafana dashboards.
-- Alerts: SNS → Slack/email.
-- Backup policies: RDS snapshots, S3 versioning.
+#### 2.3 Project Plan
 
-**Week 10–12**
-- DR drill (restore RDS, cross-region S3).
-- Cost alerts, rightsizing.
-- Prod cutover: Route53 switch.
+The project follows Agile Scrum over 3 months, divided into 4 sprints.
 
-✅ **Deliverables:**  
-- Terraform repo  
-- CI/CD pipelines  
-- Monitoring dashboards  
-- Runbooks
+**Sprint Structure**
 
----
+* Sprint Planning
 
-#### 5. Data / ML Engineer
+  * Setup AWS foundational services (S3, Route 53, IAM)
 
-**Week 1–3**
-- Design event schema (click, view, purchase).
-- Pipeline: Kinesis → S3 raw.
-- Glue job ETL → Parquet.
+  * Configure security (WAF, CloudFront)
 
-**Week 4–6**
-- Feed data into Personalize.
-- Train + deploy campaign.
+  * Integrate backend (Lambda, API Gateway, DynamoDB)
 
-**Week 7–9**
-- Chatbot Lex intents: FAQ, order tracking, product recommendations.
-- Fulfillment Lambda: query RDS, call Personalize API.
+  * Testing, optimization, and demo preparation
 
-**Week 10–12**
-- Forecast model for inventory.
-- Model Monitor (drift detection).
-- Evaluation report.
+* Daily Stand-up
+30-minute updates to address blockers and track status.
 
-✅ **Deliverables:**  
-- ETL jobs + Parquet data  
-- Personalize campaign + chatbot intents  
-- Forecast model + monitoring  
-- Evaluation report
+* Sprint Review
+Review deliverables, demo on real AWS environment, fix issues.
 
-### 5. Timeline & Milestones  
-- *Pre-Internship (Month 0)*: 1 month for planning and evaluating old stations.  
-- *Internship (Months 1–3)*:  
-    - Month 1: Learn AWS and upgrade hardware.  
-    - Month 2: Design and adjust architecture.  
-    - Month 3: Implement, test, and launch.  
+* Retrospective
+Improve DevOps workflows and automation pipeline.
 
-### 6. Budget Estimation  
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Or download the [Budget Estimation File](../attachments/budget_estimation.pdf).  
+**Team Roles**
 
-*Infrastructure Costs*  
-- AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).  
-- S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).  
-- Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).  
-- AWS Amplify: $0.35/month (256 MB, 500 ms requests).  
-- Amazon API Gateway: $0.01/month (2,000 requests).  
-- AWS Glue ETL Jobs: $0.02/month (2 DPUs).  
-- AWS Glue Crawlers: $0.07/month (1 crawler).  
-- MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).  
+* Product Owner: Business alignment, backlog prioritization
 
-*Total*: $0.7/month, $8.40/12 months  
-- *Hardware*: $265 one-time (Raspberry Pi 5 and sensors).  
+* Scrum Master: Coordination, Agile process enforcement
 
-### 7. Risk Assessment  
-*Risk Matrix*  
-- Network Loss: Medium impact, medium probability.  
-- Sensor Failure: High impact, low probability.  
-- Budget Overrun: Medium impact, low probability.  
+* DevOps/Technical Team: Backend, infrastructure, CI/CD
 
-*Mitigation Strategies*  
-- Network: Local storage on Raspberry Pi with Docker.  
-- Sensors: Regular checks, spare parts.  
-- Cost: AWS budget alerts, service optimization.  
+* Mentor / AWS Partner: Architecture validation, AI testing, cost & security review
 
-*Contingency Plans*  
-- Revert to manual collection if AWS fails.  
-- Use CloudFormation to restore cost-related configurations.  
+**Communication Rhythm**
 
-### 8. Expected Outcomes  
-*Technical Improvements*: Real-time data and analytics replace manual processes. Scalable to 10–15 stations.  
-*Long-term Value*: 1-year data foundation for AI research, reusable for future projects.
+* Daily Stand-ups (23:00)
+
+* Weekly Sync
+
+* End-of-Sprint Demo
+
+**Knowledge Transfer**
+After the final sprint, the technical team will deliver hands-on training on operations, monitoring (Budgets, CloudWatch), scaling, and recovery procedures.
+
+#### 2.4 Security Considerations
+
+Access Management <br>
+MFA for admin users; IAM roles with least privilege; auditing through CloudTrail.
+
+Infrastructure Security<br>
+Even without a dedicated VPC, services are restricted using resource policies; all public endpoints use HTTPS.
+
+Data Protection<br>
+S3 and DynamoDB encryption; TLS data transfer; manual periodic backups.
+
+Detection & Monitoring<br>
+CloudTrail, Config, and CloudWatch for visibility; GuardDuty for threat detection.
+
+Incident Response<br>
+Clear incident workflows with log collection, analysis, and periodic simulations.
+
+### 3. PROJECT ACTIVITIES & DELIVERABLES
+#### 3.1 Activities & Deliverables Table
+
+|Phase  | Timeline  | Activities  |  Deliverables  | Effort(day)  |  
+|---------------|:--------------------:|-----------------------------|------------------------|:---:|
+| Infrastructure Setup  |Week <br> 1 – 2    | Requirements gathering, architecture design, AWS configuration (S3, CloudFront, API, Lambda, DynamoDB, Cognito), GitLab CI/CD setup    | Completed AWS Architecture, Ready Infrastructure, Active CI/CD    |   10    |
+|Frontend Development   |  Week 3–5  | UI/UX design, FE pages (Home, Catalog, Product Detail, Cart, Checkout), API integration | Completed FE (Dev), Frontend connected to API  |15 | 
+| Backend & Database  | Week 6–9   | Lambda APIs, DynamoDB setup, order/user/product logic, Cognito IAM setup | Stable API, validated data flow, full FE-BE integration  |20 | 
+| Testing & Validation  | Week <br> 10–11   | Functional, security, performance testing, integration testing | Test Report, Validated System  | 5| 
+| Production Launch  | Week 12   |Deploy to production, domain & SSL setup, training & handover  | Live FFF Website, Documentation Package  | 5|
+
+#### 3.2 Out of Scope
+
+Mobile applications (iOS/Android)
+
+Real inventory/logistics integration
+
+Advanced admin dashboards
+
+CRM/ERP integrations
+
+Advanced AWS security services
+
+Real payment gateway integration
+
+Multilanguage & multicurrency
+
+#### 3.3 Go-Live Roadmap
+
+Phase 1 – POC
+Basic FE, S3 hosting, API integration, sample data storage, CloudFront optimization.
+
+Phase 2 – UAT
+Cognito auth, sandbox payment, CloudWatch monitoring, internal user testing.
+
+Phase 3 – Production Deployment
+Route 53 domain setup, SSL via ACM, WAF protection, CloudFront refinement.
+
+Phase 4 – Stabilization & Optimization
+Cost optimization, performance improvements, backup strategy, documentation updates.
+
+### 4. AWS COST ESTIMATION
+
+Estimated monthly cost: $30–35 USD
+
+- Route 53 :         $1.00
+- AWS WAF :          $5.00
+- CloudFront:        $3.90
+- S3 (StaticData) :  $0.50
+- S3 (Uploads):      $0.75
+- S3 (Bucket):       $0.75
+- AWS Lambda:        $0.25
+- API Gateway:       $3.50
+- Amazon Bedrock:    $3.00
+- DynamoDB:          $1.00
+- IAM:               Free
+- CloudWatch:        $2.00
+- SNS:               $0.10
+- SES:               $0.20
+- CloudFormation:    Free
+- GitLab CI/CD  :    $3.00
+- WS Config / Setup & Test migration tools $5.00 (1 lần)
+- Estimated monthly total cost: ~ $30.00 – $35.00 USD
+
+Cost assumptions:
+
+Region: Singapore
+
+500–1000 users/month
+
+Low traffic
+
+Data < 100GB
+
+Free Tier active for 12 months
+
+Cost optimizations recommended:
+
+S3 Intelligent-Tiering
+
+CloudWatch log retention 14–30 days
+
+AWS Budgets alert at $40
+
+Consider Lambda Savings Plan for long-term workloads
+
+### 5. Project Team
+
+**Project Stakeholders** <br>
+Name: Van Hoang Kha <br>
+Title: Support Teams <br>
+Description: is the Executive support person responsible for overall supervision of the FCJ internship program<br>
+Email/Contact information: Khab9thd@gmail.com
+
+**Partner Project Team** (Furious Five Internship Team)<br>
+Name: Duong Minh Duc <br>
+Title: Project Team Leader<br>
+Description: Manage progress, coordinate work between the team and mentor, Manage AWS infrastructure deployment (S3, Lambda, IAM)<br>
+Email/Contact information: ducdmse182938@fpt.edu.vn
+
+Name: Quach Nguyen Chi Hung<br>
+Title: Member<br>
+Description: In charge of UI/UX and user interface<br>
+Email/Contact information: bacon3632@gmail.com
+
+Name: Nguyen Tan Xuan<br>
+Title: Member<br>
+Description: Responsible for Backend and server logic processing<br>
+Email/Contact information: xuanntse184074@fpt.edu.vn<br>
+
+Name: Nguyen Hai Dang<br>
+Title: Member<br>
+Description: Manage AWS infrastructure deployment (S3, Lambda, IAM) and AI chat bot integration<br>
+Email/Contact information: dangnhse184292@fpt.edu.vn
+
+Name: Pham Le Huy Hoang<br>
+Title: Member<br>
+Description: Testing, quality assurance and GitLab CI/CD integration, and AI chat bot integration<br>
+Email/Contact information: hoangplhse182670@fpt.edu.vn
+
+**Contact Complaints / Escalation Project Project**
+
+Name: Duong Minh Duc<br>
+Title: Project Team Leader<br>
+Description: Represent the internship team to contact the mentor and sponsor directly<br>
+Email/Contact information: ducdmse182938@fpt.edu.vn
+
+### 6. RESOURCES & COST ESTIMATES
+#### Resources
+
+| Roles | Responsibilities| Rate (USD)/Hour|
+| ------------------ | ------------------------------------- | :------------------: |
+|Solution Architect(1)|Design overall solutions, ensure technical feasibility, select appropriate AWS services | 35|
+|Cloud Engineer(2)|Implement AWS infrastructure, configure services (S3, IAM...), test and optimize systems| 20 |
+|Project Manager (1)|Monitor progress, coordinate teams, manage project scope and risks. |15 |
+|Support / Documentation (1) |Prepare handover documents, user manuals, and final reports. | 10|
+
+#### Estimate costs by project phase
+
+| Project phase | Solution Architect (hrs) | 2 Engineers (hrs) | Project Manager (hrs) | Project Management / Support (hrs)| Total Hours|
+|-----------------------------------------------------|:---------:|:----------:|:--------------:|:--------------:|:-------------:|
+|Survey & Solution Design| 53 | 40 | 13 | 13 |119|
+|Implementation & Testing|67 |160 | 21 |19 |267 |
+|Support / Documentation| 27 |53 |21 | 19 | 120 |
+|Total Hours|147 | 253| 55 |51 | 506|
+|Total Amount |$5145 |$5060 |$825|$510 |$11540 |
+
+#### Cost Contribution Allocation
+| Party | Contribution (USD) | % Contribution |
+|----------------------------------------|:--------:|:--------:|
+|Customers |4616 |40% |
+|Partners (Furious Five) |2308 |20% |
+| AWS |4616 | 40%|

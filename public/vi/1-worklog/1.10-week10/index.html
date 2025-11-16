@@ -15,21 +15,21 @@
     <title>Worklog Tuần 10 :: Báo cáo thực tập</title>
 
     
-    <link href="../../../css/nucleus.css?1761531549" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1761531549" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1761531549" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1761531549" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1761531549" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1761531549" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1761531549" rel="stylesheet">
-    <link href="../../../css/theme.css?1761531549" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1761531549" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1763302783" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1763302783" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1763302783" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1763302783" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1763302783" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1763302783" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1763302783" rel="stylesheet">
+    <link href="../../../css/theme.css?1763302783" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1763302783" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1761531549" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1763302783" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1761531549"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1763302783"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1761531549"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1761531549"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1763302783"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1763302783"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/workshop-template\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1761531549"></script>
+<script type="text/javascript" src="../../../js/search.js?1763302783"></script>
  
   </div>
 
@@ -1028,8 +1028,9 @@
 
 <h3 id="mục-tiêu-tuần-10">Mục tiêu tuần 10:</h3>
 <ul>
-<li>Kết nối, làm quen với các thành viên trong First Cloud Journey.</li>
-<li>Hiểu dịch vụ AWS cơ bản, cách dùng console &amp; CLI.</li>
+<li>Triển khai các thao tác CRUD phía người dùng: sửa hồ sơ người dùng, thêm/xoá đơn hàng.</li>
+<li>Tổ chức họp nhóm tại Phuc Long để thảo luận dự án và phương án kết nối Chatbot từ AWS Bedrock vào backend.</li>
+<li>Kiểm thử và triển khai các thay đổi lên môi trường staging.</li>
 </ul>
 <h3 id="các-công-việc-cần-triển-khai-trong-tuần-này">Các công việc cần triển khai trong tuần này:</h3>
 <table>
@@ -1045,84 +1046,65 @@
   <tbody>
       <tr>
           <td style="text-align: left">2</td>
-          <td style="text-align: left">- Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập</td>
-          <td style="text-align: left">11/08/2025</td>
-          <td style="text-align: left">11/08/2025</td>
+          <td style="text-align: left">- Thêm chức năng sửa hồ sơ người dùng (avatar, địa chỉ, thông tin liên hệ) <br> - Kiểm thử frontend và API chỉnh sửa hồ sơ <br> - Viết unit test cho endpoint cập nhật</td>
+          <td style="text-align: left">10/11/2025</td>
+          <td style="text-align: left">10/11/2025</td>
           <td style="text-align: left"></td>
       </tr>
       <tr>
           <td style="text-align: left">3</td>
-          <td style="text-align: left">- Tìm hiểu AWS và các loại dịch vụ <br>  + Compute <br>  + Storage <br>  + Networking <br>  + Database <br>  + &hellip; <br></td>
-          <td style="text-align: left">12/08/2025</td>
-          <td style="text-align: left">12/08/2025</td>
-          <td style="text-align: left"><a href="https://cloudjourney.awsstudygroup.com/">https://cloudjourney.awsstudygroup.com/</a></td>
+          <td style="text-align: left">- Thêm chức năng tạo/huỷ đơn hàng ở phía người dùng <br> - Triển khai logic validate đơn hàng và kiểm tra edge cases <br> - Viết integration test cho order APIs</td>
+          <td style="text-align: left">10/12/2025</td>
+          <td style="text-align: left">10/12/2025</td>
+          <td style="text-align: left"></td>
       </tr>
       <tr>
           <td style="text-align: left">4</td>
-          <td style="text-align: left">- Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console &amp; AWS CLI <br> - <strong>Thực hành:</strong> <br>  + Tạo AWS account <br>  + Cài AWS CLI &amp; cấu hình <br>   + Cách sử dụng AWS CLI</td>
-          <td style="text-align: left">13/08/2025</td>
-          <td style="text-align: left">13/08/2025</td>
-          <td style="text-align: left"><a href="https://cloudjourney.awsstudygroup.com/">https://cloudjourney.awsstudygroup.com/</a></td>
+          <td style="text-align: left">- Họp nhóm tại Phuc Long: thảo luận tích hợp Chatbot (AWS Bedrock) với backend <br> - Phác thảo API, flow xác thực và bảo mật cho Chatbot <br> - Ghi nhận nhiệm vụ và timeline</td>
+          <td style="text-align: left">10/13/2025</td>
+          <td style="text-align: left">10/13/2025</td>
+          <td style="text-align: left"><a href="https://aws.amazon.com/bedrock/">https://aws.amazon.com/bedrock/</a></td>
       </tr>
       <tr>
           <td style="text-align: left">5</td>
-          <td style="text-align: left">- Tìm hiểu EC2 cơ bản: <br>  + Instance types <br>  + AMI <br>  + EBS <br>  + &hellip; <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br></td>
-          <td style="text-align: left">14/08/2025</td>
-          <td style="text-align: left">15/08/2025</td>
-          <td style="text-align: left"><a href="https://cloudjourney.awsstudygroup.com/">https://cloudjourney.awsstudygroup.com/</a></td>
-      </tr>
-      <tr>
-          <td style="text-align: left">6</td>
-          <td style="text-align: left">- <strong>Thực hành:</strong> <br>  + Tạo EC2 instance <br>  + Kết nối SSH <br>  + Gắn EBS volume</td>
-          <td style="text-align: left">15/08/2025</td>
-          <td style="text-align: left">15/08/2025</td>
-          <td style="text-align: left"><a href="https://cloudjourney.awsstudygroup.com/">https://cloudjourney.awsstudygroup.com/</a></td>
+          <td style="text-align: left">- Tích hợp thử nghiệm Chatbot với backend (mock/stub) <br> - Kiểm thử end-to-end luồng chat tới backend <br> - Chuẩn bị tài liệu hướng dẫn tích hợp cho nhóm</td>
+          <td style="text-align: left">10/14/2025</td>
+          <td style="text-align: left">10/14/2025</td>
+          <td style="text-align: left"><a href="https://docs.aws.amazon.com/">https://docs.aws.amazon.com/</a></td>
       </tr>
   </tbody>
 </table>
 <h3 id="kết-quả-đạt-được-tuần-10">Kết quả đạt được tuần 10:</h3>
 <ul>
 <li>
-<p>Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản:</p>
+<p>Thêm chức năng CRUD phía người dùng thành công</p>
 <ul>
-<li>Compute</li>
-<li>Storage</li>
-<li>Networking</li>
-<li>Database</li>
-<li>&hellip;</li>
+<li>Triển khai chức năng sửa hồ sơ người dùng (cập nhật avatar, địa chỉ, thông tin liên hệ)</li>
+<li>Thêm/huỷ đơn hàng từ giao diện người dùng và đảm bảo các ràng buộc nghiệp vụ</li>
+<li>Viết unit và integration test để đảm bảo chất lượng API</li>
 </ul>
 </li>
 <li>
-<p>Đã tạo và cấu hình AWS Free Tier account thành công.</p>
-</li>
-<li>
-<p>Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.</p>
-</li>
-<li>
-<p>Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:</p>
+<p>Họp nhóm tại Phuc Long và lên kế hoạch tích hợp Chatbot (AWS Bedrock)</p>
 <ul>
-<li>Access Key</li>
-<li>Secret Key</li>
-<li>Region mặc định</li>
-<li>&hellip;</li>
+<li>Thảo luận kiến trúc tích hợp Chatbot với backend, xác định điểm tích hợp và cơ chế xác thực</li>
+<li>Phác thảo luồng dữ liệu và API cần thiết cho tương tác Chatbot</li>
+<li>Ghi nhận nhiệm vụ và timeline cho việc tích hợp</li>
 </ul>
 </li>
 <li>
-<p>Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:</p>
+<p>Kiểm thử tích hợp cơ bản và tài liệu hoá</p>
 <ul>
-<li>Kiểm tra thông tin tài khoản &amp; cấu hình</li>
-<li>Lấy danh sách region</li>
-<li>Xem dịch vụ EC2</li>
-<li>Tạo và quản lý key pair</li>
-<li>Kiểm tra thông tin dịch vụ đang chạy</li>
-<li>&hellip;</li>
+<li>Thực hiện thử nghiệm mock Chatbot kết nối tới backend và kiểm tra luồng end-to-end</li>
+<li>Chuẩn bị hướng dẫn tích hợp và ví dụ code mẫu cho nhóm</li>
 </ul>
 </li>
 <li>
-<p>Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.</p>
-</li>
-<li>
-<p>&hellip;</p>
+<p>Cải thiện trải nghiệm người dùng và khả năng triển khai</p>
+<ul>
+<li>Nâng cao khả năng quản lý đơn hàng trực tiếp từ giao diện người dùng</li>
+<li>Tạo nền tảng tích hợp Chatbot để hỗ trợ mua sắm và tự động hoá tương tác khách hàng</li>
+</ul>
 </li>
 </ul>
 
@@ -1826,19 +1808,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1761531549"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1761531549"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1761531549"></script>
-    <script src="../../../js/jquery.sticky.js?1761531549"></script>
-    <script src="../../../js/featherlight.min.js?1761531549"></script>
-    <script src="../../../js/highlight.pack.js?1761531549"></script>
+    <script src="../../../js/clipboard.min.js?1763302783"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1763302783"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1763302783"></script>
+    <script src="../../../js/jquery.sticky.js?1763302783"></script>
+    <script src="../../../js/featherlight.min.js?1763302783"></script>
+    <script src="../../../js/highlight.pack.js?1763302783"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1761531549"></script>
-    <script src="../../../js/learn.js?1761531549"></script>
-    <script src="../../../js/hugo-learn.js?1761531549"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1763302783"></script>
+    <script src="../../../js/learn.js?1763302783"></script>
+    <script src="../../../js/hugo-learn.js?1763302783"></script>
 
-    <link href="../../../mermaid/mermaid.css?1761531549" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1761531549"></script>
+    <link href="../../../mermaid/mermaid.css?1763302783" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1763302783"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
