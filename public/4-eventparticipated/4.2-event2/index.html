@@ -15,21 +15,21 @@
     <title>Event 2 :: Internship Report</title>
 
     
-    <link href="../../css/nucleus.css?1763302442" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1763302442" rel="stylesheet">
-    <link href="../../css/hybrid.css?1763302442" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1763302442" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1763302442" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1763302442" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1763302442" rel="stylesheet">
-    <link href="../../css/theme.css?1763302442" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1763302442" rel="stylesheet">
+    <link href="../../css/nucleus.css?1764822877" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1764822877" rel="stylesheet">
+    <link href="../../css/hybrid.css?1764822877" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1764822877" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1764822877" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1764822877" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1764822877" rel="stylesheet">
+    <link href="../../css/theme.css?1764822877" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1764822877" rel="stylesheet">
     
-    <link href="../../css/theme-workshop.css?1763302442" rel="stylesheet">
+    <link href="../../css/theme-workshop.css?1764822877" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1763302442"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1764822877"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1763302442"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1763302442"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1764822877"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1764822877"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/workshop-template\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1763302442"></script>
+<script type="text/javascript" src="../../js/search.js?1764822877"></script>
  
   </div>
 
@@ -990,8 +990,8 @@
       <ul>
         <li><a href="#event-objectives">Event Objectives</a></li>
         <li><a href="#speakers">Speakers</a></li>
-        <li><a href="#key-highlights">Key Highlights</a></li>
-        <li><a href="#key-takeaways">Key Takeaways</a></li>
+        <li><a href="#key-highlights-security">Key Highlights (Security)</a></li>
+        <li><a href="#key-takeaways-security">Key Takeaways (Security)</a></li>
         <li><a href="#applying-to-work">Applying to Work</a></li>
         <li><a href="#event-experience">Event Experience</a></li>
       </ul>
@@ -1029,13 +1029,17 @@
 
 </div>
 
-<h1 id="summary-report-genai-powered-app-db-modernization-workshop">Summary Report: “GenAI-powered App-DB Modernization workshop”</h1>
+<h1 id="summary-report-aws-well-architected-security">Summary Report: “AWS Well-Architected: Security”</h1>
 <h3 id="event-objectives">Event Objectives</h3>
 <ul>
-<li>Share best practices in modern application design</li>
-<li>Introduce Domain-Driven Design (DDD) and event-driven architecture</li>
-<li>Provide guidance on selecting the right compute services</li>
-<li>Present AI tools to support the development lifecycle</li>
+<li>Introduce AWS Well-Architected Security and its core principles: Least Privilege, Zero Trust, Defense-in-Depth</li>
+<li>Explain the Shared Responsibility Model and common cloud threats relevant to Vietnam</li>
+<li>Present practical Identity &amp; Access Management patterns and multi-account guardrails (IAM Identity Center, SCPs, permission boundaries)</li>
+<li>Demonstrate detection, logging and continuous monitoring practices (CloudTrail, GuardDuty, Security Hub, centralized logging)</li>
+<li>Share network and workload protection guidance (VPC segmentation, Security Groups/NACLs, WAF/Shield, network firewall)</li>
+<li>Provide data protection best practices (KMS, encryption at-rest/in-transit, Secrets Manager, data classification)</li>
+<li>Offer incident response playbooks and automation patterns for common cloud incidents (isolation, evidence collection, automated containment)</li>
+<li>Deliver a practical security learning roadmap and actionable takeaways for local enterprises</li>
 </ul>
 <h3 id="speakers">Speakers</h3>
 <ul>
@@ -1043,100 +1047,102 @@
 <li><strong>Erica Liu</strong> – Sr. GTM Specialist, AppMod</li>
 <li><strong>Fabrianne Effendi</strong> – Assc. Specialist SA, Serverless Amazon Web Services</li>
 </ul>
-<h3 id="key-highlights">Key Highlights</h3>
-<h4 id="identifying-the-drawbacks-of-legacy-application-architecture">Identifying the drawbacks of legacy application architecture</h4>
+<h3 id="key-highlights-security">Key Highlights (Security)</h3>
+<h4 id="identity--access-management-iam">Identity &amp; Access Management (IAM)</h4>
 <ul>
-<li>Long product release cycles → Lost revenue/missed opportunities</li>
-<li>Inefficient operations → Reduced productivity, higher costs</li>
-<li>Non-compliance with security regulations → Security breaches, loss of reputation</li>
+<li>Prefer short-lived credentials and role-based access; avoid long-term static keys</li>
+<li>Centralize user access with IAM Identity Center (SSO) and permission sets for predictable access control</li>
+<li>Apply SCPs and permission boundaries to enforce guardrails across accounts</li>
+<li>Enforce MFA, credential rotation and use Access Analyzer to validate policies</li>
+<li>Practical: validate IAM policies and simulate access during design reviews and CI checks</li>
 </ul>
-<h4 id="transitioning-to-modern-application-architecture--microservices">Transitioning to modern application architecture – Microservices</h4>
-<p>Migrating to a modular system — each function is an <strong>independent service</strong> communicating via <strong>events</strong>, built on three core pillars:</p>
+<h4 id="detection">Detection</h4>
 <ul>
-<li><strong>Queue Management</strong>: Handle asynchronous tasks</li>
-<li><strong>Caching Strategy</strong>: Optimize performance</li>
-<li><strong>Message Handling</strong>: Flexible inter-service communication</li>
+<li>Operate org-level CloudTrail and integrate with GuardDuty and Security Hub for unified threat detection</li>
+<li>Instrument logging across network, load balancers, storage and applications (VPC Flow Logs, ALB logs, S3 access logs, application traces)</li>
+<li>Use EventBridge + Lambda for automated alerting and initial containment workflows</li>
+<li>Adopt Detection-as-Code: store detection rules in source control and deploy via pipeline</li>
 </ul>
-<h4 id="domain-driven-design-ddd">Domain-Driven Design (DDD)</h4>
+<h4 id="infrastructure-protection">Infrastructure Protection</h4>
 <ul>
-<li><strong>Four-step method</strong>: Identify domain events → arrange timeline → identify actors → define bounded contexts</li>
-<li><strong>Bookstore case study</strong>: Demonstrates real-world DDD application</li>
-<li><strong>Context mapping</strong>: 7 patterns for integrating bounded contexts</li>
+<li>Design VPC segmentation and place workloads in private subnets where possible</li>
+<li>Use Security Groups for instance/task-level controls and NACLs for coarse subnet-level protections</li>
+<li>Protect edges and web layers with WAF, AWS Shield and Network Firewall for DDoS and OWASP-style protections</li>
+<li>Harden workloads: secure AMIs/containers, patching, host-level monitoring and runtime scanning</li>
 </ul>
-<h4 id="event-driven-architecture">Event-Driven Architecture</h4>
+<h4 id="data-protection">Data Protection</h4>
 <ul>
-<li><strong>3 integration patterns</strong>: Publish/Subscribe, Point-to-point, Streaming</li>
-<li><strong>Benefits</strong>: Loose coupling, scalability, resilience</li>
-<li><strong>Sync vs async comparison</strong>: Understanding the trade-offs</li>
+<li>Use AWS KMS with explicit key policies, grants and scheduled rotation for asymmetric and symmetric keys</li>
+<li>Encrypt data at-rest and in-transit for S3, EBS, RDS, DynamoDB and service endpoints</li>
+<li>Centralize secrets with Secrets Manager or Parameter Store and automate secret rotation where possible</li>
+<li>Perform data classification and apply least-privilege access patterns for sensitive data</li>
 </ul>
-<h4 id="compute-evolution">Compute Evolution</h4>
+<h4 id="incident-response">Incident Response</h4>
 <ul>
-<li><strong>Shared Responsibility Model</strong>: EC2 → ECS → Fargate → Lambda</li>
-<li><strong>Serverless benefits</strong>: No server management, auto-scaling, pay-for-value</li>
-<li><strong>Functions vs Containers</strong>: Criteria for appropriate choice</li>
+<li>Maintain IR playbooks for common scenarios: compromised keys, public S3 exposure, and workload compromise</li>
+<li>Prepare evidence collection steps (snapshots, log exports, VPC traffic captures) and isolation procedures</li>
+<li>Automate safe containment actions (Lambda/Step Functions) for repeatable first-response tasks</li>
+<li>Conduct tabletop exercises and measure MTTR; iterate playbooks based on lessons learned</li>
 </ul>
-<h4 id="amazon-q-developer">Amazon Q Developer</h4>
+<h4 id="local--operational-context">Local &amp; Operational Context</h4>
 <ul>
-<li><strong>SDLC automation</strong>: From planning to maintenance</li>
-<li><strong>Code transformation</strong>: Java upgrade, .NET modernization</li>
-<li><strong>AWS Transform agents</strong>: VMware, Mainframe, .NET migration</li>
+<li>Consider local threat patterns and compliance expectations in Vietnam when prioritizing controls</li>
+<li>Emphasize pragmatic, high-impact controls first (IAM hygiene, logging, encryption, IR readiness)</li>
 </ul>
-<h3 id="key-takeaways">Key Takeaways</h3>
-<h4 id="design-mindset">Design Mindset</h4>
+<h3 id="key-takeaways-security">Key Takeaways (Security)</h3>
+<h4 id="security-mindset">Security Mindset</h4>
 <ul>
-<li><strong>Business-first approach</strong>: Always start from the business domain, not the technology</li>
-<li><strong>Ubiquitous language</strong>: Importance of a shared vocabulary between business and tech teams</li>
-<li><strong>Bounded contexts</strong>: Identifying and managing complexity in large systems</li>
+<li>Adopt a security-first mindset: design systems assuming compromise and apply defense-in-depth</li>
+<li>Prioritize Least Privilege: think identity-first when designing access and data flows</li>
+<li>Treat detection and IR as first-class requirements, not optional add-ons</li>
 </ul>
-<h4 id="technical-architecture">Technical Architecture</h4>
+<h4 id="high-impact-operational-recommendations">High-Impact Operational Recommendations</h4>
 <ul>
-<li><strong>Event storming technique</strong>: Practical method for modeling business processes</li>
-<li>Use <strong>event-driven communication</strong> instead of synchronous calls</li>
-<li><strong>Integration patterns</strong>: When to use sync, async, pub/sub, streaming</li>
-<li><strong>Compute spectrum</strong>: Criteria for choosing between VM, containers, and serverless</li>
+<li>Start with IAM hygiene (short-lived credentials, SSO, permission sets, MFA) and centralized logging</li>
+<li>Ensure org-level CloudTrail and automated alerts (GuardDuty/Security Hub) are enabled and monitored</li>
+<li>Implement KMS-backed encryption and centralized secrets management before wide rollout</li>
 </ul>
-<h4 id="modernization-strategy">Modernization Strategy</h4>
+<h4 id="architecture--controls">Architecture &amp; Controls</h4>
 <ul>
-<li><strong>Phased approach</strong>: No rushing — follow a clear roadmap</li>
-<li><strong>7Rs framework</strong>: Multiple modernization paths depending on the application</li>
-<li><strong>ROI measurement</strong>: Cost reduction + business agility</li>
+<li>Segment networks and minimize public surface area; apply layered controls (WAF, Shield, Firewall)</li>
+<li>Use least-privilege task roles for compute (EC2/ECS/EKS/Lambda) and secure container images</li>
+<li>Automate detection and response where safe; instrument observability across infra and apps</li>
+</ul>
+<h4 id="incident-preparedness">Incident Preparedness</h4>
+<ul>
+<li>Maintain clear IR playbooks and automate repeatable containment steps (Lambda/Step Functions)</li>
+<li>Regularly practice tabletop exercises and measure Mean Time To Recover (MTTR)</li>
+<li>Preserve forensics-ready data (logs, snapshots) to speed investigation and remediation</li>
+</ul>
+<h4 id="roadmap--learning">Roadmap &amp; Learning</h4>
+<ul>
+<li>Build a practical roadmap: IAM → Logging/Detection → Data Protection → IR → Continuous improvement</li>
+<li>Invest in role-based learning (Security Specialty, SA Pro) and hands-on labs focused on IR and detection</li>
+<li>For Vietnam-specific contexts, align controls with local compliance and common threat patterns</li>
 </ul>
 <h3 id="applying-to-work">Applying to Work</h3>
 <ul>
-<li><strong>Apply DDD</strong> to current projects: Event storming sessions with business teams</li>
-<li><strong>Refactor microservices</strong>: Use bounded contexts to define service boundaries</li>
-<li><strong>Implement event-driven patterns</strong>: Replace some sync calls with async messaging</li>
-<li><strong>Adopt serverless</strong>: Pilot AWS Lambda for suitable use cases</li>
-<li><strong>Try Amazon Q Developer</strong>: Integrate into the dev workflow to boost productivity</li>
+<li>Operationalize lessons: add IAM policy checks in CI, enable org-level logging, and schedule IR drills</li>
+<li>Prioritize quick wins: enforce MFA, enable CloudTrail, rotate keys, and register critical alerts</li>
+<li>Track progress with simple metrics (number of IAM principals with MFA, % encrypted volumes, MTTR)</li>
 </ul>
 <h3 id="event-experience">Event Experience</h3>
-<p>Attending the <strong>“GenAI-powered App-DB Modernization”</strong> workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:</p>
-<h4 id="learning-from-highly-skilled-speakers">Learning from highly skilled speakers</h4>
-<ul>
-<li>Experts from AWS and major tech organizations shared <strong>best practices</strong> in modern application design.</li>
-<li>Through real-world case studies, I gained a deeper understanding of applying <strong>DDD</strong> and <strong>Event-Driven Architecture</strong> to large projects.</li>
-</ul>
-<h4 id="hands-on-technical-exposure">Hands-on technical exposure</h4>
-<ul>
-<li>Participating in <strong>event storming</strong> sessions helped me visualize how to <strong>model business processes</strong> into domain events.</li>
-<li>Learned how to <strong>split microservices</strong> and define <strong>bounded contexts</strong> to manage large-system complexity.</li>
-<li>Understood trade-offs between <strong>synchronous and asynchronous communication</strong> and integration patterns like <strong>pub/sub, point-to-point, streaming</strong>.</li>
-</ul>
-<h4 id="leveraging-modern-tools">Leveraging modern tools</h4>
-<ul>
-<li>Explored <strong>Amazon Q Developer</strong>, an AI tool for SDLC support from planning to maintenance.</li>
-<li>Learned to <strong>automate code transformation</strong> and pilot serverless with <strong>AWS Lambda</strong> to improve productivity.</li>
-</ul>
+<p>Attending the <strong>AWS Well-Architected Security Pillar</strong> session provided a concise, practical roadmap to improve cloud security posture with tools, playbooks, and measurable operational steps. Speakers focused on pragmatic controls you can apply immediately, demonstrated policy validation and detection patterns, and emphasized readiness through playbooks and automation.</p>
 <h4 id="networking-and-discussions">Networking and discussions</h4>
 <ul>
-<li>The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the <strong>ubiquitous language</strong> between business and tech.</li>
-<li>Real-world examples reinforced the importance of the <strong>business-first approach</strong> rather than focusing solely on technology.</li>
+<li>Practitioners and speakers exchanged concrete patterns for IAM, account governance, and multi-account guardrails (permission sets, SCPs, permission boundaries).</li>
+<li>Peers shared operational experiences for Detection-as-Code, how they structure CloudTrail aggregation and prioritize GuardDuty findings for alert fatigue reduction.</li>
+<li>Attendees discussed practical IR automation approaches (EventBridge + Lambda, Step Functions) and trade-offs for safe auto-remediation.</li>
+<li>Local participants highlighted common constraints in Vietnam: compliance nuances, constrained SOC resources, and the need for pragmatic, high-impact controls.</li>
 </ul>
 <h4 id="lessons-learned">Lessons learned</h4>
 <ul>
-<li>Applying DDD and event-driven patterns reduces <strong>coupling</strong> while improving <strong>scalability</strong> and <strong>resilience</strong>.</li>
-<li>Modernization requires a <strong>phased approach</strong> with <strong>ROI measurement</strong>; rushing the process can be risky.</li>
-<li>AI tools like Amazon Q Developer can significantly <strong>boost productivity</strong> when integrated into the current workflow.</li>
+<li>IAM hygiene and org-level logging provide the highest immediate security ROI: enable SSO, MFA, short-lived credentials and centralized CloudTrail.</li>
+<li>Detection is most effective when backed by good telemetry: instrument VPC Flow Logs, ALB/S3 logs and application traces, and treat detection rules as code.</li>
+<li>Automate repeatable containment steps, but validate safety: automated responses (Lambda/Step Functions) speed containment when well-tested.</li>
+<li>Encrypt-by-default and centralized key management (KMS) reduce data exposure risk; manage secrets centrally and rotate frequently.</li>
+<li>Network segmentation and least-privilege task roles reduce blast radius; combine with WAF/Shield for edge protection.</li>
+<li>Regular IR exercises and tabletop drills materially reduce MTTR and improve confidence in playbooks and automation.</li>
 </ul>
 <h4 id="some-event-photos">Some event photos</h4>
 <p><em>Add your event photos here</em></p>
@@ -1847,19 +1853,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1763302442"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1763302442"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1763302442"></script>
-    <script src="../../js/jquery.sticky.js?1763302442"></script>
-    <script src="../../js/featherlight.min.js?1763302442"></script>
-    <script src="../../js/highlight.pack.js?1763302442"></script>
+    <script src="../../js/clipboard.min.js?1764822877"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1764822877"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1764822877"></script>
+    <script src="../../js/jquery.sticky.js?1764822877"></script>
+    <script src="../../js/featherlight.min.js?1764822877"></script>
+    <script src="../../js/highlight.pack.js?1764822877"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1763302442"></script>
-    <script src="../../js/learn.js?1763302442"></script>
-    <script src="../../js/hugo-learn.js?1763302442"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1764822877"></script>
+    <script src="../../js/learn.js?1764822877"></script>
+    <script src="../../js/hugo-learn.js?1764822877"></script>
 
-    <link href="../../mermaid/mermaid.css?1763302442" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1763302442"></script>
+    <link href="../../mermaid/mermaid.css?1764822877" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1764822877"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

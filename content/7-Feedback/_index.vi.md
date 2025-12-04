@@ -1,44 +1,49 @@
 ---
-title: "Chia sẻ, đóng góp ý kiến"
+title: "Chia sẻ & Phản hồi"
 date: "`r Sys.Date()`"
 weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
+
 {{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+⚠️ **Lưu ý:** Thông tin dưới đây chỉ mang tính tham khảo. Vui lòng **không sao chép nguyên văn** vào báo cáo của bạn, bao gồm cả cảnh báo này.
 {{% /notice %}}
 
->Tại đây bạn có thể tự do đóng góp ý kiến cá nhân về những trải nghiệm khi tham gia chương trình First Cloud Journey, giúp team FCJ cải thiện những vấn đề còn thiếu sót dựa trên các hạng mục sau:
+## Chia sẻ và Phản hồi về Quá trình Thực tập
 
-### Đánh giá chung
+### Tổng quan — Ấn tượng chung
 
-**1. Môi trường làm việc**  
-Môi trường làm việc rất thân thiện và cởi mở. Các thành viên trong FCJ luôn sẵn sàng hỗ trợ khi mình gặp khó khăn, kể cả ngoài giờ làm việc. Không gian làm việc gọn gàng, thoải mái, giúp mình tập trung tốt hơn. Tuy nhiên, mình nghĩ có thể bổ sung thêm một số buổi giao lưu hoặc team bonding để mọi người hiểu nhau hơn.
+**1. Môi trường làm việc**
+ - Nhóm thân thiện và hỗ trợ; đồng nghiệp và mentor sẵn sàng dành thời gian hướng dẫn. Không gian làm việc sạch sẽ, thuận lợi cho sự tập trung. Có thể cân nhắc tổ chức các hoạt động gắn kết đội định kỳ để củng cố mối quan hệ nội bộ.
 
-**2. Sự hỗ trợ của mentor / team admin**  
-Mentor hướng dẫn rất chi tiết, giải thích rõ ràng khi mình chưa hiểu và luôn khuyến khích mình đặt câu hỏi. Team admin hỗ trợ các thủ tục, tài liệu và tạo điều kiện để mình làm việc thuận lợi. Mình đánh giá cao việc mentor cho phép mình thử và tự xử lý vấn đề thay vì chỉ đưa đáp án.
+**2. Hướng dẫn & hỗ trợ hành chính**
+ - Mentor đưa ra hướng dẫn rõ ràng, mang tính thực tiễn và khuyến khích tự giải quyết vấn đề. Bộ phận hành chính phản hồi nhanh, hỗ trợ đầy đủ thủ tục và tài liệu onboarding.
 
-**3. Sự phù hợp giữa công việc và chuyên ngành học**  
-Công việc mình được giao phù hợp với kiến thức mình đã học ở trường, đồng thời mở rộng thêm những mảng mới mà mình chưa từng được tiếp cận. Nhờ vậy, mình vừa củng cố kiến thức nền tảng, vừa học thêm kỹ năng thực tế.
+**3. Tính liên quan với học thuật**
+ - Các nhiệm vụ được giao phù hợp với nền tảng học thuật đồng thời giới thiệu các công cụ và quy trình thực tế, giúp kết nối kiến thức lý thuyết với thực hành.
 
-**4. Cơ hội học hỏi & phát triển kỹ năng**  
-Trong quá trình thực tập, mình học được nhiều kỹ năng mới như sử dụng công cụ quản lý dự án, kỹ năng làm việc nhóm, và cả cách giao tiếp chuyên nghiệp trong môi trường công ty. Mentor cũng chia sẻ nhiều kinh nghiệm thực tế giúp mình định hướng tốt hơn cho sự nghiệp.
+**4. Cơ hội học tập & phát triển**
+ - Chương trình giúp phát triển kỹ năng kỹ thuật, công cụ quản lý dự án, làm việc nhóm và kỹ năng giao tiếp chuyên nghiệp. Những chia sẻ từ mentor cung cấp góc nhìn thực tế cho lộ trình nghề nghiệp.
 
-**5. Văn hóa & tinh thần đồng đội**  
-Văn hóa công ty rất tích cực: mọi người tôn trọng lẫn nhau, làm việc nghiêm túc nhưng vẫn vui vẻ. Khi có dự án gấp, mọi người cùng nhau cố gắng, hỗ trợ không phân biệt vị trí. Điều này giúp mình cảm thấy mình là một phần của tập thể, dù chỉ là thực tập sinh.
+**5. Văn hóa & tinh thần đồng đội**
+ - Văn hóa công ty khuyến khích tôn trọng và hợp tác; các thành viên sẵn sàng hỗ trợ nhau khi công việc gấp rút và tạo điều kiện để thực tập sinh tham gia công việc có ý nghĩa.
 
-**6. Chính sách / phúc lợi cho thực tập sinh**  
-Công ty có hỗ trợ phụ cấp thực tập và tạo điều kiện về thời gian linh hoạt khi cần thiết. Ngoài ra, việc được tham gia các buổi đào tạo nội bộ là một điểm cộng lớn.
+**6. Chính sách & phúc lợi**
+ - Chương trình cung cấp trợ cấp thực tập, lịch làm việc linh hoạt khi cần và truy cập các buổi đào tạo nội bộ — tất cả đều góp phần nâng cao trải nghiệm học tập.
 
+---
 
-### Một số câu hỏi khác
-- Điều bạn **hài lòng nhất** trong thời gian thực tập?  
-- Điều bạn nghĩ công ty **cần cải thiện** cho các thực tập sinh sau?  
-- Nếu giới thiệu cho bạn bè, bạn có **khuyên họ thực tập ở đây không**? Vì sao?  
+### Câu hỏi phản hồi ngắn
 
+- Điều gì làm bạn hài lòng nhất trong kỳ thực tập?
+- Công ty nên cải thiện điều gì cho thực tập sinh tương lai?
+- Bạn có sẵn sàng giới thiệu người quen thực tập tại đây không? Vì sao hoặc vì sao không?
 
-### Đề xuất & mong muốn
-- Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?  
-- Bạn có muốn tiếp tục chương trình này trong tương lai?
-- Góp ý khác (tự do chia sẻ):
+---
+
+### Gợi ý & Kỳ vọng
+
+- Bạn có gợi ý gì để cải thiện cấu trúc chương trình hoặc quá trình onboarding không?
+- Bạn có muốn tiếp tục tham gia chương trình hoặc gia nhập công ty sau khi kết thúc không?
+- Các nhận xét hoặc chia sẻ thêm khác:

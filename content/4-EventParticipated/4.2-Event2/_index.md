@@ -10,14 +10,18 @@ pre: " <b> 4.2. </b> "
 ⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
 {{% /notice %}}
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# Summary Report: “AWS Well-Architected: Security”
 
 ### Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- Introduce AWS Well-Architected Security and its core principles: Least Privilege, Zero Trust, Defense-in-Depth
+- Explain the Shared Responsibility Model and common cloud threats relevant to Vietnam
+- Present practical Identity & Access Management patterns and multi-account guardrails (IAM Identity Center, SCPs, permission boundaries)
+- Demonstrate detection, logging and continuous monitoring practices (CloudTrail, GuardDuty, Security Hub, centralized logging)
+- Share network and workload protection guidance (VPC segmentation, Security Groups/NACLs, WAF/Shield, network firewall)
+- Provide data protection best practices (KMS, encryption at-rest/in-transit, Secrets Manager, data classification)
+- Offer incident response playbooks and automation patterns for common cloud incidents (isolation, evidence collection, automated containment)
+- Deliver a practical security learning roadmap and actionable takeaways for local enterprises
 
 ### Speakers
 
@@ -25,100 +29,109 @@ pre: " <b> 4.2. </b> "
 - **Erica Liu** – Sr. GTM Specialist, AppMod
 - **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
 
-### Key Highlights
+### Key Highlights (Security)
 
-#### Identifying the drawbacks of legacy application architecture
+#### Identity & Access Management (IAM)
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+- Prefer short-lived credentials and role-based access; avoid long-term static keys
+- Centralize user access with IAM Identity Center (SSO) and permission sets for predictable access control
+- Apply SCPs and permission boundaries to enforce guardrails across accounts
+- Enforce MFA, credential rotation and use Access Analyzer to validate policies
+- Practical: validate IAM policies and simulate access during design reviews and CI checks
 
-#### Transitioning to modern application architecture – Microservices
+#### Detection
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+- Operate org-level CloudTrail and integrate with GuardDuty and Security Hub for unified threat detection
+- Instrument logging across network, load balancers, storage and applications (VPC Flow Logs, ALB logs, S3 access logs, application traces)
+- Use EventBridge + Lambda for automated alerting and initial containment workflows
+- Adopt Detection-as-Code: store detection rules in source control and deploy via pipeline
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+#### Infrastructure Protection
 
-#### Domain-Driven Design (DDD)
+- Design VPC segmentation and place workloads in private subnets where possible
+- Use Security Groups for instance/task-level controls and NACLs for coarse subnet-level protections
+- Protect edges and web layers with WAF, AWS Shield and Network Firewall for DDoS and OWASP-style protections
+- Harden workloads: secure AMIs/containers, patching, host-level monitoring and runtime scanning
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+#### Data Protection
 
-#### Event-Driven Architecture
+- Use AWS KMS with explicit key policies, grants and scheduled rotation for asymmetric and symmetric keys
+- Encrypt data at-rest and in-transit for S3, EBS, RDS, DynamoDB and service endpoints
+- Centralize secrets with Secrets Manager or Parameter Store and automate secret rotation where possible
+- Perform data classification and apply least-privilege access patterns for sensitive data
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+#### Incident Response
 
-#### Compute Evolution
+- Maintain IR playbooks for common scenarios: compromised keys, public S3 exposure, and workload compromise
+- Prepare evidence collection steps (snapshots, log exports, VPC traffic captures) and isolation procedures
+- Automate safe containment actions (Lambda/Step Functions) for repeatable first-response tasks
+- Conduct tabletop exercises and measure MTTR; iterate playbooks based on lessons learned
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+#### Local & Operational Context
 
-#### Amazon Q Developer
+- Consider local threat patterns and compliance expectations in Vietnam when prioritizing controls
+- Emphasize pragmatic, high-impact controls first (IAM hygiene, logging, encryption, IR readiness)
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
 
-### Key Takeaways
 
-#### Design Mindset
+### Key Takeaways (Security)
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+#### Security Mindset
 
-#### Technical Architecture
+- Adopt a security-first mindset: design systems assuming compromise and apply defense-in-depth
+- Prioritize Least Privilege: think identity-first when designing access and data flows
+- Treat detection and IR as first-class requirements, not optional add-ons
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+#### High-Impact Operational Recommendations
 
-#### Modernization Strategy
+- Start with IAM hygiene (short-lived credentials, SSO, permission sets, MFA) and centralized logging
+- Ensure org-level CloudTrail and automated alerts (GuardDuty/Security Hub) are enabled and monitored
+- Implement KMS-backed encryption and centralized secrets management before wide rollout
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+#### Architecture & Controls
+
+- Segment networks and minimize public surface area; apply layered controls (WAF, Shield, Firewall)
+- Use least-privilege task roles for compute (EC2/ECS/EKS/Lambda) and secure container images
+- Automate detection and response where safe; instrument observability across infra and apps
+
+#### Incident Preparedness
+
+- Maintain clear IR playbooks and automate repeatable containment steps (Lambda/Step Functions)
+- Regularly practice tabletop exercises and measure Mean Time To Recover (MTTR)
+- Preserve forensics-ready data (logs, snapshots) to speed investigation and remediation
+
+#### Roadmap & Learning
+
+- Build a practical roadmap: IAM → Logging/Detection → Data Protection → IR → Continuous improvement
+- Invest in role-based learning (Security Specialty, SA Pro) and hands-on labs focused on IR and detection
+- For Vietnam-specific contexts, align controls with local compliance and common threat patterns
 
 ### Applying to Work
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+- Operationalize lessons: add IAM policy checks in CI, enable org-level logging, and schedule IR drills
+- Prioritize quick wins: enforce MFA, enable CloudTrail, rotate keys, and register critical alerts
+- Track progress with simple metrics (number of IAM principals with MFA, % encrypted volumes, MTTR)
 
 ### Event Experience
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+Attending the **AWS Well-Architected Security Pillar** session provided a concise, practical roadmap to improve cloud security posture with tools, playbooks, and measurable operational steps. Speakers focused on pragmatic controls you can apply immediately, demonstrated policy validation and detection patterns, and emphasized readiness through playbooks and automation.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
-
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
-
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
 
 #### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+
+- Practitioners and speakers exchanged concrete patterns for IAM, account governance, and multi-account guardrails (permission sets, SCPs, permission boundaries).
+- Peers shared operational experiences for Detection-as-Code, how they structure CloudTrail aggregation and prioritize GuardDuty findings for alert fatigue reduction.
+- Attendees discussed practical IR automation approaches (EventBridge + Lambda, Step Functions) and trade-offs for safe auto-remediation.
+- Local participants highlighted common constraints in Vietnam: compliance nuances, constrained SOC resources, and the need for pragmatic, high-impact controls.
 
 #### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+
+- IAM hygiene and org-level logging provide the highest immediate security ROI: enable SSO, MFA, short-lived credentials and centralized CloudTrail.
+- Detection is most effective when backed by good telemetry: instrument VPC Flow Logs, ALB/S3 logs and application traces, and treat detection rules as code.
+- Automate repeatable containment steps, but validate safety: automated responses (Lambda/Step Functions) speed containment when well-tested.
+- Encrypt-by-default and centralized key management (KMS) reduce data exposure risk; manage secrets centrally and rotate frequently.
+- Network segmentation and least-privilege task roles reduce blast radius; combine with WAF/Shield for edge protection.
+- Regular IR exercises and tabletop drills materially reduce MTTR and improve confidence in playbooks and automation.
 
 #### Some event photos
 *Add your event photos here*  
