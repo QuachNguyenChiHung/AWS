@@ -48,31 +48,31 @@ pre: " <b> 4.4. </b> "
 - **Observability:** Using Amazon CloudWatch and AWS X-Ray to collect metrics, logs, and traces for quick issue detection and resolution.
 - **DevSecOps:** Integrating security tools (e.g., Amazon Inspector, Amazon GuardDuty) into Build and Deploy stages for early vulnerability detection.
 
-### Những Gì Học Được
+### Key Takeaways
 
-#### Kỹ năng DevOps cốt lõi
+#### Core DevOps Skills
 
-- **Thiết kế CI/CD chuyên nghiệp:** Nắm được cách thiết kế một Pipeline CI/CD mạnh mẽ, có khả năng phục hồi (resilient) sử dụng bộ công cụ AWS.
-- **Giảm thiểu rủi ro triển khai:** Hiểu rõ ưu và nhược điểm của Blue/Green và Canary Release, và khi nào nên áp dụng từng chiến lược để đảm bảo **Zero Downtime**.
+- **Professional CI/CD Design:** Learned how to design a robust, resilient CI/CD Pipeline using AWS toolset.
+- **Deployment Risk Minimization:** Understood the pros and cons of Blue/Green and Canary Release, and when to apply each strategy to ensure **Zero Downtime**.
 
-#### Bảo mật và Quan sát
+#### Security and Observability
 
-- **DevSecOps Mindset:** Nắm được tầm quan trọng của việc "Shift Left" - đưa bảo mật vào càng sớm càng tốt trong chu kỳ phát triển.
-- **Observability:** Hiểu sự khác biệt giữa Monitoring (theo dõi) và Observability (quan sát), và cách sử dụng **Logs, Metrics, Traces** để có cái nhìn toàn diện về hiệu suất hệ thống.
+- **DevSecOps Mindset:** Grasped the importance of "Shift Left" - integrating security as early as possible in the development cycle.
+- **Observability:** Understood the difference between Monitoring and Observability, and how to use **Logs, Metrics, Traces** for comprehensive system performance insights.
 
-### Ứng Dụng Vào Công Việc
+### Application to Work
 
-- **Tự động hóa Deployment:** Triển khai các **CodePipeline** cho các dự án mới để tự động hóa toàn bộ quá trình Build, Test và Deploy.
-- **Cải thiện chiến lược Go-Live:** Đề xuất và áp dụng các chiến lược **Canary Release** cho các tính năng quan trọng để đảm bảo sự ổn định và thu thập phản hồi sớm từ người dùng.
-- **Tăng cường Observability:** Tích hợp X-Ray để theo dõi end-to-end các request, giúp gỡ lỗi các ứng dụng phân tán (microservices) nhanh hơn.
+- **Deployment Automation:** Deploy **CodePipelines** for new projects to automate the entire Build, Test, and Deploy process.
+- **Improve Go-Live Strategy:** Propose and apply **Canary Release** strategies for critical features to ensure stability and gather early user feedback.
+- **Enhance Observability:** Integrate X-Ray for end-to-end request tracing, helping debug distributed applications (microservices) faster.
 
-### Trải nghiệm trong event
+### Event Experience
 
-Sự kiện này là một buổi học thực tế, nhấn mạnh vào việc chuyển từ lý thuyết sang thực hành trong môi trường AWS.
+This event was a practical learning session, emphasizing the transition from theory to practice in the AWS environment.
 
-- **Giá trị Thực tế:** Việc đi sâu vào các chiến lược triển khai tiên tiến mang lại kiến thức trực tiếp có thể áp dụng ngay vào môi trường production.
-- **Hệ sinh thái Công cụ:** Tôi hiểu rõ hơn về cách các công cụ trong hệ sinh thái AWS (Code\* services, CloudWatch, X-Ray) hoạt động cùng nhau để tạo ra một quy trình DevOps hoàn chỉnh.
+- **Real-world Value:** Deep diving into advanced deployment strategies provided directly applicable knowledge for production environments.
+- **Tool Ecosystem:** I gained better understanding of how tools in the AWS ecosystem (Code* services, CloudWatch, X-Ray) work together to create a complete DevOps workflow.
 
-> Sự kiện này củng cố kiến thức của tôi về việc xây dựng, triển khai và vận hành phần mềm một cách hiệu quả, an toàn và tự động trên AWS.
+> This event strengthened my knowledge of building, deploying, and operating software efficiently, securely, and automatically on AWS.
 
 ---
