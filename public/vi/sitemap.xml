@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/workshop-template/vi/</loc>
-    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -13,6 +13,19 @@
                 rel="alternate"
                 hreflang="vi"
                 href="http://localhost:1313/workshop-template/vi/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.01-workshop-overview/</loc>
+    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/workshop-template/5-workshop/5.01-workshop-overview/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="http://localhost:1313/workshop-template/vi/5-workshop/5.01-workshop-overview/"
                 />
   </url><url>
     <loc>http://localhost:1313/workshop-template/vi/3-blogstranslated/3.1-blog1/</loc>
@@ -87,18 +100,6 @@
                 href="http://localhost:1313/workshop-template/vi/3-blogstranslated/3.6-blog6/"
                 />
   </url><url>
-    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.4-s3-onprem/5.4.1-prepare/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/workshop-template/5-workshop/5.4-s3-onprem/5.4.1-prepare/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/workshop-template/vi/5-workshop/5.4-s3-onprem/5.4.1-prepare/"
-                />
-  </url><url>
     <loc>http://localhost:1313/workshop-template/vi/4-eventparticipated/4.1-event1/</loc>
     <xhtml:link
                 rel="alternate"
@@ -123,18 +124,6 @@
                 href="http://localhost:1313/workshop-template/vi/4-eventparticipated/4.2-event2/"
                 />
   </url><url>
-    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.1-workshop-overview/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/workshop-template/5-workshop/5.1-workshop-overview/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/workshop-template/vi/5-workshop/5.1-workshop-overview/"
-                />
-  </url><url>
     <loc>http://localhost:1313/workshop-template/vi/1-worklog/</loc>
     <xhtml:link
                 rel="alternate"
@@ -145,18 +134,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="http://localhost:1313/workshop-template/vi/1-worklog/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/workshop-template/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/workshop-template/vi/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/"
                 />
   </url><url>
     <loc>http://localhost:1313/workshop-template/vi/1-worklog/1.1-week1/</loc>
@@ -267,6 +244,19 @@
                 href="http://localhost:1313/workshop-template/vi/1-worklog/1.9-week9/"
                 />
   </url><url>
+    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.02-setup-environment/</loc>
+    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/workshop-template/5-workshop/5.02-setup-environment/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="http://localhost:1313/workshop-template/vi/5-workshop/5.02-setup-environment/"
+                />
+  </url><url>
     <loc>http://localhost:1313/workshop-template/vi/2-proposal/</loc>
     <lastmod>2025-10-01T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -278,42 +268,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="http://localhost:1313/workshop-template/vi/2-proposal/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.2-prerequiste/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/workshop-template/5-workshop/5.2-prerequiste/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/workshop-template/vi/5-workshop/5.2-prerequiste/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/workshop-template/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/workshop-template/vi/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/workshop-template/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/workshop-template/vi/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/"
                 />
   </url><url>
     <loc>http://localhost:1313/workshop-template/vi/1-worklog/1.10-week10/</loc>
@@ -352,6 +306,19 @@
                 href="http://localhost:1313/workshop-template/vi/1-worklog/1.12-week12/"
                 />
   </url><url>
+    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.03-cdk-bootstrap/</loc>
+    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/workshop-template/5-workshop/5.03-cdk-bootstrap/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="http://localhost:1313/workshop-template/vi/5-workshop/5.03-cdk-bootstrap/"
+                />
+  </url><url>
     <loc>http://localhost:1313/workshop-template/vi/3-blogstranslated/</loc>
     <xhtml:link
                 rel="alternate"
@@ -364,28 +331,29 @@
                 href="http://localhost:1313/workshop-template/vi/3-blogstranslated/"
                 />
   </url><url>
-    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/</loc>
+    <loc>http://localhost:1313/workshop-template/vi/4-eventparticipated/4.3-event3/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/workshop-template/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/"
+                href="http://localhost:1313/workshop-template/4-eventparticipated/4.3-event3/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/workshop-template/vi/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/"
+                href="http://localhost:1313/workshop-template/vi/4-eventparticipated/4.3-event3/"
                 />
   </url><url>
-    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.3-s3-vpc/</loc>
+    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.04-configure-stacks/</loc>
+    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/workshop-template/5-workshop/5.3-s3-vpc/"
+                href="http://localhost:1313/workshop-template/5-workshop/5.04-configure-stacks/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/workshop-template/vi/5-workshop/5.3-s3-vpc/"
+                href="http://localhost:1313/workshop-template/vi/5-workshop/5.04-configure-stacks/"
                 />
   </url><url>
     <loc>http://localhost:1313/workshop-template/vi/4-eventparticipated/</loc>
@@ -400,43 +368,20 @@
                 href="http://localhost:1313/workshop-template/vi/4-eventparticipated/"
                 />
   </url><url>
-    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/</loc>
+    <loc>http://localhost:1313/workshop-template/vi/4-eventparticipated/4.4-event4/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/workshop-template/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/"
+                href="http://localhost:1313/workshop-template/4-eventparticipated/4.4-event4/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/workshop-template/vi/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.4-s3-onprem/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/workshop-template/5-workshop/5.4-s3-onprem/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/workshop-template/vi/5-workshop/5.4-s3-onprem/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.5-policy/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/workshop-template/5-workshop/5.5-policy/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/workshop-template/vi/5-workshop/5.5-policy/"
+                href="http://localhost:1313/workshop-template/vi/4-eventparticipated/4.4-event4/"
                 />
   </url><url>
     <loc>http://localhost:1313/workshop-template/vi/5-workshop/</loc>
+    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -448,16 +393,17 @@
                 href="http://localhost:1313/workshop-template/vi/5-workshop/"
                 />
   </url><url>
-    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.6-cleanup/</loc>
+    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.05-configure-api-lambda/</loc>
+    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/workshop-template/5-workshop/5.6-cleanup/"
+                href="http://localhost:1313/workshop-template/5-workshop/5.05-configure-api-lambda/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/workshop-template/vi/5-workshop/5.6-cleanup/"
+                href="http://localhost:1313/workshop-template/vi/5-workshop/5.05-configure-api-lambda/"
                 />
   </url><url>
     <loc>http://localhost:1313/workshop-template/vi/6-self-evaluation/</loc>
@@ -472,6 +418,19 @@
                 href="http://localhost:1313/workshop-template/vi/6-self-evaluation/"
                 />
   </url><url>
+    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.06-deploy-backend/</loc>
+    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/workshop-template/5-workshop/5.06-deploy-backend/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="http://localhost:1313/workshop-template/vi/5-workshop/5.06-deploy-backend/"
+                />
+  </url><url>
     <loc>http://localhost:1313/workshop-template/vi/7-feedback/</loc>
     <xhtml:link
                 rel="alternate"
@@ -482,6 +441,45 @@
                 rel="alternate"
                 hreflang="vi"
                 href="http://localhost:1313/workshop-template/vi/7-feedback/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.07-test-endpoints/</loc>
+    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/workshop-template/5-workshop/5.07-test-endpoints/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="http://localhost:1313/workshop-template/vi/5-workshop/5.07-test-endpoints/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.08-push-gitlab/</loc>
+    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/workshop-template/5-workshop/5.08-push-gitlab/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="http://localhost:1313/workshop-template/vi/5-workshop/5.08-push-gitlab/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/workshop-template/vi/5-workshop/5.09-cleanup/</loc>
+    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/workshop-template/5-workshop/5.09-cleanup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="http://localhost:1313/workshop-template/vi/5-workshop/5.09-cleanup/"
                 />
   </url><url>
     <loc>http://localhost:1313/workshop-template/vi/categories/</loc>
