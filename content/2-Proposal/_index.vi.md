@@ -361,4 +361,4 @@ Một sản phẩm sẽ được coi là chấp nhận được khi đáp ứng 
 - Nếu không nhận được phản hồi vào cuối thời gian xem xét → Sản phẩm được coi là đã được chấp nhận.
 - Sau khi hoàn thành mỗi cột mốc, nhóm sẽ nộp các sản phẩm và tài liệu.<br>
 
-[Tải file .docx](/static/files/Proposal_FFF.docx)
+[Tải file .docx](./static/files/Proposal_FFF.docx)
