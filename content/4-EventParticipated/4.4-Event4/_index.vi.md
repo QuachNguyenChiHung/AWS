@@ -1,5 +1,5 @@
 ---
-title: "Event 4: AWS Cloud Mastery Series #2 - DevOps on AWS"
+title: "Event 4"
 date: 2025-09-09
 weight: 4
 chapter: false
