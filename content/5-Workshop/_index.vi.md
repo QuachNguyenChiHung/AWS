@@ -1,33 +1,45 @@
 ---
 title: "Workshop"
-date: "`r Sys.Date()`"
+date: 2025-12-01
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+# Xây dựng Furious Five Fashion: Workshop Hạ tầng AWS Full-Stack
 
 #### Tổng quan
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Kiến trúc của hệ thống được xây dựng theo mô hình full-stack serverless trên AWS, tập trung vào khả năng mở rộng tự động, bảo mật nhiều lớp và tối ưu chi phí. Toàn bộ các thành phần frontend – backend – data – AI – security đều hoạt động trên môi trường private, kết nối thông qua VPC, PrivateLink và các dịch vụ quản lý của AWS
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+Bạn sẽ triển khai bảy CDK stack liên kết với nhau để tạo ra một ứng dụng có khả năng mở rộng, bảo mật và tối ưu chi phí:
+Frontend Layer – Triển khai giao diện trên Amplify và phân phối nội dung qua CloudFront.
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+* Routing & Protection – Bảo vệ truy cập bằng Route 53, WAF và chứng chỉ SSL của ACM.
+
+* Authentication Layer – Tạo Cognito User Pool và tích hợp xác thực cho API Gateway.
+
+* API Layer – Xây dựng API Gateway private để giao tiếp an toàn với backend.
+
+* Compute Layer – Chạy logic nghiệp vụ bằng các Lambda functions bên trong private VPC.
+
+* Storage Layer – Lưu trữ dữ liệu tĩnh và uploads trên S3 thông qua VPC Endpoint.
+
+* Data Layer – Vận hành RDS trong private subnet và kiểm soát truy cập bằng IAM/SG.
+
+* AI Layer – Tích hợp Amazon Bedrock để xử lý các tác vụ AI thông qua PrivateLink.
+
+* Security & Observability – Theo dõi toàn hệ thống bằng CloudWatch, gửi cảnh báo qua SNS và quản lý bảo mật bằng IAM.
 
 #### Nội dung
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+1. [Tổng quan Workshop](5.1-workshop-overview)
+2. [Thiết lập Môi trường](5.2-setup-environment/)
+3. [CDK Bootstrap](5.3-cdk-bootstrap/)
+4. [Cấu hình Infrastructure Stacks](5.4-configure-stacks/)
+5. [Triển khai Infrastructure](5.5-deploy-infrastructure/)
+6. [Cấu hình API & Lambda](5.6-configure-api-lambda/)
+7. [Triển khai Backend Services](5.7-deploy-backend/)
+8. [Kiểm tra Endpoints End-to-End](5.8-test-endpoints/)
+9. [Push lên GitLab](5.9-push-gitlab/)
+10. [Dọn dẹp tài nguyên](5.11-cleanup/)

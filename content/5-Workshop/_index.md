@@ -1,31 +1,45 @@
 ---
 title: "Workshop"
-date: "`r Sys.Date()`"
+date: 2025-12-01
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# Building Furious Five Fashion: AWS Full-Stack Infrastructure Workshop
 
 #### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+The system architecture is built on a full-stack serverless model on AWS, focusing on automatic scalability, multi-layer security and cost optimization. All frontend – backend – data – AI – security components operate in a private environment, connected through VPC, PrivateLink and AWS management services
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+You will deploy seven CDK stacks linked together to create a scalable, secure and cost-optimized application:
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+Frontend Layer – Deploy the interface on Amplify and distribute content via CloudFront.
+
+* Routing & Protection – Protect access with Route 53, WAF and ACM SSL certificates.
+
+* Authentication Layer – Create a Cognito User Pool and integrate authentication for API Gateway.
+
+* API Layer – Build a private API Gateway to securely communicate with the backend.
+
+* Compute Layer – Run business logic using Lambda functions inside a private VPC.
+
+* Storage Layer – Store static data and uploads on S3 via VPC Endpoint.
+
+* Data Layer – Run RDS in a private subnet and control access using IAM/SG.
+
+* AI Layer – Integrate Amazon Bedrock to handle AI tasks via PrivateLink.
+
+* Security & Observability – Monitor the entire system using CloudWatch, send alerts via SNS and manage security using IAM.
 
 #### Content
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+1. [Workshop Overview](5.1-workshop-overview)
+2. [Setup Environment](5.2-setup-environment/)
+3. [CDK Bootstrap](5.3-cdk-bootstrap/)
+4. [Configure Infrastructure Stacks](5.4-configure-stacks/)
+5. [Configure API & Lambda](5.6-configure-api-lambda/)
+6. [Deploy Backend Services](5.7-deploy-backend/)
+7. [Test Endpoints End-to-End](5.8-test-endpoints/)
+8. [Push to GitLab](5.9-push-gitlab/)
+9. [Clean up](5.11-cleanup/)

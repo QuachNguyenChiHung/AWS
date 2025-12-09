@@ -57,7 +57,7 @@ Một hệ thống thành công là khi cả khách hàng và đội ngũ vận 
 #### 1.3 Các giả định  
 Khi bắt tay vào dự án FFF, có vài điều mà chúng ta cần thống nhất và cùng tin tưởng để mọi thứ đi đúng hướng.
 
-Trước hết, giả định rằng đội ngũ đều đã có tài khoản AWS và có thể truy cập đầy đủ vào các dịch vụ cần thiết. Mọi người cũng đã có chút nền tảng về AWS — ít nhất là hiểu các dịch vụ như lambda, S3, IAM, và Route 53 hoạt động ra sao. Kết nối Internet ổn định là điều kiện tiên quyết, vì toàn bộ hạ tầng của FFF đều nằm trên đám mây. Và tất nhiên, nhóm cũng cần hiểu rõ các yêu cầu về bảo mật và tuân thủ trước khi triển khai.
+Trước hết, giả định rằng đội ngũ đều đã có tài khoản AWS và có thể truy cập đầy đủ vào các dịch vụ cần thiết. Mọi người cũng đã có chút nền tảng về AWS — ít nhất là hiểu các dịch vụ như lambda,RDS,VPC, S3, IAM, và Route 53 hoạt động ra sao. Kết nối Internet ổn định là điều kiện tiên quyết, vì toàn bộ hạ tầng của FFF đều nằm trên đám mây. Và tất nhiên, nhóm cũng cần hiểu rõ các yêu cầu về bảo mật và tuân thủ trước khi triển khai.
 
 Dự án này không đứng một mình — nó phụ thuộc vào nhiều yếu tố. Chúng ta cần AWS hoạt động ổn định ở khu vực đã chọn, nhà cung cấp tên miền và Route 53 phải đảm bảo việc định tuyến mượt mà. Đồng thời, nhóm phát triển web cũng cần phối hợp nhịp nhàng để ứng dụng vận hành tốt trên môi trường cloud. Nói cách khác, thành công của FFF là kết quả của một tập thể biết ăn ý.
 
@@ -90,19 +90,20 @@ DynamoDB lưu trữ thông tin phi cấu trúc và metadata.
 IAM quản lý quyền truy cập an toàn giữa các thành phần.
 
 AI Layer:
-Tích hợp Amazon Rekognition và Amazon Bedrock để xử lý hình ảnh và AI tạo sinh cho ứng dụng.
+Tích hợp Amazon Bedrock để xử lý hình ảnh và AI tạo sinh cho ứng dụng.
 
 Observability & Security Layer:
-CloudWatch, SNS, và SES giám sát, gửi cảnh báo và thông báo khi có sự cố; đảm bảo hệ thống vận hành ổn định.
+CloudWatch, SNS giám sát, gửi cảnh báo và thông báo khi có sự cố; đảm bảo hệ thống vận hành ổn định.
 
 Dưới đây là sơ đồ luồng dữ liệu :
-![E-commerce Website Solution ](/images/2-Proposal/proposal.jpg)
+
+<img src="/images/2-Proposal/OJT-SS5.drawio.png"/>
 
 #### 2.2 Kế hoạch kỹ thuật
 
 Trong dự án FFF, nhóm triển khai sẽ phát triển và quản lý hạ tầng bằng các tập lệnh tự động (Infrastructure as Code) sử dụng AWS CloudFormation. Cách làm này giúp việc triển khai hệ thống lên các tài khoản AWS trở nên nhanh chóng, lặp lại và dễ kiểm soát hơn, đồng thời giảm thiểu sai sót thủ công trong quá trình cài đặt.
 
-Các thành phần chính của hạ tầng – bao gồm S3, Lambda, API Gateway, DynamoDB, Cognito, và CloudWatch – sẽ được định nghĩa và khởi tạo thông qua các mẫu CloudFormation. Mọi thay đổi về cấu hình sẽ được lưu lại trong GitLab để đảm bảo tính minh bạch và khả năng phục hồi nếu cần quay lại phiên bản trước.
+Các thành phần chính của hạ tầng – bao gồm S3, Lambda, API Gateway, RDS, VPC, Cognito, và CloudWatch – sẽ được định nghĩa và khởi tạo thông qua các mẫu CloudFormation. Mọi thay đổi về cấu hình sẽ được lưu lại trong GitLab để đảm bảo tính minh bạch và khả năng phục hồi nếu cần quay lại phiên bản trước.
 
 Một số cấu hình nhạy cảm như quyền truy cập IAM hoặc chính sách bảo mật của WAF có thể yêu cầu phê duyệt riêng trước khi triển khai. Các thay đổi này sẽ tuân thủ quy trình xem xét nội bộ, bao gồm kiểm tra, xác nhận, và phê duyệt bởi người chịu trách nhiệm kỹ thuật.
 
@@ -119,7 +120,7 @@ Cấu trúc triển khai:
 * Sprint Planning: 
    * thiết lập các môi trường AWS cơ bản (S3, Route53,IAm ).
    * cấu hình dịch vụ bảo mật (AWS WAF, CloudFront).
-   * Tích hợp các thành phần backend (Lambda, API Gateway, DynamoDB)
+   * Tích hợp các thành phần backend (Lambda, API Gateway, RDS)
    * Kiểm thử hệ thống, tối ưu hiệu năng, và triển khai bản demo cuối.
 
 * Daily Stand-up: Cập nhật tiến độ, xử lý trở ngại kỹ thuật trong 30 phút mỗi ngày.
@@ -154,10 +155,10 @@ Sau sprint cuối, nhóm đối tác kỹ thuật sẽ tổ chức phiên Knowle
 1. Quản lý truy cập **(Access Management)**
 Nhóm chỉ sử dụng một số tài khoản AWS chính, vì vậy MFA (xác thực đa yếu tố) sẽ được bật cho toàn bộ người dùng có quyền quản trị. Quyền truy cập được phân tách rõ qua IAM User và IAM Role, theo nguyên tắc ít quyền nhất (Least Privilege). Tất cả thao tác quản trị đều được ghi nhận qua CloudTrail để dễ theo dõi và kiểm soát.
 2. An ninh cơ sở hạ tầng **(Infrastructure Security)**
-Mặc dù không triển khai VPC riêng, các dịch vụ AWS (như S3, Lambda, API Gateway) vẫn được cấu hình để giới hạn truy cập chỉ từ các thành phần nội bộ của hệ thống. Các endpoint công khai đều yêu cầu kết nối qua HTTPS.
+Triển khai VPC riêng, các dịch vụ AWS (như S3, Lambda, API Gateway) vẫn được cấu hình để giới hạn truy cập chỉ từ các thành phần nội bộ của hệ thống. Các endpoint công khai đều yêu cầu kết nối qua HTTPS.
 
 1. Bảo vệ dữ liệu **(Data Protection)**
-Dữ liệu được lưu trữ trên S3 và DynamoDB, với các tùy chọn mã hóa tích hợp sẵn của dịch vụ. Dữ liệu truyền giữa các thành phần (Lambda ↔ API ↔ Database) luôn đi qua giao thức HTTPS/TLS, đảm bảo an toàn khi trao đổi. Ngoài ra, nhóm thiết lập sao lưu thủ công định kỳ cho dữ liệu quan trọng, giúp khôi phục nhanh nếu có sự cố.
+Dữ liệu được lưu trữ trên S3 và RDS, với các tùy chọn mã hóa tích hợp sẵn của dịch vụ. Dữ liệu truyền giữa các thành phần (Lambda ↔ API ↔ Database) luôn đi qua giao thức HTTPS/TLS, đảm bảo an toàn khi trao đổi. Ngoài ra, nhóm thiết lập sao lưu thủ công định kỳ cho dữ liệu quan trọng, giúp khôi phục nhanh nếu có sự cố.
 1. Phát hiện và giám sát **(Detection & Monitoring)**
 CloudTrail, Config và CloudWatch sẽ luôn ghi lại mọi hành động, giúp ta biết chính xác điều gì đang diễn ra. GuardDuty sẽ liên tục quét, cảnh báo sớm nếu phát hiện hành vi bất thường.
 1. Quản lý sự cố **(Incident Response)**
@@ -170,9 +171,9 @@ Bảng dưới đây sẽ tổng hợp các mốc thời gian, hoạt động v�
 
 | Giai đoạn dự án| Mốc thời gian                                                                                                                                                                                                   | Hoạt động| Sản phẩm bàn giao/mốc quan trọng |tổng số ngày công                     |
 | --------------------------------------------- | ---------- | ----------------------------- | -------------------------------| ------------------------- |
-| thiết lập cơ sở hạ tầng   | tuần 1 - 2 |- thu thập và xác nhận yêu cầu doanh nghiệp <br> - Thiết kế kiến trúc kỹ thuật AWS <br> - Cấu hình hạ tầng AWS (S3, CloudFront, API Gateway, Lambda, DynamoDB, Cognito) <br> - Thiết lập GitLab CI/CD pipeline.  |- Kiến trúc kỹ thuật AWS hoàn chỉnh <br> - Hạ tầng cơ sở sẵn sàng <br> - GitLab CI/CD hoạt động.      | 10 ngày
+| thiết lập cơ sở hạ tầng   | tuần 1 - 2 |- thu thập và xác nhận yêu cầu doanh nghiệp <br> - Thiết kế kiến trúc kỹ thuật AWS <br> - Cấu hình hạ tầng AWS (S3, CloudFront, API Gateway, Lambda,RDS, Cognito) <br> - Thiết lập GitLab CI/CD pipeline.  |- Kiến trúc kỹ thuật AWS hoàn chỉnh <br> - Hạ tầng cơ sở sẵn sàng <br> - GitLab CI/CD hoạt động.      | 10 ngày
 | Thiết lập thành phần 1 (Frontend)  |  Tuần 3 – 5  | - Thiết kế UI/UX <br> - Phát triển giao diện website: trang chủ, danh mục, chi tiết sản phẩm, giỏ hàng, thanh toán <br> - Tích hợp với API demo. | - Giao diện website hoàn thiện (bản dev) <br> - Hệ thống FE kết nối được với API.      | 15 ngày  |
-|Thiết lập thành phần 2 (Backend & Database)   |Tuần 6 - 9   |- Xây dựng API bằng AWS Lambda + API Gateway <br> - Thiết lập cơ sở dữ liệu DynamoDB <br> - Xây dựng logic xử lý đơn hàng, người dùng, sản phẩm <br> - Tích hợp bảo mật Cognito và phân quyền IAM.   | - API hoạt động ổn định <br> - Dữ liệu được lưu trữ và truy xuất đúng chuẩn <br> - Backend tích hợp hoàn chỉnh với FE.      | 20 ngày |
+|Thiết lập thành phần 2 (Backend & Database)   |Tuần 6 - 9   |- Xây dựng API bằng AWS Lambda + API Gateway <br> - Thiết lập cơ sở dữ liệu RDS <br> - Xây dựng logic xử lý đơn hàng, người dùng, sản phẩm <br> - Tích hợp bảo mật Cognito và phân quyền IAM.   | - API hoạt động ổn định <br> - Dữ liệu được lưu trữ và truy xuất đúng chuẩn <br> - Backend tích hợp hoàn chỉnh với FE.      | 20 ngày |
 |Kiểm thử & Vận hành chính thức   |  Tuần 10 - 11  | - Kiểm thử chức năng, bảo mật, hiệu năng <br> - Ghi nhận lỗi và tối ưu hệ thống <br> - Kiểm thử tích hợp FE – BE – DB trên môi trường AWS. | - Báo cáo kết quả kiểm thử (Test Report) <br> - Phiên bản đạt chuẩn vận hành      | 5 ngày |
 |Bàn giao & thuyết trình    | Tuần 12  | - Triển khai production trên AWS <br> - Thiết lập domain & SSL <br> - Đào tạo quản trị hệ thống <br> - Bàn giao mã nguồn và tài liệu kỹ thuật. | - Website FFF hoạt động chính thức <br> - Bộ tài liệu hướng dẫn & bàn giao hoàn chỉnh <br> - Báo cáo bàn giao hệ thống.   | 5 ngày |
 
@@ -197,12 +198,6 @@ Xây dựng phiên bản thử nghiệm FFF Web Bán Hàng với giao diện cơ
 * Triển khai website tĩnh trên Amazon S3 + CloudFront.
 * Cấu hình tài khoản quản trị và demo quy trình đặt hàng thử.
 
-Kết quả:
-
-* Website hoạt động ổn định trên môi trường AWS thử nghiệm.
-* Toàn bộ dữ liệu sản phẩm mẫu được lưu trữ thành công trên DynamoDB.
-* Tốc độ tải trang qua CloudFront đạt trung bình < 2 giây.
-* Xác minh kết nối API và logic xử lý đặt hàng hoàn chỉnh.
   
 Giai đoạn 2 – Hoàn thiện hệ thống và kiểm thử (UAT)
 
@@ -212,13 +207,6 @@ Hoạt động:
 * Bổ sung giám sát bằng Amazon CloudWatch và log xử lý lỗi.
 * Thực hiện kiểm thử người dùng nội bộ (User Acceptance Test).
 
-Kết quả:
-
-* 100% chức năng cốt lõi hoạt động đúng logic.
-* Không phát sinh lỗi nghiêm trọng trong quy trình đặt hàng.
-* Hiệu năng trung bình đáp ứng được 100 người dùng đồng thời.
-* Giao diện và dữ liệu hiển thị thống nhất giữa frontend và backend.
-
 Giai đoạn 3 – Triển khai vận hành chính thức (Production)
 
 Hoạt động:
@@ -226,14 +214,6 @@ Hoạt động:
 * Cấu hình Route53 cho domain chính thức và chứng chỉ SSL qua AWS Certificate Manager.
 * Thiết lập bảo mật lớp ngoài bằng AWS WAF.
 * Tối ưu dung lượng S3 và cấu trúc CDN trên CloudFront.
-
-Kết quả:
-
-* Website chính thức FFF Web Bán Hàng hoạt động tại domain thật.
-* Tỷ lệ uptime đạt 99.98% sau 2 tuần đầu vận hành.
-* Độ trễ trung bình giữa client và API dưới 400ms.
-* Mọi request được ghi nhận và giám sát theo chuẩn CloudWatch Logs.
-
 Giai đoạn 4 – Ổn định & tối ưu sau triển khai
 
 Hoạt động:
@@ -241,13 +221,6 @@ Hoạt động:
 * Điều chỉnh cấu hình Lambda để giảm thời gian cold start.
 * Thực hiện backup định kỳ và thử nghiệm khôi phục dữ liệu.
 * Cập nhật tài liệu hướng dẫn vận hành cho nhóm quản trị.
-
-Kết quả:
-
-* Giảm chi phí AWS trung bình 20% so với giai đoạn POC.
-* Thời gian phản hồi API rút ngắn thêm 15%.
-* Hệ thống hoạt động ổn định, không phát sinh lỗi nghiêm trọng.
-* Đội ngũ vận hành nội bộ đã có thể tự theo dõi và xử lý sự cố cơ bản.
 
 Tổng kết
 
@@ -261,28 +234,28 @@ Dự án hiện đã sẵn sàng mở rộng người dùng thật và tích h�
 - Route 53 :         $1.00
 - AWS WAF :          $5.00
 - CloudFront:        $3.90
+- Amplify:           $10.00
 - S3 (StaticData) :  $0.50
 - S3 (Uploads):      $0.75
 - AWS Lambda:        $0.25
 - API Gateway:       $3.50
 - Amazon Bedrock:    $3.00
-- DynamoDB:          $1.00
+- RDS:               $21.50
 - IAM:               Free
 - CloudWatch:        $2.00
 - SNS:               $0.10
-- SES:               $0.20
 - CloudFormation:    Free
 - GitLab CI/CD  :    $3.00
 - WS Config / Setup & Test migration tools $5.00 (1 lần)
-- Tổng chi phí ước tính hàng tháng: ~ $30.00 – $35.00 USD
+- Tổng chi phí ước tính hàng tháng: ~ $50.00 – $55.00 USD
 
 GIẢ ĐỊNH CHÍNH
 
 Region: ap-southeast-1 (Singapore).
-Người dùng truy cập: 500–1000/tháng.
+Người dùng truy cập: 100–200/tháng.
 Hệ thống luôn hoạt động 24/7 nhưng tải thấp.
-Phần lớn API qua Lambda, không dùng EC2.
-Dữ liệu nhỏ (<100GB tổng).
+Phần lớn API qua Lambda.
+Dữ liệu nhỏ (<30GB tổng).
 CI/CD thực hiện 1–2 lần deploy mỗi tuần.
 Free-tier còn hiệu lực trong 12 tháng đầu.
 AI sử dụng ở mức demo, không phải inference quy mô lớn.
@@ -347,7 +320,7 @@ Email/Thông tin liên hệ : ducdmse182938@fpt.edu.vn
 #### Nguồn Lực
 
 | Vai trò | trách nhiệm| Mức phí (USD)/Giờ|
-| ------------------ | ------------------------------------- | ------------------ |
+| ------------------ | ------------------------------------- | :------------------:|
 |Solution Architect(1)|Thiết kế giải pháp tổng thể, bảo đảm tính khả thi kỹ thuật, lựa chọn dịch vụ AWS phù hợp | 35|
 |Cloud Engineer(2)|Triển khai hạ tầng AWS, cấu hình dịch vụ ( S3, IAM...), kiểm thử và tối ưu hệ thống| 20 |
 |Project Manager (1)|Theo dõi tiến độ, điều phối nhóm, quản lý phạm vi và rủi ro dự án. |15 |
@@ -367,4 +340,25 @@ Email/Thông tin liên hệ : ducdmse182938@fpt.edu.vn
 |-------------------------------------------|:--------:|:--------:|
 |Khách hàng |4616 |40% | 
 |Đối tác (Furious Five) |2308 |20% | 
-| AWS |4616 | 40%| 
+| AWS |4616 | 40%|
+
+### 7. CHẤP NHẬN
+
+Vì dự án này hiện đang ở giai đoạn trình bày và chưa được khách hàng chính thức đánh giá, nên quy trình chấp nhận sau đây được đề xuất cho các giai đoạn phân phối trong tương lai:
+
+#### 7.1 Tiêu chí Chấp nhận (Đề xuất)
+Một sản phẩm sẽ được coi là chấp nhận được khi đáp ứng các tiêu chí sau:
+- Các tính năng chức năng hoạt động như đã chỉ định (xác thực, quản lý công thức, tính năng xã hội, chức năng AI).
+- Tất cả các API đều phản hồi chính xác và tích hợp với các dịch vụ AWS (Lambda, API Gateway, RDS, S3).
+- Đáp ứng các yêu cầu bảo mật (xác minh JWT, HTTPS, kiểm soát truy cập, mã hóa dữ liệu).
+- Giao diện người dùng hoạt động như mong đợi trên các thiết bị được hỗ trợ.
+- Không xuất hiện lỗi nghiêm trọng nào trong quá trình thực hiện kiểm thử.
+#### 7.2 QUY TRÌNH CHẤP NHẬN
+- Thời gian xem xét: 8 ngày làm việc để đánh giá và kiểm thử.
+- Nếu được chấp nhận → Sản phẩm được ký duyệt.
+- Nếu phát hiện vấn đề → Sẽ gửi thông báo từ chối kèm theo phản hồi.
+- Các bản sửa lỗi sẽ được áp dụng và phiên bản sửa đổi sẽ được gửi lại để xem xét.
+- Nếu không nhận được phản hồi vào cuối thời gian xem xét → Sản phẩm được coi là đã được chấp nhận.
+- Sau khi hoàn thành mỗi cột mốc, nhóm sẽ nộp các sản phẩm và tài liệu.<br>
+
+[Tải file .docx](/static/files/Proposal_FFF.docx)
