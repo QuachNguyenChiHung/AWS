@@ -1,5 +1,5 @@
 ---
-title: "Event 3: AWS Cloud Mastery Series #1 - AI/ML/GenAI on AWS"
+title: "Event 3"
 date: 2025-09-09
 weight: 3
 chapter: false
