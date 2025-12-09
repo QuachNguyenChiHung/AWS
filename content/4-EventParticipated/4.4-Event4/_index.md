@@ -7,46 +7,46 @@ pre: " <b> 4.4. </b> "
 ---
 
 {{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** for your report, including this warning.
 {{% /notice %}}
 
-# Bài thu hoạch “AWS Cloud Mastery Series #2: DevOps on AWS”
+# Event Report: "AWS Cloud Mastery Series #2: DevOps on AWS"
 
-### Thời gian và Chủ đề
+### Time and Topic
 
-- **Thời gian:** Thứ Hai, 17 tháng 11, 2025 (1:00 PM – 4:30 PM)
-- **Chủ đề:** DevOps on AWS
+- **Time:** Monday, November 17, 2025 (1:00 PM – 4:30 PM)
+- **Topic:** DevOps on AWS
 
-### Mục Đích Của Sự Kiện
+### Event Objectives
 
-- Cung cấp hiểu biết sâu sắc về các nguyên tắc, quy trình và thực tiễn tốt nhất của **DevOps** trên nền tảng AWS.
-- Giới thiệu và hướng dẫn sử dụng bộ công cụ **AWS Developer Tools** (CodeCommit, CodeBuild, CodeDeploy, CodePipeline) để xây dựng **CI/CD pipeline** tự động.
-- Tập trung vào các chiến lược triển khai tiên tiến như **Blue/Green Deployment** và **Canary Release** để giảm thiểu rủi ro.
-- Khám phá cách tích hợp **Security (DevSecOps)** và **Monitoring** vào chu trình DevOps.
+- Provide deep insights into **DevOps** principles, processes, and best practices on the AWS platform.
+- Introduce and guide the use of **AWS Developer Tools** suite (CodeCommit, CodeBuild, CodeDeploy, CodePipeline) to build automated **CI/CD pipelines**.
+- Focus on advanced deployment strategies like **Blue/Green Deployment** and **Canary Release** to minimize risks.
+- Explore how to integrate **Security (DevSecOps)** and **Monitoring** into the DevOps cycle.
 
-### Danh Sách Diễn Giả
+### Speaker List
 
-- Thông tin chi tiết về diễn giả không có trong dữ liệu gốc, giả định là các chuyên gia giải pháp (Solution Architects) của AWS Vietnam.
+- Detailed speaker information was not available in the original data; assumed to be Solution Architects from AWS Vietnam.
 
-### Nội Dung Nổi Bật
+### Key Highlights
 
 #### 1. DevOps Principles and AWS Developer Tools
 
-- **Văn hóa & Nguyên tắc DevOps:** Tập trung vào tự động hóa, theo dõi và cải tiến liên tục.
-- **Xây dựng CI/CD:** Hướng dẫn sử dụng AWS CodePipeline để tạo ra một luồng triển khai liên tục từ code commit đến production.
-- **Infrastructure as Code (IaC):** Giới thiệu AWS CloudFormation và AWS CDK để quản lý tài nguyên hạ tầng bằng code.
+- **DevOps Culture & Principles:** Focus on automation, monitoring, and continuous improvement.
+- **Building CI/CD:** Guide on using AWS CodePipeline to create a continuous deployment flow from code commit to production.
+- **Infrastructure as Code (IaC):** Introduction to AWS CloudFormation and AWS CDK for managing infrastructure resources with code.
 
 #### 2. Advanced Deployment Strategies
 
-- **Zero-Downtime Deployment:** Phân tích các kỹ thuật triển khai tiên tiến:
-  - **Blue/Green Deployment:** Triển khai phiên bản mới song song với phiên bản cũ, sau đó chuyển đổi lưu lượng truy cập.
-  - **Canary Release:** Triển khai phiên bản mới cho một lượng nhỏ người dùng trước khi triển khai rộng rãi.
-- **AWS Services in Action:** Cách sử dụng AWS services như Amazon ECS, Amazon EKS, và AWS Lambda để hỗ trợ các chiến lược này.
+- **Zero-Downtime Deployment:** Analysis of advanced deployment techniques:
+  - **Blue/Green Deployment:** Deploy new version alongside the old version, then switch traffic.
+  - **Canary Release:** Deploy new version to a small subset of users before wide rollout.
+- **AWS Services in Action:** How to use AWS services like Amazon ECS, Amazon EKS, and AWS Lambda to support these strategies.
 
 #### 3. Monitoring, Logging, and DevSecOps
 
-- **Quan sát (Observability):** Sử dụng Amazon CloudWatch và AWS X-Ray để thu thập metrics, logs và traces, giúp nhanh chóng phát hiện và giải quyết vấn đề.
-- **DevSecOps:** Tích hợp các công cụ bảo mật (ví dụ: Amazon Inspector, Amazon GuardDuty) vào giai đoạn Build và Deploy để phát hiện sớm các lỗ hổng.
+- **Observability:** Using Amazon CloudWatch and AWS X-Ray to collect metrics, logs, and traces for quick issue detection and resolution.
+- **DevSecOps:** Integrating security tools (e.g., Amazon Inspector, Amazon GuardDuty) into Build and Deploy stages for early vulnerability detection.
 
 ### Những Gì Học Được
 
